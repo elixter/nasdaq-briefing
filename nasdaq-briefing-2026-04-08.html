@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>나스닥 일간 브리핑 — 2026년 4월 8일</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3250;
+      --accent-blue: #4f8ef7;
+      --accent-green: #2dcd8a;
+      --accent-red: #f75a5a;
+      --accent-yellow: #f7c948;
+      --text-primary: #e8ecf4;
+      --text-secondary: #8891aa;
+      --text-muted: #5c6480;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', 'Apple SD Gothic Neo', sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      min-height: 100vh;
+      padding: 24px 16px 48px;
+    }
+    .container { max-width: 900px; margin: 0 auto; }
+    .header {
+      display: flex; flex-direction: column; gap: 6px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 20px; margin-bottom: 28px;
+    }
+    .header-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(79,142,247,.15); border: 1px solid rgba(79,142,247,.3);
+      border-radius: 20px; padding: 4px 12px;
+      font-size: 12px; color: var(--accent-blue); width: fit-content;
+    }
+    .header h1 { font-size: 26px; font-weight: 700; letter-spacing: -0.5px; }
+    .header .sub { font-size: 13px; color: var(--text-secondary); }
+    .risk-banner {
+      background: rgba(247,90,90,.1);
+      border: 1px solid rgba(247,90,90,.35);
+      border-left: 4px solid var(--accent-red);
+      border-radius: 8px; padding: 14px 18px;
+      margin-bottom: 28px;
+    }
+    .risk-banner .label { font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--accent-red); margin-bottom: 6px; }
+    .risk-banner p { font-size: 14px; line-height: 1.6; color: #f9d0d0; }
+    .section { margin-bottom: 32px; }
+    .section-title {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 14px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--text-secondary);
+      margin-bottom: 14px;
+    }
+    .section-title::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
+    }
+    .index-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    @media (max-width: 600px) { .index-grid { grid-template-columns: 1fr; } }
+    .index-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 16px 18px;
+    }
+    .index-card .name { font-size: 12px; color: var(--text-secondary); margin-bottom: 6px; }
+    .index-card .value { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; }
+    .index-card .change {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: 13px; font-weight: 600; margin-top: 4px;
+      padding: 2px 8px; border-radius: 4px;
+    }
+    .up { color: var(--accent-green); background: rgba(45,205,138,.1); }
+    .down { color: var(--accent-red); background: rgba(247,90,90,.1); }
+    .news-list { display: flex; flex-direction: column; gap: 10px; }
+    .news-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 14px 18px;
+      display: flex; gap: 12px; align-items: flex-start;
+    }
+    .news-icon { font-size: 18px; flex-shrink: 0; padding-top: 2px; }
+    .news-content .tag {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.8px; color: var(--text-muted); margin-bottom: 4px;
+    }
+    .news-content .title { font-size: 14px; font-weight: 600; margin-bottom: 5px; line-height: 1.4; }
+    .news-content .summary { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+    .signal-list { display: flex; flex-direction: column; gap: 8px; }
+    .signal-row {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 12px 16px;
+      display: grid; grid-template-columns: 70px 80px 100px 1fr;
+      align-items: center; gap: 12px;
+    }
+    .ticker { font-size: 15px; font-weight: 700; font-family: 'Courier New', monospace; }
+    .score-badge {
+      font-size: 13px; font-weight: 700;
+      padding: 3px 10px; border-radius: 6px; text-align: center;
+      font-family: 'Courier New', monospace;
+    }
+    .score-buy { background: rgba(79,142,247,.15); color: #4f8ef7; }
+    .score-neutral { background: rgba(140,150,180,.15); color: #9aa3c0; }
+    .score-sell { background: rgba(247,201,72,.15); color: #f7c948; }
+    .score-strong-sell { background: rgba(247,90,90,.15); color: #f75a5a; }
+    .signal-reason { font-size: 13px; color: var(--text-secondary); }
+    .legend {
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 8px; padding: 10px 16px;
+      display: flex; flex-wrap: wrap; gap: 10px 20px;
+      font-size: 12px; color: var(--text-secondary); margin-top: 10px;
+    }
+    .outlook-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 600px) { .outlook-grid { grid-template-columns: 1fr; } }
+    .outlook-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 10px; padding: 14px 18px;
+    }
+    .outlook-card .olabel {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; margin-bottom: 6px;
+    }
+    .outlook-card .otext { font-size: 14px; line-height: 1.6; }
+    .okey { color: var(--accent-green); }
+    .owarn { color: var(--accent-yellow); }
+    .variable-box {
+      background: rgba(79,142,247,.08); border: 1px solid rgba(79,142,247,.25);
+      border-radius: 10px; padding: 14px 18px; margin-top: 12px;
+    }
+    .variable-box .vlabel {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--accent-blue); margin-bottom: 6px;
+    }
+    .variable-box p { font-size: 14px; line-height: 1.6; }
+    .footer {
+      margin-top: 40px;
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+      font-size: 12px; color: var(--text-muted);
+      text-align: center; line-height: 1.7;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="header-badge">📊 자동 생성 브리핑</div>
+    <h1>나스닥 일간 브리핑 — 2026년 4월 8일</h1>
+    <div class="sub">기준: 2026-04-07 (화) 종가 &nbsp;·&nbsp; 오늘 최대 변수: 이란 호르무즈 해협 협상 시한 (4월 8일 만료)</div>
+  </div>
+
+  <div class="risk-banner">
+    <div class="label">⚠️ 오늘의 핵심 리스크</div>
+    <p>트럼프 대통령의 이란 호르무즈 해협 재개통 최후통첩 시한이 <strong>오늘(4월 8일) 만료</strong>됩니다. 이란은 협상 채널을 단절했으나, 파키스탄이 2주 연장 중재안을 제안한 상태입니다. 협상 결렬 시 유가(브렌트 ~$115) 추가 급등 및 기술주·소비재 급락 리스크에 주의하세요.</p>
+  </div>
+
+  <div class="section">
+    <div class="section-title">📈 주요 지수 (2026-04-07 종가)</div>
+    <div class="index-grid">
+      <div class="index-card">
+        <div class="name">나스닥 종합 (COMP)</div>
+        <div class="value">21,854 pt</div>
+        <div class="change up">▲ +0.10%</div>
+      </div>
+      <div class="index-card">
+        <div class="name">S&amp;P 500 (SPX)</div>
+        <div class="value">6,617 pt</div>
+        <div class="change up">▲ +0.08%</div>
+      </div>
+      <div class="index-card">
+        <div class="name">다우존스 (DJIA)</div>
+        <div class="value">42,195 pt</div>
+        <div class="change down">▼ -0.18%</div>
+      </div>
+    </div>
+    <p style="margin-top:10px; font-size:12px; color:var(--text-muted);">
+      * 장중 S&amp;P 500 최대 -1.2% 낙폭 후, 파키스탄의 이란 협상 연장 제안 소식에 막판 반등 마감
+    </p>
+  </div>
+
+  <div class="section">
+    <div class="section-title">📰 핵심 뉴스</div>
+    <div class="news-list">
+
+      <div class="news-card">
+        <div class="news-icon">🔴</div>
+        <div class="news-content">
+          <div class="tag">지정학</div>
+          <div class="title">트럼프, 이란 호르무즈 최후통첩 — 이란은 협상 채널 단절</div>
+          <div class="summary">트럼프 대통령이 이란에 호르무즈 해협 재개통을 요구하며 군사 위협을 고조시켰습니다. 이란은 미국과의 통신 채널을 끊었으나, 파키스탄이 2주 연장을 중재 제안하며 장 마감 전 증시가 낙폭을 회복했습니다. 유가(WTI ~$112, 브렌트 ~$115) 급등 중.</div>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-icon">🔴</div>
+        <div class="news-content">
+          <div class="tag">연준 / 거시경제</div>
+          <div class="title">연준 윌리엄스 "현 금리 포지셔닝 적절" — 스태그플레이션 우려 확산</div>
+          <div class="summary">뉴욕 연준 총재 존 윌리엄스는 관망 기조를 유지하며 "현 통화정책이 에너지 주도 인플레이션과 노동시장 냉각이라는 이중 위협에 충분히 대응 가능하다"고 밝혔습니다. 시카고 연준 굴스비는 "스태그플레이션 충격" 가능성을 경고. 국채 10년물 수익률 4.36% 상승.</div>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-icon">🔴</div>
+        <div class="news-content">
+          <div class="tag">기업 / 기술주</div>
+          <div class="title">애플, 폴더블 아이폰 테스트 단계 차질 보도 — 주가 4% 급락</div>
+          <div class="summary">니케이 보도에 따르면 애플의 폴더블 아이폰이 테스트 단계에서 중대한 기술적 문제를 발견했습니다. 출시 일정 지연 우려에 애플 주가가 4% 급락하며 시장 전반에 부담을 주었습니다.</div>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-icon">🟢</div>
+        <div class="news-content">
+          <div class="tag">반도체 / 긍정</div>
+          <div class="title">인텔, xAI와 AI 반도체 개발 협력 가능성 — 주가 3% 상승</div>
+          <div class="summary">일론 머스크의 xAI와 인텔 간 AI 반도체 공동 개발 계약 체결 가능성이 보도되며 인텔 주가가 3% 상승했습니다. 파운드리 사업부 회생 기대감이 재부각되고 있습니다.</div>
+        </div>
+      </div>
+
+      <div class="news-card">
+        <div class="news-icon">🟡</div>
+        <div class="news-content">
+          <div class="tag">에너지 / 밸류에이션</div>
+          <div class="title">UBS, 에너지 인플레이션 우려로 S&amp;P 500 목표가 하향 조정</div>
+          <div class="summary">UBS는 에너지 가격 급등이 기업 이익을 잠식할 것을 우려하며 S&amp;P 500 연간 목표가를 하향 조정했습니다. 에너지 섹터(ExxonMobil, Chevron)만 강세를 보인 가운데, 기술주·소비재는 전반적 매도세를 받았습니다.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">🔍 종목별 시그널</div>
+    <div class="signal-list">
+
+      <div class="signal-row">
+        <div class="ticker">NVDA</div>
+        <div class="score-badge score-sell">-0.3</div>
+        <div class="signal-reason"><strong style="color:var(--accent-yellow);">🔸 매도</strong> — 지정학 리스크 및 반도체 섹터 약세, 전일 -1% 하락. AI 수요 장기 펀더멘털은 유지.</div>
+      </div>
+
+      <div class="signal-row">
+        <div class="ticker">AAPL</div>
+        <div class="score-badge score-sell">-0.5</div>
+        <div class="signal-reason"><strong style="color:var(--accent-yellow);">🔸 매도</strong> — 폴더블 아이폰 테스트 차질 보도로 -4% 급락. 제품 로드맵 불확실성 단기 부담.</div>
+      </div>
+
+      <div class="signal-row">
+        <div class="ticker">MSFT</div>
+        <div class="score-badge score-buy">+0.3</div>
+        <div class="signal-reason"><strong style="color:var(--accent-blue);">✅ 매수</strong> — 클라우드·AI 사업 안정적 성장, 전일 +0.21% 아웃퍼폼. 지정학 영향 제한적.</div>
+      </div>
+
+      <div class="signal-row">
+        <div class="ticker">GOOGL</div>
+        <div class="score-badge score-neutral">+0.1</div>
+        <div class="signal-reason"><strong style="color:var(--text-secondary);">⚪ 중립</strong> — Broadcom TPU 장기 공급 계약(+) vs 전반적 시장 불확실성(-). 단기 관망.</div>
+      </div>
+
+      <div class="signal-row">
+        <div class="ticker">META</div>
+        <div class="score-badge score-neutral">0.0</div>
+        <div class="signal-reason"><strong style="color:var(--text-secondary);">⚪ 중립</strong> — 특이 기업 이슈 없음. 광고 매출 안정세나 지정학 리스크에 따른 시장 흐름 종속.</div>
+      </div>
+
+      <div class="signal-row">
+        <div class="ticker">AMZN</div>
+        <div class="score-badge score-buy">+0.4</div>
+        <div class="signal-reason"><strong style="color:var(--accent-blue);">✅ 매수</strong> — 전일 +1.43% 강세, AWS 클라우드 성장 모멘텀 유지. 지수 대비 상대 강도 우수.</div>
+      </div>
+
+      <div class="signal-row">
+        <div class="ticker">TSLA</div>
+        <div class="score-badge score-strong-sell">-0.6</div>
+        <div class="signal-reason"><strong style="color:var(--accent-red);">🔴 강력매도</strong> — 전일 -3% 이상 급락. 수요 둔화·에너지 비용 상승·CEO 주의 분산 삼중 악재.</div>
+      </div>
+
+      <div class="signal-row">
+        <div class="ticker">AMD</div>
+        <div class="score-badge score-neutral">-0.2</div>
+        <div class="signal-reason"><strong style="color:var(--text-secondary);">⚪ 중립</strong> — Citi 30일 긍정 촉매 감시 지정(+)이나 전일 약 -1% 하락. 실적 발표 전 단기 관망.</div>
+      </div>
+
+      <div class="signal-row">
+        <div class="ticker">INTC</div>
+        <div class="score-badge score-buy">+0.5</div>
+        <div class="signal-reason"><strong style="color:var(--accent-blue);">✅ 매수</strong> — xAI AI 반도체 개발 협력 가능성 보도로 +3% 급등. 파운드리 사업 회생 기대감 재점화.</div>
+      </div>
+
+    </div>
+
+    <div class="legend">
+      <span>🟢 강력매수 (+0.6~+1.0)</span>
+      <span>✅ 매수 (+0.2~+0.5)</span>
+      <span>⚪ 중립 (-0.1~+0.1)</span>
+      <span>🔸 매도 (-0.2~-0.5)</span>
+      <span>🔴 강력매도 (-0.6~-1.0)</span>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">💡 종합 전망</div>
+    <div class="outlook-grid">
+      <div class="outlook-card">
+        <div class="olabel okey">👀 주목 종목</div>
+        <div class="otext"><strong>INTC, AMZN</strong> — INTC는 xAI 협력 계약으로 파운드리 사업 모멘텀 회복 기대. AMZN은 AWS 성장세로 지정학 불확실성 속에서도 상대 강도 우수.</div>
+      </div>
+      <div class="outlook-card">
+        <div class="olabel owarn">⚠️ 주의 종목</div>
+        <div class="otext"><strong>TSLA, AAPL</strong> — TSLA는 수요 둔화+에너지 비용+CEO 이슈 삼중 악재. AAPL은 폴더블 아이폰 출시 지연 가능성으로 단기 투자심리 약화.</div>
+      </div>
+    </div>
+    <div class="variable-box">
+      <div class="vlabel">🎯 최대 변수</div>
+      <p><strong>이란 호르무즈 해협 협상 결과 (오늘 4월 8일 시한):</strong> 파키스탄 2주 연장 중재안 수용 시 증시 반등 가능. 협상 결렬·군사 충돌 시 유가 급등 및 기술주·소비재 급락 위험 고조. 연준 추가 발언 및 3월 CPI 지표(예정)도 주시 필요.</p>
+    </div>
+  </div>
+
+  <div class="footer">
+    본 브리핑은 공개 정보 기반 AI 자동 생성 자료입니다. 투자 권유가 아니며, 실제 투자 판단은 전문가와 상의하시기 바랍니다.<br />
+    생성일시: 2026-04-08 &nbsp;·&nbsp; 데이터 기준: 2026-04-07 종가
+  </div>
+
+</div>
+</body>
+</html>
