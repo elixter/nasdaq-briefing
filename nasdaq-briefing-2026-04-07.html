@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>나스닥 일간 브리핑 – 2026년 4월 7일</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', 'Apple SD Gothic Neo', sans-serif;
+      background: #0f1117;
+      color: #e2e8f0;
+      min-height: 100vh;
+      padding: 24px 16px;
+    }
+    .container { max-width: 900px; margin: 0 auto; }
+
+    /* Header */
+    .header {
+      background: linear-gradient(135deg, #1a1f2e 0%, #232946 100%);
+      border: 1px solid #2d3748;
+      border-radius: 16px;
+      padding: 28px 32px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .header-left h1 { font-size: 1.5rem; font-weight: 700; color: #e2e8f0; }
+    .header-left .subtitle { font-size: 0.85rem; color: #94a3b8; margin-top: 4px; }
+    .header-right {
+      background: #f59e0b22;
+      border: 1px solid #f59e0b44;
+      border-radius: 10px;
+      padding: 10px 16px;
+      text-align: center;
+    }
+    .header-right .holiday-label { font-size: 0.75rem; color: #f59e0b; font-weight: 600; letter-spacing: 0.05em; }
+    .header-right .holiday-text { font-size: 0.85rem; color: #fcd34d; margin-top: 2px; }
+
+    /* Section titles */
+    .section-title {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #64748b;
+      margin-bottom: 12px;
+      padding-left: 4px;
+    }
+
+    /* Index Cards */
+    .index-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .index-card {
+      background: #1a1f2e;
+      border: 1px solid #2d3748;
+      border-radius: 12px;
+      padding: 18px 20px;
+    }
+    .index-name { font-size: 0.75rem; color: #94a3b8; font-weight: 500; margin-bottom: 6px; }
+    .index-price { font-size: 1.4rem; font-weight: 700; color: #e2e8f0; }
+    .index-change { font-size: 0.85rem; font-weight: 600; margin-top: 4px; }
+    .up { color: #34d399; }
+    .down { color: #f87171; }
+    .neutral { color: #94a3b8; }
+
+    /* Alert Banner */
+    .alert-banner {
+      background: #7f1d1d22;
+      border: 1px solid #ef444444;
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .alert-icon { font-size: 1.2rem; flex-shrink: 0; margin-top: 1px; }
+    .alert-content .alert-title { font-size: 0.85rem; font-weight: 700; color: #fca5a5; margin-bottom: 4px; }
+    .alert-content .alert-text { font-size: 0.82rem; color: #e2e8f0; line-height: 1.6; }
+
+    /* News Section */
+    .news-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+    .news-card {
+      background: #1a1f2e;
+      border: 1px solid #2d3748;
+      border-radius: 12px;
+      padding: 18px 20px;
+    }
+    .news-card-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #60a5fa;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+    .news-item {
+      font-size: 0.82rem;
+      color: #cbd5e1;
+      line-height: 1.65;
+      padding: 6px 0;
+      border-bottom: 1px solid #2d374844;
+    }
+    .news-item:last-child { border-bottom: none; }
+    .news-item strong { color: #e2e8f0; }
+
+    /* Stocks Table */
+    .stocks-section {
+      background: #1a1f2e;
+      border: 1px solid #2d3748;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    .stocks-section .section-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid #2d3748;
+    }
+    table { width: 100%; border-collapse: collapse; }
+    thead th {
+      background: #151922;
+      padding: 10px 16px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #64748b;
+      text-align: left;
+    }
+    thead th:not(:first-child) { text-align: right; }
+    tbody tr { border-bottom: 1px solid #1e2536; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: #1e253688; }
+    td { padding: 12px 16px; font-size: 0.84rem; }
+    td:not(:first-child) { text-align: right; }
+    .ticker { font-weight: 700; color: #e2e8f0; font-size: 0.9rem; }
+    .company-name { font-size: 0.75rem; color: #64748b; }
+
+    /* Score Bar */
+    .score-cell { display: flex; justify-content: flex-end; align-items: center; gap: 8px; }
+    .score-bar-wrap { width: 80px; height: 6px; background: #2d3748; border-radius: 3px; overflow: hidden; }
+    .score-bar { height: 100%; border-radius: 3px; }
+    .score-bar.positive { background: linear-gradient(90deg, #34d39944, #34d399); }
+    .score-bar.negative { background: linear-gradient(90deg, #f8717144, #f87171); }
+    .score-value { font-size: 0.8rem; font-weight: 700; width: 36px; text-align: right; }
+
+    /* Signal Badge */
+    .signal {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+    }
+    .signal.buy { background: #34d39922; color: #34d399; border: 1px solid #34d39944; }
+    .signal.neutral { background: #94a3b822; color: #94a3b8; border: 1px solid #94a3b844; }
+    .signal.sell { background: #f8717122; color: #f87171; border: 1px solid #f8717144; }
+    .signal.strong-buy { background: #059669; color: #d1fae5; border: 1px solid #34d399; }
+
+    /* Oil Price */
+    .oil-card {
+      background: #1a1f2e;
+      border: 1px solid #f59e0b44;
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .oil-icon { font-size: 2rem; }
+    .oil-info .oil-title { font-size: 0.75rem; color: #f59e0b; font-weight: 700; text-transform: uppercase; }
+    .oil-info .oil-price { font-size: 1.3rem; font-weight: 700; color: #fcd34d; }
+    .oil-info .oil-desc { font-size: 0.78rem; color: #94a3b8; margin-top: 2px; }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      font-size: 0.75rem;
+      color: #475569;
+      padding: 16px;
+      border-top: 1px solid #2d3748;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 600px) {
+      .index-grid { grid-template-columns: 1fr; }
+      .news-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-left">
+      <h1>📈 나스닥 일간 금융 브리핑</h1>
+      <div class="subtitle">2026년 4월 7일 (화요일) &nbsp;·&nbsp; 전일 기준: 2026.04.06 종가</div>
+    </div>
+    <div class="header-right">
+      <div class="holiday-label">🔔 오늘 주의</div>
+      <div class="holiday-text">굿 프라이데이 (Good Friday)<br>미국 증시 <strong>휴장</strong></div>
+    </div>
+  </div>
+
+  <!-- Alert Banner -->
+  <div class="alert-banner">
+    <div class="alert-icon">⚠️</div>
+    <div class="alert-content">
+      <div class="alert-title">긴급 지정학적 리스크 — 미국·이란 전쟁 데드라인 D-Day</div>
+      <div class="alert-text">트럼프 대통령이 <strong>오늘 오후 8시 (ET)</strong>를 이란의 호르무즈 해협 항행 자유 완전 복원 시한으로 제시. 기한 미준수 시 이란 발전소·교량 등 민간 인프라를 표적으로 한 대규모 공습 예고. 45일 임시 휴전 협상("이슬라마바드 협약")이 병행 진행 중이나 결과 불확실.</div>
+    </div>
+  </div>
+
+  <!-- Index Section -->
+  <div class="section-title">📊 주요 지수 (4월 6일 종가)</div>
+  <div class="index-grid">
+    <div class="index-card">
+      <div class="index-name">나스닥 종합 (NASDAQ)</div>
+      <div class="index-price">21,996.34</div>
+      <div class="index-change up">▲ +118.50 &nbsp;(+0.54%)</div>
+    </div>
+    <div class="index-card">
+      <div class="index-name">S&amp;P 500</div>
+      <div class="index-price">6,611.83</div>
+      <div class="index-change up">▲ +29.17 &nbsp;(+0.44%)</div>
+    </div>
+    <div class="index-card">
+      <div class="index-name">다우존스 (DJIA)</div>
+      <div class="index-price">46,669.88</div>
+      <div class="index-change up">▲ +165.21 &nbsp;(+0.36%)</div>
+    </div>
+  </div>
+
+  <!-- Oil Card -->
+  <div class="oil-card">
+    <div class="oil-icon">🛢️</div>
+    <div class="oil-info">
+      <div class="oil-title">WTI 원유 (서부 텍사스 중질유)</div>
+      <div class="oil-price">배럴당 $112.00 &nbsp;<span style="color:#f87171; font-size:0.85rem;">▲ +0.8%</span></div>
+      <div class="oil-desc">장중 $115.48까지 급등 후 일부 반납. 이란 분쟁 장기화 시 $120+ 가능. 휴전 성사 시 $95 수준으로 급락 예상.</div>
+    </div>
+  </div>
+
+  <!-- News Section -->
+  <div class="section-title">🗞️ 핵심 이슈 요약</div>
+  <div class="news-grid">
+    <div class="news-card">
+      <div class="news-card-title">🌐 지정학 / 거시경제</div>
+      <div class="news-item"><strong>미·이란 분쟁:</strong> 호르무즈 해협 봉쇄 지속, 45일 임시 휴전 협상("이슬라마바드 협약") 진행 중. 파키스탄 군부가 중재 역할. 오늘 밤 8시 트럼프 최후통첩 시한.</div>
+      <div class="news-item"><strong>유가 급등:</strong> WTI $112/배럴. 에너지주 강세, 항공·소비재 비용 압박 심화.</div>
+      <div class="news-item"><strong>고용 호조:</strong> 3월 신규 고용 178,000명 (예상 60,000명의 3배). 실업률 4.3%로 소폭 개선. 임금 상승률은 둔화.</div>
+      <div class="news-item"><strong>관세 불확실성:</strong> 트럼프 행정부의 관세 정책 여진 지속. 기업 실적 가이던스에 압박.</div>
+    </div>
+    <div class="news-card">
+      <div class="news-card-title">🏦 연준 (Fed) / 금리</div>
+      <div class="news-item"><strong>기준금리 동결:</strong> 연준은 2회 연속 기준금리를 3.6%로 유지. 이란 전쟁發 인플레이션 우려 vs. 성장 둔화 우려 병존.</div>
+      <div class="news-item"><strong>파월 의장 교체 임박:</strong> 파월 임기는 <strong>2026년 5월 15일</strong> 만료. 트럼프가 매파적 인플레이션 전문가 <strong>케빈 워시(Kevin Warsh)</strong>를 후임으로 지명. 상원 인준 지연 중 (공화당 일부 반대).</div>
+      <div class="news-item"><strong>연내 금리 인하 전망:</strong> 연준 위원들은 2026년 1회 금리 인하를 예상. 시장은 이란 리스크로 인한 인플레 압력을 재평가 중.</div>
+    </div>
+    <div class="news-card">
+      <div class="news-card-title">💡 테크 / AI 섹터</div>
+      <div class="news-item"><strong>나스닥100 3월 조정 분석:</strong> 나스닥100은 3월 한 달간 8% 조정. "AI 공짜 점심(Free Lunch) 시대 종료" — 투자자들이 AI 수익화 증거를 요구하기 시작.</div>
+      <div class="news-item"><strong>Alphabet(GOOGL) +4%:</strong> 대법원 유리한 판결 및 AI 검색 전환 기대감으로 큰 폭 상승.</div>
+      <div class="news-item"><strong>Micron Technology +3.2%:</strong> HBM(고대역폭메모리) 수요 강세 재확인.</div>
+      <div class="news-item"><strong>테슬라 인도량 쇼크:</strong> 1분기 인도 실적 시장 예상 대폭 하회 → 주가 -5.5% 급락 (주중 기준). 4월 6일 -2.15% 추가 하락.</div>
+    </div>
+    <div class="news-card">
+      <div class="news-card-title">🛒 기업 이슈</div>
+      <div class="news-item"><strong>Amazon(AMZN):</strong> GlobalStar 인수 추진 보도 → GlobalStar +13% 급등. 아마존 위성통신 사업 확장 기대.</div>
+      <div class="news-item"><strong>Meta(META):</strong> 30년 된 법적 방패 우회 소송 진행 중. 베이에리어 약 200명 감원. AI 인프라 투자 수조 원 지속.</div>
+      <div class="news-item"><strong>NVIDIA(NVDA):</strong> AI 칩 수요는 견고하나 March 조정 이후 관망세. 수출 규제 관련 불확실성 여전.</div>
+      <div class="news-item"><strong>오늘 예정 이슈:</strong> 굿프라이데이 증시 휴장. 다음 주 1분기 어닝 시즌 시작 (JP모건, 웰스파고 등 금융주 선두).</div>
+    </div>
+  </div>
+
+  <!-- Stocks Table -->
+  <div class="section-title">🎯 나스닥 주요 종목 분석 (4월 6일 종가)</div>
+  <div class="stocks-section">
+    <table>
+      <thead>
+        <tr>
+          <th>종목</th>
+          <th>종가 (USD)</th>
+          <th>등락률</th>
+          <th>투자 신호</th>
+          <th>점수 (-1 ~ +1)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <div class="ticker">GOOGL</div>
+            <div class="company-name">Alphabet (구글)</div>
+          </td>
+          <td>$299.99</td>
+          <td class="up">▲ +1.43%</td>
+          <td><span class="signal strong-buy">강력 매수</span></td>
+          <td>
+            <div class="score-cell">
+              <div class="score-bar-wrap"><div class="score-bar positive" style="width:60%"></div></div>
+              <span class="score-value up">+0.60</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="ticker">AMZN</div>
+            <div class="company-name">Amazon</div>
+          </td>
+          <td>$212.79</td>
+          <td class="up">▲ +1.44%</td>
+          <td><span class="signal buy">매수</span></td>
+          <td>
+            <div class="score-cell">
+              <div class="score-bar-wrap"><div class="score-bar positive" style="width:48%"></div></div>
+              <span class="score-value up">+0.48</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="ticker">AMD</div>
+            <div class="company-name">Advanced Micro Devices</div>
+          </td>
+          <td>$220.18</td>
+          <td class="up">▲ +1.23%</td>
+          <td><span class="signal buy">매수</span></td>
+          <td>
+            <div class="score-cell">
+              <div class="score-bar-wrap"><div class="score-bar positive" style="width:38%"></div></div>
+              <span class="score-value up">+0.38</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="ticker">NVDA</div>
+            <div class="company-name">NVIDIA</div>
+          </td>
+          <td>$177.64</td>
+          <td class="up">▲ +0.14%</td>
+          <td><span class="signal buy">매수</span></td>
+          <td>
+            <div class="score-cell">
+              <div class="score-bar-wrap"><div class="score-bar positive" style="width:32%"></div></div>
+              <span class="score-value up">+0.32</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="ticker">MSFT</div>
+            <div class="company-name">Microsoft</div>
+          </td>
+          <td>$372.88</td>
+          <td class="down">▼ -0.16%</td>
+          <td><span class="signal buy">매수</span></td>
+          <td>
+            <div class="score-cell">
+              <div class="score-bar-wrap"><div class="score-bar positive" style="width:25%"></div></div>
+              <span class="score-value up">+0.25</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="ticker">AAPL</div>
+            <div class="company-name">Apple</div>
+          </td>
+          <td>$258.86</td>
+          <td class="up">▲ +1.15%</td>
+          <td><span class="signal neutral">중립</span></td>
+          <td>
+            <div class="score-cell">
+              <div class="score-bar-wrap"><div class="score-bar positive" style="width:15%"></div></div>
+              <span class="score-value up">+0.15</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="ticker">INTC</div>
+            <div class="company-name">Intel</div>
+          </td>
+          <td>$50.78</td>
+          <td class="up">▲ +0.79%</td>
+          <td><span class="signal neutral">중립</span></td>
+          <td>
+            <div class="score-cell">
+              <div class="score-bar-wrap"><div class="score-bar positive" style="width:10%"></div></div>
+              <span class="score-value up">+0.10</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="ticker">META</div>
+            <div class="company-name">Meta Platforms</div>
+          </td>
+          <td>$573.02</td>
+          <td class="down">▼ -0.25%</td>
+          <td><span class="signal neutral">중립</span></td>
+          <td>
+            <div class="score-cell">
+              <div class="score-bar-wrap"><div class="score-bar negative" style="width:5%"></div></div>
+              <span class="score-value down">-0.05</span>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <div class="ticker">TSLA</div>
+            <div class="company-name">Tesla</div>
+          </td>
+          <td>$352.82</td>
+          <td class="down">▼ -2.15%</td>
+          <td><span class="signal sell">매도</span></td>
+          <td>
+            <div class="score-cell">
+              <div class="score-bar-wrap"><div class="score-bar negative" style="width:42%"></div></div>
+              <span class="score-value down">-0.42</span>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Key Watch -->
+  <div class="section-title">👀 오늘 주목할 포인트</div>
+  <div class="news-grid">
+    <div class="news-card">
+      <div class="news-card-title">🚨 최우선 모니터링</div>
+      <div class="news-item">① <strong>미·이란 데드라인 (오늘 오후 8시 ET)</strong> — 휴전 성사 시 유가 급락·증시 랠리, 전쟁 확대 시 유가 $120+·증시 급락 시나리오.</div>
+      <div class="news-item">② <strong>다음 주 어닝 시즌 개막</strong> — JP모건, 웰스파고 등 금융주가 4월 14일부터. AI 수익화·관세 영향 등 가이던스가 기술주 방향성 결정.</div>
+      <div class="news-item">③ <strong>연준 의장 인준 동향</strong> — 케빈 워시 상원 인준 진행 상황. 불확실성 지속 시 달러·채권 변동성 확대.</div>
+    </div>
+    <div class="news-card">
+      <div class="news-card-title">📅 다음 주 주요 일정</div>
+      <div class="news-item"><strong>4월 8일 (수):</strong> 미국 증시 재개장. 이란 데드라인 후 시장 반응 주목.</div>
+      <div class="news-item"><strong>4월 10일 (금):</strong> 미국 3월 CPI(소비자물가지수) 발표. 유가 급등 반영 여부 확인.</div>
+      <div class="news-item"><strong>4월 14일 (화):</strong> JP모건·웰스파고 1분기 실적 (어닝 시즌 개막).</div>
+      <div class="news-item"><strong>4월 15일 (수):</strong> 뱅크오브아메리카, 씨티그룹 실적.</div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    본 브리핑은 자동 생성된 참고 자료로, 투자 권유가 아닙니다. 투자 결정은 본인의 판단 하에 이루어져야 합니다.<br>
+    데이터 기준: 2026-04-06 미국 동부시간 장 마감 | 생성 시각: 2026-04-07 KST
+  </div>
+
+</div>
+</body>
+</html>
