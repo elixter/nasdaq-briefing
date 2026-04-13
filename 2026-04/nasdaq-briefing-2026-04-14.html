@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>나스닥 일간 브리핑 — 2026년 4월 14일</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --card: #161b22;
+      --border: #30363d;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --green: #3fb950;
+      --red: #f85149;
+      --yellow: #d29922;
+      --blue: #58a6ff;
+      --purple: #bc8cff;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      padding: 24px 16px;
+    }
+    .container { max-width: 860px; margin: 0 auto; }
+    header {
+      background: linear-gradient(135deg, #1a2332 0%, #0d1117 100%);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 32px;
+      margin-bottom: 24px;
+    }
+    header h1 { font-size: 1.7rem; font-weight: 700; color: #fff; }
+    header .subtitle { color: var(--muted); font-size: 0.9rem; margin-top: 6px; }
+    .risk-banner {
+      background: rgba(248, 81, 73, 0.12);
+      border: 1px solid rgba(248, 81, 73, 0.4);
+      border-left: 4px solid var(--red);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin-bottom: 24px;
+      color: #ffa0a0;
+      font-weight: 500;
+    }
+    .risk-banner .risk-title { font-weight: 700; margin-bottom: 4px; color: var(--red); }
+    .section {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 20px;
+    }
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
+    }
+    /* Index Grid */
+    .index-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .index-card {
+      background: #0d1117;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px;
+      text-align: center;
+    }
+    .index-name { font-size: 0.8rem; color: var(--muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .index-value { font-size: 1.4rem; font-weight: 700; }
+    .index-change { font-size: 0.95rem; font-weight: 600; margin-top: 4px; }
+    .up { color: var(--green); }
+    .down { color: var(--red); }
+    /* News */
+    .news-item { margin-bottom: 18px; border-left: 3px solid var(--border); padding-left: 16px; }
+    .news-item:last-child { margin-bottom: 0; }
+    .news-item.negative { border-color: var(--red); }
+    .news-item.neutral { border-color: var(--yellow); }
+    .news-item.positive { border-color: var(--green); }
+    .news-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+    }
+    .news-badge.negative { background: rgba(248,81,73,0.2); color: var(--red); }
+    .news-badge.neutral { background: rgba(210,153,34,0.2); color: var(--yellow); }
+    .news-badge.positive { background: rgba(63,185,80,0.2); color: var(--green); }
+    .news-title { font-weight: 600; font-size: 0.97rem; margin-bottom: 4px; }
+    .news-desc { color: var(--muted); font-size: 0.88rem; }
+    /* Stock Signals */
+    .stock-grid { display: flex; flex-direction: column; gap: 10px; }
+    .stock-row {
+      display: grid;
+      grid-template-columns: 70px 80px 130px 1fr;
+      align-items: center;
+      background: #0d1117;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 18px;
+      gap: 12px;
+    }
+    .stock-ticker { font-weight: 700; font-size: 1rem; }
+    .stock-score {
+      font-family: "Courier New", monospace;
+      font-weight: 700;
+      font-size: 0.95rem;
+      text-align: center;
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+    .score-strong-buy { background: rgba(63,185,80,0.2); color: #3fb950; }
+    .score-buy { background: rgba(88,166,255,0.15); color: #58a6ff; }
+    .score-neutral { background: rgba(139,148,158,0.2); color: #8b949e; }
+    .score-sell { background: rgba(248,81,73,0.15); color: #f85149; }
+    .score-strong-sell { background: rgba(248,81,73,0.25); color: #ff6b6b; }
+    .stock-signal { font-size: 0.85rem; font-weight: 600; }
+    .stock-reason { font-size: 0.85rem; color: var(--muted); }
+    .signal-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    /* Outlook */
+    .outlook-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .outlook-card {
+      background: #0d1117;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+    }
+    .outlook-label { font-size: 0.8rem; color: var(--muted); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .outlook-content { font-size: 0.92rem; }
+    .outlook-content .highlight { color: var(--blue); font-weight: 600; }
+    .var-card {
+      background: #0d1117;
+      border: 1px solid rgba(210,153,34,0.4);
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 14px;
+      color: var(--yellow);
+      font-size: 0.92rem;
+    }
+    .var-card strong { display: block; margin-bottom: 4px; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.8rem;
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+    footer a { color: var(--blue); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+    @media (max-width: 600px) {
+      .index-grid { grid-template-columns: 1fr; }
+      .stock-row { grid-template-columns: 60px 70px 110px 1fr; }
+      .outlook-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- 헤더 -->
+  <header>
+    <h1>📊 나스닥 일간 브리핑</h1>
+    <div class="subtitle">2026년 4월 14일 (화) &nbsp;·&nbsp; 기준: 2026-04-10 종가 &nbsp;·&nbsp; AI 자동 생성</div>
+  </header>
+
+  <!-- 핵심 리스크 배너 -->
+  <div class="risk-banner">
+    <div class="risk-title">⚠️ 오늘의 핵심 리스크</div>
+    중동 지정학적 리스크로 에너지 비용 급등 → 인플레이션 재가속, 연준 금리인하 기대 붕괴. 밸류에이션 사상 2번째 고점(Shiller P/E 40 이상) — 대규모 조정 리스크 상존.
+  </div>
+
+  <!-- 주요 지수 -->
+  <div class="section">
+    <div class="section-title">📈 주요 지수 <span style="color:var(--muted);font-weight:400;font-size:0.85rem;">(2026-04-10 종가)</span></div>
+    <div class="index-grid">
+      <div class="index-card">
+        <div class="index-name">나스닥 종합</div>
+        <div class="index-value">22,902.89</div>
+        <div class="index-change up">▲ 0.35%</div>
+      </div>
+      <div class="index-card">
+        <div class="index-name">S&amp;P 500</div>
+        <div class="index-value">6,816.89</div>
+        <div class="index-change down">▼ 0.11%</div>
+      </div>
+      <div class="index-card">
+        <div class="index-name">다우존스</div>
+        <div class="index-value">47,916.57</div>
+        <div class="index-change down">▼ 0.56%</div>
+      </div>
+    </div>
+    <div style="margin-top:14px;font-size:0.83rem;color:var(--muted);">주간 성과: 나스닥 +4.7% &nbsp;·&nbsp; S&amp;P500 +3.6% &nbsp;·&nbsp; 다우 +3.0% — 2025년 11월 이후 최고 주간 수익률</div>
+  </div>
+
+  <!-- 핵심 뉴스 -->
+  <div class="section">
+    <div class="section-title">📰 핵심 뉴스</div>
+
+    <div class="news-item negative">
+      <div class="news-badge negative">🔴 지정학</div>
+      <div class="news-title">중동 분쟁 — 호르무즈 해협 폐쇄 위협, 에너지 공급망 충격</div>
+      <div class="news-desc">미-이란 휴전 협상 불안정 지속. 유가 급등으로 미국 평균 휘발유 가격 2주간 $0.60 상승, 항공주(JetBlue, United) 직격탄. 전통 에너지주(XOM, CVX)는 수혜.</div>
+    </div>
+
+    <div class="news-item negative">
+      <div class="news-badge negative">🔴 연준/거시</div>
+      <div class="news-title">Fed '매파적 동결' — 2026년 금리인하 기대 사실상 붕괴</div>
+      <div class="news-desc">3월 CPI 전년 대비 3.4% (전월 2.4%에서 급반등). 연준 금리인하 선물시장 컨센서스가 연내 2회 → 최대 1회로 급변. 에너지 비용 상승이 주요 원인.</div>
+    </div>
+
+    <div class="news-item negative">
+      <div class="news-badge negative">🔴 밸류에이션</div>
+      <div class="news-title">경영진 내부자 순매도 $161억 — 대형 기술주 경보</div>
+      <div class="news-desc">NVDA·AAPL·MSFT·GOOGL·AMZN·META·TSLA 임원진이 최근 2년간 161억 달러 이상 순매도. 현재 Shiller P/E가 40 초과 — 역사상 2번째로 높은 밸류에이션.</div>
+    </div>
+
+    <div class="news-item positive">
+      <div class="news-badge positive">🟢 섹터/긍정</div>
+      <div class="news-title">반도체 섹터 강세 — VanEck SMH ETF +1.53%, 브로드컴 +4.69%</div>
+      <div class="news-desc">AI 인프라 투자 지속으로 반도체 섹터 강세. NVDA +2.57%, AVGO +4.69%, TSMC +1.40%. 삼성전자-AMD AI 칩 공급 계약 확대 소식 긍정적.</div>
+    </div>
+
+    <div class="news-item neutral">
+      <div class="news-badge neutral">🟡 실적 시즌</div>
+      <div class="news-title">빅테크 실적 시즌 개막 — MSFT(4/29), INTC(4/23) 주목</div>
+      <div class="news-desc">이번 주부터 TSMC, Netflix 시작. Microsoft는 4월 29일 실적 발표, 두 자릿수 EPS 성장 예상. Intel은 4월 23일 발표, Q1 가이던스 $11.7~12.7B. 결과에 따라 섹터 모멘텀 결정.</div>
+    </div>
+  </div>
+
+  <!-- 종목별 시그널 -->
+  <div class="section">
+    <div class="section-title">🔍 종목별 시그널</div>
+    <div class="stock-grid">
+
+      <div class="stock-row">
+        <div class="stock-ticker">NVDA</div>
+        <div class="stock-score score-strong-buy">+0.6</div>
+        <div class="stock-signal">🟢 강력매수</div>
+        <div class="stock-reason">반도체 섹터 서프라이즈(+2.57%), AI 인프라 수요 견조 — 단기 밸류 부담 있으나 모멘텀 강</div>
+      </div>
+
+      <div class="stock-row">
+        <div class="stock-ticker">AAPL</div>
+        <div class="stock-score score-sell">-0.3</div>
+        <div class="stock-signal">🔸 매도</div>
+        <div class="stock-reason">12개월 PER 역사적 최고 수준, 임원 대규모 매도, 단기 촉매 부재</div>
+      </div>
+
+      <div class="stock-row">
+        <div class="stock-ticker">MSFT</div>
+        <div class="stock-score score-buy">+0.4</div>
+        <div class="stock-signal">✅ 매수</div>
+        <div class="stock-reason">4/29 실적 발표 앞두고 두 자릿수 EPS 성장 기대, Azure·AI Copilot 견조</div>
+      </div>
+
+      <div class="stock-row">
+        <div class="stock-ticker">GOOGL</div>
+        <div class="stock-score score-neutral">+0.1</div>
+        <div class="stock-signal">⚪ 중립</div>
+        <div class="stock-reason">AI 인프라 투자 긍정적이나 임원 매도 신호, 광고 경기 불확실성 상존</div>
+      </div>
+
+      <div class="stock-row">
+        <div class="stock-ticker">META</div>
+        <div class="stock-score score-buy">+0.5</div>
+        <div class="stock-signal">✅ 매수</div>
+        <div class="stock-reason">2026년 capex $1,150~1,350억 AI 집중 투자, 광고 수익 성장 지속</div>
+      </div>
+
+      <div class="stock-row">
+        <div class="stock-ticker">AMZN</div>
+        <div class="stock-score score-buy">+0.4</div>
+        <div class="stock-signal">✅ 매수</div>
+        <div class="stock-reason">4/10 +2.02% 강세, AWS AI 수혜 + 클라우드 성장 가속 기대</div>
+      </div>
+
+      <div class="stock-row">
+        <div class="stock-ticker">TSLA</div>
+        <div class="stock-score score-sell">-0.5</div>
+        <div class="stock-signal">🔸 매도</div>
+        <div class="stock-reason">Q1 인도량 358,023대 컨센서스 하회, 주간 -5.09%, 애널리스트 34명 중 10명 매도</div>
+      </div>
+
+      <div class="stock-row">
+        <div class="stock-ticker">AMD</div>
+        <div class="stock-score score-strong-buy">+0.6</div>
+        <div class="stock-signal">🟢 강력매수</div>
+        <div class="stock-reason">삼성-AMD AI 칩 공급 계약 확대, 5/5 실적 기대감, 반도체 섹터 수혜</div>
+      </div>
+
+      <div class="stock-row">
+        <div class="stock-ticker">INTC</div>
+        <div class="stock-score score-sell">-0.3</div>
+        <div class="stock-signal">🔸 매도</div>
+        <div class="stock-reason">최근 41% 급등 후 애널리스트 컨센서스 대비 31% 프리미엄 — 기술적 과매수</div>
+      </div>
+
+    </div>
+    <div class="signal-legend">
+      <span>🟢 강력매수 (+0.6~+1.0)</span>
+      <span>✅ 매수 (+0.2~+0.5)</span>
+      <span>⚪ 중립 (-0.1~+0.1)</span>
+      <span>🔸 매도 (-0.2~-0.5)</span>
+      <span>🔴 강력매도 (-0.6~-1.0)</span>
+    </div>
+  </div>
+
+  <!-- 종합 전망 -->
+  <div class="section">
+    <div class="section-title">💡 종합 전망</div>
+    <div class="outlook-grid">
+      <div class="outlook-card">
+        <div class="outlook-label">📌 주목 종목</div>
+        <div class="outlook-content">
+          <span class="highlight">NVDA, AMD</span> — 반도체·AI 인프라 수요 서프라이즈, 단기 모멘텀 강력. 실적 시즌 앞두고 <span class="highlight">MSFT, META</span> 도 긍정적 포지셔닝 유효.
+        </div>
+      </div>
+      <div class="outlook-card">
+        <div class="outlook-label">⚠️ 주의 종목</div>
+        <div class="outlook-content">
+          <span style="color:var(--red);font-weight:600;">TSLA, AAPL, INTC</span> — TSLA 인도 부진 + 투자심리 냉각, AAPL 밸류에이션 부담, INTC 과매수 조정 위험.
+        </div>
+      </div>
+    </div>
+    <div class="var-card">
+      <strong>🎯 최대 변수</strong>
+      중동 지정학적 불안 지속 여부 + 연준 4월 FOMC 발언 톤 — 에너지·인플레이션 복합 리스크가 빅테크 실적 시즌(4월 말) 분위기 좌우.
+    </div>
+  </div>
+
+  <footer>
+    <p>본 브리핑은 공개 정보 기반 AI 자동 생성 자료입니다. 투자 권유가 아닙니다.</p>
+    <p style="margin-top:6px;">생성일시: 2026-04-14 &nbsp;|&nbsp; 데이터 기준: 2026-04-10 종가</p>
+  </footer>
+
+</div>
+</body>
+</html>
