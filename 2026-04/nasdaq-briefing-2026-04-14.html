@@ -64,7 +64,6 @@
       border-bottom: 1px solid var(--border);
       padding-bottom: 12px;
     }
-    /* Index Grid */
     .index-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -82,7 +81,6 @@
     .index-change { font-size: 0.95rem; font-weight: 600; margin-top: 4px; }
     .up { color: var(--green); }
     .down { color: var(--red); }
-    /* News */
     .news-item { margin-bottom: 18px; border-left: 3px solid var(--border); padding-left: 16px; }
     .news-item:last-child { margin-bottom: 0; }
     .news-item.negative { border-color: var(--red); }
@@ -101,7 +99,6 @@
     .news-badge.positive { background: rgba(63,185,80,0.2); color: var(--green); }
     .news-title { font-weight: 600; font-size: 0.97rem; margin-bottom: 4px; }
     .news-desc { color: var(--muted); font-size: 0.88rem; }
-    /* Stock Signals */
     .stock-grid { display: flex; flex-direction: column; gap: 10px; }
     .stock-row {
       display: grid;
@@ -126,7 +123,6 @@
     .score-buy { background: rgba(88,166,255,0.15); color: #58a6ff; }
     .score-neutral { background: rgba(139,148,158,0.2); color: #8b949e; }
     .score-sell { background: rgba(248,81,73,0.15); color: #f85149; }
-    .score-strong-sell { background: rgba(248,81,73,0.25); color: #ff6b6b; }
     .stock-signal { font-size: 0.85rem; font-weight: 600; }
     .stock-reason { font-size: 0.85rem; color: var(--muted); }
     .signal-legend {
@@ -139,7 +135,6 @@
       font-size: 0.8rem;
       color: var(--muted);
     }
-    /* Outlook */
     .outlook-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
     .outlook-card {
       background: #0d1117;
@@ -169,7 +164,6 @@
       border-top: 1px solid var(--border);
     }
     footer a { color: var(--blue); text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
     @media (max-width: 600px) {
       .index-grid { grid-template-columns: 1fr; }
       .stock-row { grid-template-columns: 60px 70px 110px 1fr; }
@@ -180,142 +174,139 @@
 <body>
 <div class="container">
 
-  <!-- 헤더 -->
   <header>
     <h1>📊 나스닥 일간 브리핑</h1>
-    <div class="subtitle">2026년 4월 14일 (화) &nbsp;·&nbsp; 기준: 2026-04-10 종가 &nbsp;·&nbsp; AI 자동 생성</div>
+    <div class="subtitle">2026년 4월 14일 (화) &nbsp;·&nbsp; 기준: 2026-04-13 종가 &nbsp;·&nbsp; AI 자동 생성</div>
   </header>
 
-  <!-- 핵심 리스크 배너 -->
   <div class="risk-banner">
     <div class="risk-title">⚠️ 오늘의 핵심 리스크</div>
-    중동 지정학적 리스크로 에너지 비용 급등 → 인플레이션 재가속, 연준 금리인하 기대 붕괴. 밸류에이션 사상 2번째 고점(Shiller P/E 40 이상) — 대규모 조정 리스크 상존.
+    미-이란 핵 협상 결렬로 지정학적 긴장 재고조, 브렌트유 ~$100/배럴 돌파. 인플레이션 재가속(3월 CPI 3.4%) 속 연준 금리인하 기대 붕괴. 지수 급등에도 펀더멘털 리스크는 여전히 상존.
   </div>
 
-  <!-- 주요 지수 -->
   <div class="section">
-    <div class="section-title">📈 주요 지수 <span style="color:var(--muted);font-weight:400;font-size:0.85rem;">(2026-04-10 종가)</span></div>
+    <div class="section-title">📈 주요 지수 <span style="color:var(--muted);font-weight:400;font-size:0.85rem;">(2026-04-13 종가)</span></div>
     <div class="index-grid">
       <div class="index-card">
         <div class="index-name">나스닥 종합</div>
-        <div class="index-value">22,902.89</div>
-        <div class="index-change up">▲ 0.35%</div>
+        <div class="index-value">23,183.74</div>
+        <div class="index-change up">▲ 1.23%</div>
       </div>
       <div class="index-card">
         <div class="index-name">S&amp;P 500</div>
-        <div class="index-value">6,816.89</div>
-        <div class="index-change down">▼ 0.11%</div>
+        <div class="index-value">6,886.24</div>
+        <div class="index-change up">▲ 1.02%</div>
       </div>
       <div class="index-card">
         <div class="index-name">다우존스</div>
-        <div class="index-value">47,916.57</div>
-        <div class="index-change down">▼ 0.56%</div>
+        <div class="index-value">48,218.25</div>
+        <div class="index-change up">▲ 0.63%</div>
       </div>
     </div>
-    <div style="margin-top:14px;font-size:0.83rem;color:var(--muted);">주간 성과: 나스닥 +4.7% &nbsp;·&nbsp; S&amp;P500 +3.6% &nbsp;·&nbsp; 다우 +3.0% — 2025년 11월 이후 최고 주간 수익률</div>
+    <div style="margin-top:14px;font-size:0.83rem;color:var(--muted);">
+      이란 협상 결렬에도 불구하고 AI·소프트웨어 섹터 주도로 반등 — 이란전 개전 이후 최고 종가 기록
+    </div>
   </div>
 
-  <!-- 핵심 뉴스 -->
   <div class="section">
     <div class="section-title">📰 핵심 뉴스</div>
 
     <div class="news-item negative">
       <div class="news-badge negative">🔴 지정학</div>
-      <div class="news-title">중동 분쟁 — 호르무즈 해협 폐쇄 위협, 에너지 공급망 충격</div>
-      <div class="news-desc">미-이란 휴전 협상 불안정 지속. 유가 급등으로 미국 평균 휘발유 가격 2주간 $0.60 상승, 항공주(JetBlue, United) 직격탄. 전통 에너지주(XOM, CVX)는 수혜.</div>
-    </div>
-
-    <div class="news-item negative">
-      <div class="news-badge negative">🔴 연준/거시</div>
-      <div class="news-title">Fed '매파적 동결' — 2026년 금리인하 기대 사실상 붕괴</div>
-      <div class="news-desc">3월 CPI 전년 대비 3.4% (전월 2.4%에서 급반등). 연준 금리인하 선물시장 컨센서스가 연내 2회 → 최대 1회로 급변. 에너지 비용 상승이 주요 원인.</div>
-    </div>
-
-    <div class="news-item negative">
-      <div class="news-badge negative">🔴 밸류에이션</div>
-      <div class="news-title">경영진 내부자 순매도 $161억 — 대형 기술주 경보</div>
-      <div class="news-desc">NVDA·AAPL·MSFT·GOOGL·AMZN·META·TSLA 임원진이 최근 2년간 161억 달러 이상 순매도. 현재 Shiller P/E가 40 초과 — 역사상 2번째로 높은 밸류에이션.</div>
+      <div class="news-title">미-이란 핵 협상 결렬 — VP 밴스 "합의 실패" 공식 선언</div>
+      <div class="news-desc">JD 밴스 부통령이 이란 대표단과의 핵 협상 결렬을 공식 선언. 브렌트유 ~$100/배럴 돌파(2월 말 ~$70 대비 +43%). 에너지 비용 상승이 인플레이션 재가속의 주요 원인.</div>
     </div>
 
     <div class="news-item positive">
       <div class="news-badge positive">🟢 섹터/긍정</div>
-      <div class="news-title">반도체 섹터 강세 — VanEck SMH ETF +1.53%, 브로드컴 +4.69%</div>
-      <div class="news-desc">AI 인프라 투자 지속으로 반도체 섹터 강세. NVDA +2.57%, AVGO +4.69%, TSMC +1.40%. 삼성전자-AMD AI 칩 공급 계약 확대 소식 긍정적.</div>
+      <div class="news-title">소프트웨어·AI 섹터 급등 — 약 1년 만에 최대 단일 일 상승</div>
+      <div class="news-desc">Oracle +9% (AI 역량 Customer Edge Summit 발표), Palantir +3%, CoreWeave 상승. AI 인프라 수혜 클라우드·소프트웨어 전반 강세. Nokia도 BofA 광학·AI 네트워킹 업그레이드로 급등.</div>
+    </div>
+
+    <div class="news-item negative">
+      <div class="news-badge negative">🔴 연준/거시</div>
+      <div class="news-title">3월 CPI 3.4% — 인플레이션 재가속, 금리인하 기대 사실상 소멸</div>
+      <div class="news-desc">전월(2.4%) 대비 1.0%p 급등. 에너지 비용 상승이 주요 원인. 선물시장 연내 금리인하 컨센서스 연 2회 → 최대 1회로 급변. 연준 4월 FOMC 발언 주목.</div>
     </div>
 
     <div class="news-item neutral">
       <div class="news-badge neutral">🟡 실적 시즌</div>
-      <div class="news-title">빅테크 실적 시즌 개막 — MSFT(4/29), INTC(4/23) 주목</div>
-      <div class="news-desc">이번 주부터 TSMC, Netflix 시작. Microsoft는 4월 29일 실적 발표, 두 자릿수 EPS 성장 예상. Intel은 4월 23일 발표, Q1 가이던스 $11.7~12.7B. 결과에 따라 섹터 모멘텀 결정.</div>
+      <div class="news-title">빅테크 실적 시즌 본격화 — INTC(4/23), MSFT(4/29) 대기</div>
+      <div class="news-desc">이번 주 TSMC, Netflix 시작으로 실적 시즌 개막. Intel Q1 가이던스 $11.7~12.7B, Microsoft는 두 자릿수 EPS 성장 예상. 실적 결과에 따라 섹터 모멘텀 방향 결정.</div>
+    </div>
+
+    <div class="news-item negative">
+      <div class="news-badge negative">🔴 밸류에이션</div>
+      <div class="news-title">경영진 내부자 순매도 $161억 — 역사적 고밸류에이션 경고</div>
+      <div class="news-desc">NVDA·AAPL·MSFT 등 빅테크 임원진 2년간 $161억 순매도. Shiller P/E 40 초과 — 155년 역사상 2번째 고점. 지수 반등에도 구조적 밸류에이션 리스크 상존.</div>
     </div>
   </div>
 
-  <!-- 종목별 시그널 -->
   <div class="section">
     <div class="section-title">🔍 종목별 시그널</div>
     <div class="stock-grid">
 
       <div class="stock-row">
         <div class="stock-ticker">NVDA</div>
-        <div class="stock-score score-strong-buy">+0.6</div>
+        <div class="stock-score score-strong-buy">+0.7</div>
         <div class="stock-signal">🟢 강력매수</div>
-        <div class="stock-reason">반도체 섹터 서프라이즈(+2.57%), AI 인프라 수요 견조 — 단기 밸류 부담 있으나 모멘텀 강</div>
+        <div class="stock-reason">AI 인프라 수요 지속, 소프트웨어·반도체 섹터 동반 급등 — 단기 모멘텀 매우 강</div>
       </div>
 
       <div class="stock-row">
         <div class="stock-ticker">AAPL</div>
-        <div class="stock-score score-sell">-0.3</div>
+        <div class="stock-score score-sell">-0.2</div>
         <div class="stock-signal">🔸 매도</div>
-        <div class="stock-reason">12개월 PER 역사적 최고 수준, 임원 대규모 매도, 단기 촉매 부재</div>
+        <div class="stock-reason">역사적 고밸류에이션, 임원 대규모 매도, AI 소프트웨어 랠리 직접 수혜 미약</div>
       </div>
 
       <div class="stock-row">
         <div class="stock-ticker">MSFT</div>
-        <div class="stock-score score-buy">+0.4</div>
-        <div class="stock-signal">✅ 매수</div>
-        <div class="stock-reason">4/29 실적 발표 앞두고 두 자릿수 EPS 성장 기대, Azure·AI Copilot 견조</div>
+        <div class="stock-score score-strong-buy">+0.6</div>
+        <div class="stock-signal">🟢 강력매수</div>
+        <div class="stock-reason">소프트웨어 섹터 급등 직접 수혜, 4/29 실적 두 자릿수 EPS 성장 기대, Azure AI 견조</div>
       </div>
 
       <div class="stock-row">
         <div class="stock-ticker">GOOGL</div>
-        <div class="stock-score score-neutral">+0.1</div>
-        <div class="stock-signal">⚪ 중립</div>
-        <div class="stock-reason">AI 인프라 투자 긍정적이나 임원 매도 신호, 광고 경기 불확실성 상존</div>
+        <div class="stock-score score-buy">+0.3</div>
+        <div class="stock-signal">✅ 매수</div>
+        <div class="stock-reason">클라우드·AI 섹터 강세 수혜, Google AI Summit 기대감, 단기 매수 유효</div>
       </div>
 
       <div class="stock-row">
         <div class="stock-ticker">META</div>
         <div class="stock-score score-buy">+0.5</div>
         <div class="stock-signal">✅ 매수</div>
-        <div class="stock-reason">2026년 capex $1,150~1,350억 AI 집중 투자, 광고 수익 성장 지속</div>
+        <div class="stock-reason">AI 광고 최적화 성과, 2026년 capex $1,150~1,350억 집중 투자 지속</div>
       </div>
 
       <div class="stock-row">
         <div class="stock-ticker">AMZN</div>
         <div class="stock-score score-buy">+0.4</div>
         <div class="stock-signal">✅ 매수</div>
-        <div class="stock-reason">4/10 +2.02% 강세, AWS AI 수혜 + 클라우드 성장 가속 기대</div>
+        <div class="stock-reason">AWS AI 인프라 수혜, 클라우드 성장 가속, CoreWeave 강세와 동반 상승 기대</div>
       </div>
 
       <div class="stock-row">
         <div class="stock-ticker">TSLA</div>
         <div class="stock-score score-sell">-0.5</div>
         <div class="stock-signal">🔸 매도</div>
-        <div class="stock-reason">Q1 인도량 358,023대 컨센서스 하회, 주간 -5.09%, 애널리스트 34명 중 10명 매도</div>
+        <div class="stock-reason">Q1 인도량 358,023대 컨센서스 하회, 주간 -5.09%, 애널 34명 중 10명 매도의견</div>
       </div>
 
       <div class="stock-row">
         <div class="stock-ticker">AMD</div>
         <div class="stock-score score-strong-buy">+0.6</div>
         <div class="stock-signal">🟢 강력매수</div>
-        <div class="stock-reason">삼성-AMD AI 칩 공급 계약 확대, 5/5 실적 기대감, 반도체 섹터 수혜</div>
+        <div class="stock-reason">삼성-AMD AI 칩 공급 계약 확대, 5/5 실적 기대감, 반도체·소프트웨어 동반 강세</div>
       </div>
 
       <div class="stock-row">
         <div class="stock-ticker">INTC</div>
-        <div class="stock-score score-sell">-0.3</div>
-        <div class="stock-signal">🔸 매도</div>
-        <div class="stock-reason">최근 41% 급등 후 애널리스트 컨센서스 대비 31% 프리미엄 — 기술적 과매수</div>
+        <div class="stock-score score-neutral">+0.1</div>
+        <div class="stock-signal">⚪ 중립</div>
+        <div class="stock-reason">4/23 실적 발표 대기, 소프트웨어 랠리 부분 수혜 — 애널 컨센서스 대비 31% 프리미엄 부담</div>
       </div>
 
     </div>
@@ -328,32 +319,31 @@
     </div>
   </div>
 
-  <!-- 종합 전망 -->
   <div class="section">
     <div class="section-title">💡 종합 전망</div>
     <div class="outlook-grid">
       <div class="outlook-card">
         <div class="outlook-label">📌 주목 종목</div>
         <div class="outlook-content">
-          <span class="highlight">NVDA, AMD</span> — 반도체·AI 인프라 수요 서프라이즈, 단기 모멘텀 강력. 실적 시즌 앞두고 <span class="highlight">MSFT, META</span> 도 긍정적 포지셔닝 유효.
+          <span class="highlight">NVDA, MSFT, AMD</span> — AI·소프트웨어 섹터 주도 랠리 직접 수혜, 실적 시즌 기대감 결합으로 모멘텀 강력. <span class="highlight">META, AMZN</span>도 클라우드·AI 수혜 지속.
         </div>
       </div>
       <div class="outlook-card">
         <div class="outlook-label">⚠️ 주의 종목</div>
         <div class="outlook-content">
-          <span style="color:var(--red);font-weight:600;">TSLA, AAPL, INTC</span> — TSLA 인도 부진 + 투자심리 냉각, AAPL 밸류에이션 부담, INTC 과매수 조정 위험.
+          <span style="color:var(--red);font-weight:600;">TSLA, AAPL</span> — TSLA 인도 부진으로 투자심리 냉각, AAPL은 AI 랠리 소외 + 밸류에이션 부담. <span style="color:var(--yellow);font-weight:600;">INTC</span>는 4/23 실적 전 관망.
         </div>
       </div>
     </div>
     <div class="var-card">
       <strong>🎯 최대 변수</strong>
-      중동 지정학적 불안 지속 여부 + 연준 4월 FOMC 발언 톤 — 에너지·인플레이션 복합 리스크가 빅테크 실적 시즌(4월 말) 분위기 좌우.
+      미-이란 협상 재개 여부 + 유가 흐름 — 브렌트유 $100 돌파 지속 시 인플레이션 재가속으로 연준 긴축 우려 재부상. 이번 주 TSMC·Netflix 실적이 빅테크 시즌 분위기 선도.
     </div>
   </div>
 
   <footer>
     <p>본 브리핑은 공개 정보 기반 AI 자동 생성 자료입니다. 투자 권유가 아닙니다.</p>
-    <p style="margin-top:6px;">생성일시: 2026-04-14 &nbsp;|&nbsp; 데이터 기준: 2026-04-10 종가</p>
+    <p style="margin-top:6px;">생성일시: 2026-04-14 &nbsp;|&nbsp; 데이터 기준: 2026-04-13 종가</p>
   </footer>
 
 </div>
