@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>나스닥 일간 브리핑 — 2026-05-13 (수) 미국장 종가 기준</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --card: #1a1d27;
+    --border: #2a2d3a;
+    --accent: #4f8ef7;
+    --green: #22c55e;
+    --red: #ef4444;
+    --yellow: #f59e0b;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', 'Apple SD Gothic Neo', sans-serif; font-size: 14px; line-height: 1.6; }
+  .container { max-width: 960px; margin: 0 auto; padding: 24px 16px; }
+
+  /* Header */
+  .header { text-align: center; padding: 32px 0 24px; border-bottom: 1px solid var(--border); }
+  .header .label { font-size: 12px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px; }
+  .header h1 { font-size: 26px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+  .header .sub { font-size: 14px; color: var(--muted); }
+
+  /* Section */
+  section { margin-top: 28px; }
+  .section-title { font-size: 13px; font-weight: 600; color: var(--accent); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 14px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+
+  /* Index cards */
+  .index-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .index-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+  .index-card .name { font-size: 12px; color: var(--muted); margin-bottom: 4px; }
+  .index-card .price { font-size: 22px; font-weight: 700; color: #fff; }
+  .index-card .change { font-size: 13px; font-weight: 600; margin-top: 4px; }
+  .up { color: var(--green); }
+  .down { color: var(--red); }
+  .flat { color: var(--muted); }
+
+  /* News */
+  .news-list { list-style: none; }
+  .news-list li { padding: 10px 0; border-bottom: 1px solid var(--border); display: flex; gap: 10px; align-items: flex-start; }
+  .news-list li:last-child { border-bottom: none; }
+  .news-tag { background: var(--accent); color: #fff; font-size: 10px; font-weight: 700; padding: 2px 7px; border-radius: 4px; white-space: nowrap; margin-top: 2px; }
+  .news-tag.macro { background: #7c3aed; }
+  .news-tag.geo { background: #dc2626; }
+  .news-tag.sector { background: #059669; }
+  .news-tag.earnings { background: #d97706; }
+
+  /* Stocks table */
+  .stock-table { width: 100%; border-collapse: collapse; }
+  .stock-table th { background: var(--card); color: var(--muted); font-size: 11px; font-weight: 600; text-align: right; padding: 8px 10px; border-bottom: 2px solid var(--border); }
+  .stock-table th:first-child { text-align: left; }
+  .stock-table td { padding: 9px 10px; border-bottom: 1px solid var(--border); font-size: 13px; text-align: right; }
+  .stock-table td:first-child { text-align: left; font-weight: 600; color: #fff; }
+  .stock-table tr:hover td { background: rgba(79,142,247,0.05); }
+  .ticker-badge { font-size: 12px; display: inline-block; font-family: monospace; }
+  .sector-tag { font-size: 10px; color: var(--muted); font-weight: normal; }
+
+  /* Score bar */
+  .score-wrap { display: flex; align-items: center; gap: 6px; justify-content: flex-end; }
+  .score-bar { width: 60px; height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
+  .score-fill { height: 100%; border-radius: 3px; }
+  .score-val { font-size: 12px; min-width: 36px; text-align: right; font-weight: 600; }
+
+  /* Opinion badge */
+  .op { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; }
+  .op-sb { background: #14532d; color: #4ade80; }
+  .op-b  { background: #1e3a5f; color: #60a5fa; }
+  .op-n  { background: #292d3a; color: #94a3b8; }
+  .op-sw { background: #451a03; color: #fb923c; }
+  .op-ss { background: #450a0a; color: #f87171; }
+
+  /* Highlights */
+  .highlight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .highlight-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+  .highlight-card .hl-label { font-size: 11px; color: var(--muted); margin-bottom: 8px; }
+  .highlight-card .hl-item { display: flex; justify-content: space-between; align-items: center; padding: 5px 0; border-bottom: 1px solid var(--border); }
+  .highlight-card .hl-item:last-child { border-bottom: none; }
+  .hl-ticker { font-weight: 700; font-size: 13px; font-family: monospace; }
+  .hl-chg { font-size: 13px; font-weight: 600; }
+
+  /* Sentiment */
+  .sentiment-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .sent-card { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 16px; }
+  .sent-card .sent-title { font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+  .sent-card .sent-val { font-size: 20px; font-weight: 700; }
+  .sent-card .sent-desc { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+  /* Footer */
+  .footer { margin-top: 40px; text-align: center; color: var(--muted); font-size: 11px; padding-top: 20px; border-top: 1px solid var(--border); }
+
+  @media (max-width: 600px) {
+    .index-grid { grid-template-columns: 1fr; }
+    .highlight-grid { grid-template-columns: 1fr; }
+    .sentiment-grid { grid-template-columns: 1fr; }
+    .stock-table { font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="label">나스닥 일간 금융 브리핑</div>
+    <h1>2026-05-13 (수) 미국장 종가 기준</h1>
+    <div class="sub">생성일: 2026-05-14 KST &nbsp;|&nbsp; 데이터 출처: yfinance (종가 기준)</div>
+  </div>
+
+  <!-- 주요 지수 -->
+  <section>
+    <div class="section-title">주요 지수</div>
+    <div class="index-grid">
+      <div class="index-card">
+        <div class="name">NASDAQ Composite</div>
+        <div class="price">26,402.34</div>
+        <div class="change up">▲ +1.20%</div>
+      </div>
+      <div class="index-card">
+        <div class="name">S&amp;P 500</div>
+        <div class="price">7,444.25</div>
+        <div class="change up">▲ +0.58%</div>
+      </div>
+      <div class="index-card">
+        <div class="name">Dow Jones</div>
+        <div class="price">49,693.20</div>
+        <div class="change down">▼ −0.14%</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 핵심 뉴스 -->
+  <section>
+    <div class="section-title">핵심 뉴스 &amp; 시장 동향</div>
+    <ul class="news-list">
+      <li>
+        <span class="news-tag macro">거시경제</span>
+        <span>4월 도매물가지수(PPI) 전년 대비 <strong>+6.0% YoY</strong> 발표, 예상치(+3.8%) 대폭 초과. 연방기금금리 인하 기대 사실상 소멸, 국채 10년물 금리 10개월래 최고. 장기 성장주에 할인율 압박.</span>
+      </li>
+      <li>
+        <span class="news-tag geo">지정학</span>
+        <span>이란-중동 분쟁 지속으로 WTI 원유 <strong>$102.18/배럴(+4.2%)</strong> 급등. 에너지 섹터 강세, 소비재·소매주 약세. 미중 정상회담 일정 대기 중.</span>
+      </li>
+      <li>
+        <span class="news-tag sector">반도체</span>
+        <span>AI 인프라 투자 확대 기조 지속. ARM이 FY2026 실적 호조(매출 +23%, 데이터센터 로열티 2배) + AGI CPU 출시로 <strong>+6.39%</strong> 급등. MU HBM 슈퍼사이클 지속 기대로 <strong>+4.83%</strong>, ASML 투자은행 목표가 상향으로 <strong>+3.99%</strong>.</span>
+      </li>
+      <li>
+        <span class="news-tag earnings">실적</span>
+        <span>AAPL 장중 사상 첫 <strong>$300 돌파</strong>(장중 고가 $300.49) 기록. 기술 대형주 중 심리적 저항선 돌파로 투자 심리 개선.</span>
+      </li>
+      <li>
+        <span class="news-tag macro">매도주의</span>
+        <span>PLTR <strong>−4.38%</strong> 급락: PPI 충격(금리 상승) + NHS 개인정보 논란 + AI 경쟁 심화(Anthropic·OpenAI). 2026 YTD −26%. P/S 42배 고밸류에이션 부담 재부각.</span>
+      </li>
+      <li>
+        <span class="news-tag sector">빅테크</span>
+        <span>GOOGL +3.94%, META +2.26% 강세. 디지털 광고·AI 클라우드 수요 견조로 기술 대형주 아웃퍼폼. MSFT −0.63%, AMD −0.62% 소폭 약세.</span>
+      </li>
+    </ul>
+  </section>
+
+  <!-- 주목 종목 -->
+  <section>
+    <div class="section-title">주목 종목</div>
+    <div class="highlight-grid">
+      <div class="highlight-card">
+        <div class="hl-label">📈 상위 상승</div>
+        <div class="hl-item"><span class="hl-ticker">ARM</span><span class="hl-chg up">▲ +6.39%</span></div>
+        <div class="hl-item"><span class="hl-ticker">MU</span><span class="hl-chg up">▲ +4.83%</span></div>
+        <div class="hl-item"><span class="hl-ticker">ASML</span><span class="hl-chg up">▲ +3.99%</span></div>
+        <div class="hl-item"><span class="hl-ticker">GOOGL</span><span class="hl-chg up">▲ +3.94%</span></div>
+        <div class="hl-item"><span class="hl-ticker">TXN</span><span class="hl-chg up">▲ +3.78%</span></div>
+      </div>
+      <div class="highlight-card">
+        <div class="hl-label">📉 상위 하락</div>
+        <div class="hl-item"><span class="hl-ticker">PLTR</span><span class="hl-chg down">▼ −4.38%</span></div>
+        <div class="hl-item"><span class="hl-ticker">MSFT</span><span class="hl-chg down">▼ −0.63%</span></div>
+        <div class="hl-item"><span class="hl-ticker">AMD</span><span class="hl-chg down">▼ −0.62%</span></div>
+        <div class="hl-item"><span class="hl-ticker">AVGO</span><span class="hl-chg down">▼ −0.60%</span></div>
+        <div class="hl-item"><span class="hl-ticker">NFLX</span><span class="hl-chg down">▼ −0.11%</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 심리 지표 -->
+  <section>
+    <div class="section-title">시장 심리 지표</div>
+    <div class="sentiment-grid">
+      <div class="sent-card">
+        <div class="sent-title">Fear &amp; Greed Index</div>
+        <div class="sent-val flat">수집 불가</div>
+        <div class="sent-desc">CNN 서버 응답 오류 (418). 기준: PPI 충격으로 공포 방향 추정.</div>
+      </div>
+      <div class="sent-card">
+        <div class="sent-title">Google Trends</div>
+        <div class="sent-val flat">수집 불가</div>
+        <div class="sent-desc">pytrends 미설치. 스코어 심리 보정 미적용.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 종목별 분석 테이블 -->
+  <section>
+    <div class="section-title">Top 20 종목 분석</div>
+    <table class="stock-table">
+      <thead>
+        <tr>
+          <th>종목</th>
+          <th>종가</th>
+          <th>등락률</th>
+          <th>의견</th>
+          <th>스코어</th>
+          <th>분석 근거</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <td><span class="ticker-badge">NVDA</span><br><span class="sector-tag">반도체</span></td>
+          <td>$225.83</td>
+          <td class="up">▲ +2.29%</td>
+          <td><span class="op op-b">매수</span></td>
+          <td>
+            <div class="score-wrap">
+              <div class="score-bar"><div class="score-fill" style="width:82.5%;background:var(--green)"></div></div>
+              <span class="score-val up">+0.65</span>
+            </div>
+          </td>
+          <td>Blackwell 수요 견조 + 기술주 강세 동반. PPI 충격에도 AI 인프라 수요 지속.</td>
+        </tr>
+
+        <tr>
+          <td><span class="ticker-badge">GOOGL</span><br><span class="sector-tag">인터넷</span></td>
+          <td>$402.62</td>
+          <td class="up">▲ +3.94%</td>
+          <td><span class="op op-b">매수</span></td>
+          <td>
+            <div class="score-wrap">
+              <div class="score-bar"><div class="score-fill" style="width:85%;background:var(--green)"></div></div>
+              <span class="score-val up">+0.70</span>
+            </div>
+          </td>
+          <td>기술 대형주 중 최상위 퍼포먼스. AI 검색·클라우드 모멘텀. 단기 급등으로 -0.05 보정.</td>
+        </tr>
+
+        <tr>
+          <td><span class="ticker-badge">AAPL</span><br><span class="sector-tag">소비자전자</span></td>
+          <td>$298.87</td>
+          <td class="up">▲ +1.38%</td>
+          <td><span class="op op-b">매수</span></td>
+          <td>
+            <div class="score-wrap">
+              <div class="score-bar"><div class="score-fill" style="width:77.5%;background:var(--green)"></div></div>
+              <span class="score-val up">+0.55</span>
+            </div>
+          </td>
+          <td>장중 $300 최초 돌파로 투자심리 개선. 인플레 환경의 소비지출 압박은 부분 반영.</td>
+        </tr>
+
+        <tr>
+          <td><span class="ticker-badge">MSFT</span><br><span class="sector-tag">소프트웨어</span></td>
+          <td>$405.21</td>
+          <td class="down">▼ −0.63%</td>
+          <td><span class="op op-n">중립</span></td>
+          <td>
+            <div class="score-wrap">
+              <div class="score-bar"><div class="score-fill" style="width:65%;background:var(--yellow)"></div></div>
+              <span class="score-val flat">+0.30</span>
+            </div>
+          </td>
+          <td>Azure AI 강세에도 PPI 충격 + 고밸류에이션으로 상대적 약세. 단기 방향성 불명확.</td>
+        </tr>
+
+        <tr>
+          <td><span class="ticker-badge">AMZN</span><br><span class="sector-tag">인터넷리테일</span></td>
+          <td>$270.13</td>
+          <td class="up">▲ +1.62%</td>
+          <td><span class="op op-b">매수</span></td>
+          <td>
+            <div class="score-wrap">
+              <div class="score-bar"><div class="score-fill" style="width:77.5%;background:var(--green)"></div></div>
+              <span class="score-val up">+0.55</span>
+            </div>
+          </td>
+          <td>AWS AI 인프라 수요 + 광고 성장. 인플레로 소비지출 리스크 있으나 클라우드가 완충.</td>
+        </tr>
+
+        <tr>
+          <td><span class="ticker-badge">AVGO</span><br><span class="sector-tag">반도체</span></td>
+          <td>$416.79</td>
+          <td class="down">▼ −0.60%</td>
+          <td><span class="op op-n">중립</span></td>
+          <td>
+            <div class="score-wrap">
+              <div class="score-bar"><div class="score-fill" style="width:65%;background:var(--yellow)"></div></div>
+              <span class="score-val flat">+0.30</span>
+            </div>
+          </td>
+          <td>맞춤형 AI 칩 수요 견조하나 이날 반도체 내 상대적 약세. 설비투자 지연 우려 일부 반영.</td>
+        </tr>
+
+        <tr>
+          <td><span class="ticker-badge">TSLA</span><br><span class="sector-tag">자동차</span></td>
+          <td>$445.27</td>
+          <td class="up">▲ +2.73%</td>
+          <td><span class="op op-b">매수</span></td>
+          <td>
+            <div class="score-wrap">
+              <div class="score-bar"><div class="score-fill" style="width:80%;background:var(--green)"></div></div>
+              <span class="score-val up">+0.60</span>
+            </div>
+          </td>
+          <td>WTI +4.2% 급등으로 EV 전환 서사 재부각. 단, 고유가가 소비 여력 압박하는 양면성 존재.</td>
+        </tr>
+
+        <tr>
+          <td><span class="ticker-badge">META</span><br><span class="sector-tag">SNS</span></td>
+          <td>$616.63</td>
+          <td class="up">▲ +2.26%</td>
+          <td><span class="op op-b">매수</span></td>
+          <td>
+            <div class="score-wrap">
+              <div class="score-bar"><div class="score-fill" style="width:80%;background:var(--green)"></div></div>
+              <span class="score-val up">+0.60</span>
+            </div>
+          </td>
+          <td>광고 시장 회복 + AI 인프라 투자 결실 기대. 디지털 광고의 인플레 방어력 유효.</td>
+        </tr>
+
+        <tr>
+          <td><span class="ticker-badge">MU</span><br><span class="sector-tag">반도체</span></td>
+          <td>$803.63</td>
+          <td class="up">▲ +4.83%</td>
+          <td><span class="op op-b">매수</span></td>
+          <td>
+            <div class="score-wrap">
+              <div class="score-bar"><div class="score-fill" style="width:87.5%;background:var(--green)"></div></div>
+              <span class="score-val up">+0.75</span>
+            </div>
+          </td>
+          <td>HBM/AI 메모리 슈퍼사이클 + EPS 600% YoY 전망. $800 돌파, 단기 과매수 경계로 -0.05 보정.</td>
+        </tr>
+
+        <tr>
+          <td><span class="ticker-badge">AMD</span><br><span class="sector-tag">반도체</span></td>
+          <td>$445.50</td>
+          <td class="down">▼ −0.62%</td>
+          <td><span class="op op-n">중립</span></td>
+          <td>
+            <div class="score-wrap">
+              <div class="score-bar"><div class="score-fill" style="width:62.5%;background:var(--yellow)"></div></div>
+              <span class="score-val flat">+0.25</span>
+            </div>
+          </td>
+          <td>MI300X 수요 견조하나 NVDA·ARM 대비 AI 점유율 정체 우려. 투자자 관심 이탈 신호.</td>
+        </tr>
+
+        <tr>
+          <td><span class="ticker-badge">ASML</span><br><span class="sector-tag">반도체장비</span></td>
+          <td>$1,581.58</td>
+          <td class="up">▲ +3.99%</td>
+          <td><span class="op op-b">매수</span></td>
+          <td>
+            <div class="score-wrap">
+              <div class="score-bar"><div class="score-fill" style="width:85%;background:var(--green)"></div></div>
+              <span class="score-val up">+0.70</span>
+            </div>
+          </td>
+          <td>투자은행 목표가 상향 + AI 반도체 제조 수요 급증. 달러 강세 역풍 있으나 수요 펀더멘털이 압도.</td>
+        </tr>
+
+        <tr>
+          <td><span class="ticker-badge">INTC</span><br><span class="sector-tag">반도체</span></td>
+          <td>$120.29</td>
+          <td class="down">▼ −0.27%</td>
+          <td><span class="op op-n">중립</span></td>
+          <td>
+            <div class="score-wrap">
+              <div class="score-bar"><div class="score-fill" style="width:57.5%;background:var(--yellow)"></div></div>
+              <span class="score-val flat">+0.15</span>
+            </div>
+          </td>
+          <td>파운드리 재건 중 단기 수익성 압박. AI 경쟁에서 구조적 열세, 단기 반등 모멘텀 부재.</td>
+        </tr>
+
+        <tr>
+          <td><span class="ticker-badge">COST</span><br><span class="sector-tag">소매</span></td>
+          <td>$1,033.08</td>
+          <td class="up">▲ +1.10%</td>
+          <td><span class="op op-n">중립</span></td>
+          <td>
+            <div class="score-wrap">
+              <div class="score-bar"><div class="score-fill" style="width:72.5%;background:var(--yellow)"></div></div>
+              <span class="score-val flat">+0.45</span>
+            </div>
+          </td>
+          <td>인플레 환경 가성비 방어주 재평가. 단, 유가·운임 상승이 마진 압박 요인.</td>
+        </tr>
+
+        <tr>
+          <td><span class="ticker-badge">LRCX</span><br><span class="sector-tag">반도체장비</span></td>
+          <td>$295.44</td>
+          <td class="up">▲ +2.14%</td>
+          <td><span class="op op-b">매수</span></td>
+          <td>
+            <div class="score-wrap">
+              <div class="score-bar"><div class="score-fill" style="width:77.5%;background:var(--green)"></div></div>
+              <span class="score-val up">+0.55</span>
+            </div>
+          </td>
+          <td>AI 반도체 설비 확장(EUV·ALD) 수요 지속. ASML 랠리와 반도체 장비주 동반 상승.</td>
+        </tr>
+
+        <tr>
+          <td><span class="ticker-badge">NFLX</span><br><span class="sector-tag">엔터테인먼트</span></td>
+          <td>$87.56</td>
+          <td class="down">▼ −0.11%</td>
+          <td><span class="op op-n">중립</span></td>
+          <td>
+            <div class="score-wrap">
+              <div class="score-bar"><div class="score-fill" style="width:60%;background:var(--yellow)"></div></div>
+              <span class="score-val flat">+0.20</span>
+            </div>
+          </td>
+          <td>광고 구독 성장 유지 중이나 PPI 인플레 환경서 소비지출 둔화 우려. 단기 모멘텀 부재.</td>
+        </tr>
+
+        <tr>
+          <td><span class="ticker-badge">AMAT</span><br><span class="sector-tag">반도체장비</span></td>
+          <td>$436.61</td>
+          <td class="up">▲ +1.25%</td>
+          <td><span class="op op-b">매수</span></td>
+          <td>
+            <div class="score-wrap">
+              <div class="score-bar"><div class="score-fill" style="width:77.5%;background:var(--green)"></div></div>
+              <span class="score-val up">+0.55</span>
+            </div>
+          </td>
+          <td>AI 공정 고도화 수요로 장비 수주 호조. LRCX·KLAC 장비주 강세 동반.</td>
+        </tr>
+
+        <tr>
+          <td><span class="ticker-badge">PLTR</span><br><span class="sector-tag">소프트웨어</span></td>
+          <td>$130.05</td>
+          <td class="down">▼ −4.38%</td>
+          <td><span class="op op-sw">매도주의</span></td>
+          <td>
+            <div class="score-wrap">
+              <div class="score-bar"><div class="score-fill" style="width:22.5%;background:var(--red)"></div></div>
+              <span class="score-val down">−0.55</span>
+            </div>
+          </td>
+          <td>PPI 충격으로 금리인하 소멸 → P/S 42배 직격탄. NHS 개인정보 논란 + AI 경쟁 악재 복합. YTD −26%.</td>
+        </tr>
+
+        <tr>
+          <td><span class="ticker-badge">TXN</span><br><span class="sector-tag">반도체</span></td>
+          <td>$306.34</td>
+          <td class="up">▲ +3.78%</td>
+          <td><span class="op op-b">매수</span></td>
+          <td>
+            <div class="score-wrap">
+              <div class="score-bar"><div class="score-fill" style="width:82.5%;background:var(--green)"></div></div>
+              <span class="score-val up">+0.65</span>
+            </div>
+          </td>
+          <td>산업용·자동차 반도체 수요 회복 + 배당 안정성으로 인플레 환경 방어적 매력 부각.</td>
+        </tr>
+
+        <tr>
+          <td><span class="ticker-badge">KLAC</span><br><span class="sector-tag">반도체장비</span></td>
+          <td>$1,849.71</td>
+          <td class="up">▲ +2.12%</td>
+          <td><span class="op op-b">매수</span></td>
+          <td>
+            <div class="score-wrap">
+              <div class="score-bar"><div class="score-fill" style="width:80%;background:var(--green)"></div></div>
+              <span class="score-val up">+0.60</span>
+            </div>
+          </td>
+          <td>EUV 이후 공정 검사장비 수요 증가. AI 웨이퍼 생산 확대 직접 수혜.</td>
+        </tr>
+
+        <tr>
+          <td><span class="ticker-badge">ARM</span><br><span class="sector-tag">반도체</span></td>
+          <td>$221.21</td>
+          <td class="up">▲ +6.39%</td>
+          <td><span class="op op-b">매수</span></td>
+          <td>
+            <div class="score-wrap">
+              <div class="score-bar"><div class="score-fill" style="width:85%;background:var(--green)"></div></div>
+              <span class="score-val up">+0.70</span>
+            </div>
+          </td>
+          <td>FY2026 실적 호조(매출 +23%, DC 로열티 2배) + AGI CPU 출시. 고밸류에이션 과매수 우려로 -0.05 보정.</td>
+        </tr>
+
+      </tbody>
+    </table>
+  </section>
+
+  <!-- 종합 의견 -->
+  <section>
+    <div class="section-title">종합 시장 의견</div>
+    <div style="background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px;line-height:1.8;">
+      <p>기술주 중심의 <strong>선택적 강세</strong> 장세. AI 반도체(ARM·MU·ASML)와 빅테크(GOOGL·META·TSLA)가 리드한 반면, 고밸류에이션 소프트웨어(PLTR)와 레거시 반도체(INTC·AMD)는 차별 약세.</p>
+      <br>
+      <p>⚠️ <strong>핵심 리스크</strong>: PPI +6% 도매물가 충격으로 2026년 금리인하 기대 완전 소멸. 유가 $102 돌파로 소비심리 압박. 장기 성장주의 고밸류에이션 부담이 여전히 상존.</p>
+      <br>
+      <p>✅ <strong>주목 기회</strong>: AI 인프라 투자 사이클은 금리 역풍에도 견조. 반도체 장비주(ASML·LRCX·AMAT·KLAC) 수주 모멘텀 지속. MU HBM·ARM AGI CPU는 구조적 성장 스토리.</p>
+    </div>
+  </section>
+
+  <div class="footer">
+    <p>본 브리핑은 투자 조언이 아닙니다. 가격 데이터: yfinance (2026-05-13 미국장 종가 기준) | 자동 생성: 2026-05-14 KST</p>
+  </div>
+
+</div>
+</body>
+</html>
