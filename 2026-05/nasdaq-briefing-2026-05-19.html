@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>나스닥 일간 금융 브리핑 — 2026-05-19</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif; background: #0f1117; color: #e2e8f0; line-height: 1.6; }
+    .container { max-width: 920px; margin: 0 auto; padding: 24px 16px; }
+
+    .header { background: linear-gradient(135deg, #1a1f2e 0%, #0f1117 100%); border: 1px solid #2d3748; border-radius: 12px; padding: 28px; margin-bottom: 20px; }
+    .header h1 { font-size: 1.6rem; font-weight: 700; color: #f7fafc; }
+    .header .subtitle { color: #a0aec0; font-size: 0.9rem; margin-top: 6px; }
+    .header .date-badge { display: inline-block; background: #2d3748; color: #68d391; font-size: 0.8rem; padding: 4px 14px; border-radius: 20px; margin-top: 10px; }
+
+    .section { background: #1a1f2e; border: 1px solid #2d3748; border-radius: 10px; padding: 20px; margin-bottom: 18px; }
+    .section h2 { font-size: 1.05rem; font-weight: 700; color: #90cdf4; margin-bottom: 14px; border-bottom: 1px solid #2d3748; padding-bottom: 10px; }
+
+    .indices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .idx-card { background: #2d3748; border-radius: 8px; padding: 14px; text-align: center; }
+    .idx-card .name { font-size: 0.75rem; color: #a0aec0; margin-bottom: 4px; }
+    .idx-card .price { font-size: 1.15rem; font-weight: 700; color: #f7fafc; }
+    .idx-card .change { font-size: 0.85rem; font-weight: 600; margin-top: 4px; }
+
+    .up   { color: #68d391; }
+    .down { color: #fc8181; }
+    .flat { color: #a0aec0; }
+
+    table { width: 100%; border-collapse: collapse; font-size: 0.84rem; }
+    th { background: #2d3748; color: #a0aec0; text-align: center; padding: 8px 10px; font-weight: 600; font-size: 0.77rem; }
+    td { padding: 7px 10px; border-bottom: 1px solid #2d3748; text-align: center; vertical-align: middle; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(45,55,72,0.5); }
+    .ticker { font-weight: 700; color: #90cdf4; text-align: left; }
+
+    .badge { display: inline-block; padding: 2px 9px; border-radius: 12px; font-size: 0.71rem; font-weight: 700; white-space: nowrap; }
+    .badge-strongbuy { background: #22543d; color: #68d391; }
+    .badge-buy       { background: #1c4532; color: #9ae6b4; }
+    .badge-neutral   { background: #2d3748; color: #a0aec0; }
+    .badge-caution   { background: #744210; color: #fbd38d; }
+    .badge-sell      { background: #742a2a; color: #fc8181; }
+
+    .news-item { padding: 10px 0; border-bottom: 1px solid #2d3748; }
+    .news-item:last-child { border-bottom: none; }
+    .news-category { font-size: 0.7rem; background: #2d3748; color: #90cdf4; padding: 2px 8px; border-radius: 10px; display: inline-block; margin-bottom: 4px; }
+    .news-text { font-size: 0.87rem; color: #e2e8f0; }
+
+    .highlight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .highlight-card { background: #2d3748; border-radius: 8px; padding: 14px; }
+    .highlight-card .hl-label { font-size: 0.7rem; color: #a0aec0; margin-bottom: 6px; }
+    .highlight-card .hl-value { font-size: 0.88rem; font-weight: 700; line-height: 1.5; }
+
+    .sentiment-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .sentiment-card { background: #2d3748; border-radius: 8px; padding: 14px; }
+    .sentiment-card .sm-label { font-size: 0.7rem; color: #a0aec0; margin-bottom: 6px; }
+    .sentiment-card .sm-value { font-size: 1.0rem; font-weight: 700; }
+
+    .footer { text-align: center; color: #4a5568; font-size: 0.74rem; margin-top: 20px; padding: 16px; border-top: 1px solid #2d3748; }
+
+    @media (max-width: 620px) {
+      .indices { grid-template-columns: 1fr; }
+      .highlight-grid { grid-template-columns: 1fr; }
+      .sentiment-grid { grid-template-columns: 1fr; }
+      table { font-size: 0.78rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>📊 나스닥 일간 금융 브리핑</h1>
+    <div class="subtitle">2026-05-19 (화) 미국장 종가 기준 자동 생성 브리핑</div>
+    <div class="date-badge">2026-05-19 (화) 미국장 종가 기준</div>
+  </div>
+
+  <!-- 주요 지수 -->
+  <div class="section">
+    <h2>📈 주요 지수 — 2026-05-19 (화) 종가</h2>
+    <div class="indices">
+      <div class="idx-card">
+        <div class="name">NASDAQ Composite</div>
+        <div class="price">25,870.71</div>
+        <div class="change down">▼ -0.84%</div>
+      </div>
+      <div class="idx-card">
+        <div class="name">S&amp;P 500</div>
+        <div class="price">7,353.61</div>
+        <div class="change down">▼ -0.67%</div>
+      </div>
+      <div class="idx-card">
+        <div class="name">Dow Jones</div>
+        <div class="price">49,363.88</div>
+        <div class="change down">▼ -0.65%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 시장 심리 -->
+  <div class="section">
+    <h2>🌡️ 시장 심리 지표</h2>
+    <div class="sentiment-grid">
+      <div class="sentiment-card">
+        <div class="sm-label">CNN Fear &amp; Greed Index</div>
+        <div class="sm-value flat">61 · 탐욕(Greed)</div>
+      </div>
+      <div class="sentiment-card">
+        <div class="sm-label">스코어 반영 가이드</div>
+        <div class="sm-value flat" style="font-size:0.8rem;">F&amp;G 61 (탐욕 구간 유지) → 강한 종목 대상 일부 -0.05 보수적 보정 적용</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 핵심 뉴스 -->
+  <div class="section">
+    <h2>📰 핵심 시장 뉴스</h2>
+
+    <div class="news-item">
+      <span class="news-category">채권·금리</span>
+      <div class="news-text">미 30년물 국채금리 <strong>약 20년 만의 최고</strong>까지 상승. 인플레이션 재가속 우려 + Fed 금리 인하 기대 후퇴가 성장주 멀티플 압박. S&amp;P 500 3거래일 연속 하락, 채권시장 강한 매도 분위기.</div>
+    </div>
+    <div class="news-item">
+      <span class="news-category">테크 셀오프</span>
+      <div class="news-text">나스닥 -0.84% 하락. <strong>반도체 장비주(AMAT -3.16%, KLAC -2.00%)</strong>·<strong>메모리(MU -2.50%)</strong>·<strong>빅테크(AMZN -2.12%, AVGO -2.31%)</strong> 동반 약세. 금리 상승 + 차익실현이 결합된 분위기.</div>
+    </div>
+    <div class="news-item">
+      <span class="news-category">지정학</span>
+      <div class="news-text">트럼프 대통령이 이란에 대한 예정된 군사행동을 <strong>전격 취소</strong>했다고 발표. "심도 있는 평화협상 진행 중" 명분. WTI 원유 -1.4%, 브렌트 -1.8% 하락하며 에너지 부담 일부 완화.</div>
+    </div>
+    <div class="news-item">
+      <span class="news-category">NVDA 실적 D-1</span>
+      <div class="news-text"><strong>NVIDIA</strong> 5월 20일(현지) 장 마감 후 Q1 FY27 실적 발표 임박. NVDA -0.77% 보합권 마감하며 관망세 짙어짐. 데이터센터·Blackwell 가이던스가 시장 전반 분위기 결정 변수.</div>
+    </div>
+    <div class="news-item">
+      <span class="news-category">개별 이벤트</span>
+      <div class="news-text"><strong>INTC +2.99%</strong> 시장 약세 속에서도 강한 반등(상대강도 부각). <strong>COST +0.79%</strong> 52주 신고가 $1,096.50 터치 후 보합 마감, 방어주 자금 유입. <strong>TSLA -2.07%</strong> 3거래일 연속 하락 흐름 심화.</div>
+    </div>
+    <div class="news-item">
+      <span class="news-category">프리마켓 무버</span>
+      <div class="news-text">프리마켓: Marathon Petroleum (MPC) <strong>+7.5%</strong>, Verisk Analytics (VRSK) +6.7%, nVent Electric (NVT) +5.1% 강세. 반면 PulteGroup (PHM) <strong>-16.8%</strong>, Marsh &amp; McLennan (MMC) -7.1%, Akamai (AKAM) -4.4% 약세.</div>
+    </div>
+  </div>
+
+  <!-- 종목 분석 -->
+  <div class="section">
+    <h2>🔍 Top 20 종목 분석</h2>
+    <table>
+      <thead>
+        <tr>
+          <th style="text-align:left; width:60px">종목</th>
+          <th>종가</th>
+          <th>등락률</th>
+          <th>스코어</th>
+          <th>의견</th>
+          <th style="text-align:left">근거 요약</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="ticker">NVDA</td>
+          <td>$220.61</td>
+          <td class="down">-0.77%</td>
+          <td><strong>+0.45</strong></td>
+          <td><span class="badge badge-buy">매수</span></td>
+          <td style="text-align:left">주요 지수 -0.84% 하락 가운데 NVDA -0.77%로 시장 대비 강한 모습. 5/20 실적 앞두고 매수 관망. 5일 평균 +0.62 모멘텀 지속, F&amp;G 61(탐욕) 영향으로 -0.05 미세 하향.</td>
+        </tr>
+        <tr>
+          <td class="ticker">GOOGL</td>
+          <td>$391.90</td>
+          <td class="down">-1.27%</td>
+          <td><strong>-0.05</strong></td>
+          <td><span class="badge badge-neutral">중립</span></td>
+          <td style="text-align:left">-1.27% 하락하며 5일 평균(+0.16) 대비 -0.21 이탈. 방향 전환 주의 종목. 채권금리 상승 + 광고 매크로 우려로 보수적 중립.</td>
+        </tr>
+        <tr>
+          <td class="ticker">AAPL</td>
+          <td>$297.06</td>
+          <td class="down">-0.26%</td>
+          <td><strong>+0.15</strong></td>
+          <td><span class="badge badge-neutral">중립</span></td>
+          <td style="text-align:left">5/15 사상 최고가($300.23) 후 -0.26% 소폭 조정. 5일 평균 +0.33과 큰 이탈 없음. 방향 전환 주의 신호로 약한 매수 강도.</td>
+        </tr>
+        <tr>
+          <td class="ticker">MSFT</td>
+          <td>$418.51</td>
+          <td class="down">-1.19%</td>
+          <td><strong>-0.20</strong></td>
+          <td><span class="badge badge-caution">매도주의</span></td>
+          <td style="text-align:left">-1.19% 하락으로 약세 흐름 가중. 5일 평균(+0.24) 대비 -0.44 큰 이탈, 이탈 근거: 4거래일 연속 약세 + 금리 상승 멀티플 압력. 단기 약세 우위.</td>
+        </tr>
+        <tr>
+          <td class="ticker">AMZN</td>
+          <td>$259.24</td>
+          <td class="down">-2.12%</td>
+          <td><strong>-0.30</strong></td>
+          <td><span class="badge badge-caution">매도주의</span></td>
+          <td style="text-align:left">-2.12% 급락. 5일 평균(+0.06) 대비 -0.36 이탈, 이탈 근거: 인플레이션 재가속 우려 + 소비 약화 시그널 + 방향 전환 주의 신호 결합. 단기 약세 강도 높음.</td>
+        </tr>
+        <tr>
+          <td class="ticker">AVGO</td>
+          <td>$410.98</td>
+          <td class="down">-2.31%</td>
+          <td><strong>-0.25</strong></td>
+          <td><span class="badge badge-caution">매도주의</span></td>
+          <td style="text-align:left">-2.31% 하락. 5일 평균(+0.35) 대비 -0.60 큰 이탈, 이탈 근거: 반도체 셀오프 + 변동성 σ 0.38 주의. 보수적으로 약세 방향 가중.</td>
+        </tr>
+        <tr>
+          <td class="ticker">META</td>
+          <td>$610.70</td>
+          <td class="down">-0.08%</td>
+          <td><strong>+0.20</strong></td>
+          <td><span class="badge badge-buy">매수</span></td>
+          <td style="text-align:left">거의 보합(-0.08%)으로 시장 대비 견조. 5일 평균 +0.30과 큰 차이 없음. 광고 사이클 우호적 + 상대강도 측면에서 약한 매수.</td>
+        </tr>
+        <tr>
+          <td class="ticker">TSLA</td>
+          <td>$401.50</td>
+          <td class="down">-2.07%</td>
+          <td><strong>-0.30</strong></td>
+          <td><span class="badge badge-caution">매도주의</span></td>
+          <td style="text-align:left">3거래일 연속 하락 흐름이 -2.07%로 심화. 5일 평균(+0.09) 대비 -0.39 이탈, 이탈 근거: 모멘텀 약화 + 금리 부담. 변동성 σ 0.33 주의로 매도주의.</td>
+        </tr>
+        <tr>
+          <td class="ticker">MU</td>
+          <td>$664.50</td>
+          <td class="down">-2.50%</td>
+          <td><strong>-0.35</strong></td>
+          <td><span class="badge badge-caution">매도주의</span></td>
+          <td style="text-align:left">-2.50% 큰 하락. 5일 평균(+0.08) 대비 -0.43 이탈, 이탈 근거: 반도체 섹터 전반 셀오프 + 30Y 금리 부담. 변동성 σ 0.43 매우 높아 단기 약세 가중.</td>
+        </tr>
+        <tr>
+          <td class="ticker">AMD</td>
+          <td>$414.30</td>
+          <td class="down">-1.59%</td>
+          <td><strong>-0.20</strong></td>
+          <td><span class="badge badge-caution">매도주의</span></td>
+          <td style="text-align:left">-1.59% 하락. 5일 평균(+0.42) 대비 -0.62 큰 이탈, 이탈 근거: 반도체 셀오프 + 방향 전환 신호. 변동성 σ 0.40 주의. 펀더멘털 견조해 과도 매도는 자제.</td>
+        </tr>
+        <tr>
+          <td class="ticker">ASML</td>
+          <td>$1,459.70</td>
+          <td class="down">-0.86%</td>
+          <td><strong>-0.10</strong></td>
+          <td><span class="badge badge-neutral">중립</span></td>
+          <td style="text-align:left">-0.86% 소폭 하락으로 장비주 중 비교적 선방. 5일 평균(+0.25) 대비 -0.35 이탈, 이탈 근거: 섹터 셀오프 영향. 변동성 σ 0.39 주의로 보수적 중립.</td>
+        </tr>
+        <tr>
+          <td class="ticker">INTC</td>
+          <td>$111.40</td>
+          <td class="up">+2.99%</td>
+          <td><strong>+0.40</strong></td>
+          <td><span class="badge badge-buy">매수</span></td>
+          <td style="text-align:left">시장 약세 가운데 +2.99% 강한 상승, 상대강도 부각. 5일 평균(-0.14) 대비 +0.54 큰 양(+) 이탈, 이탈 근거: 추세 반전 가능성. 변동성 σ 0.47 매우 높아 매수 강도 -0.05 하향.</td>
+        </tr>
+        <tr>
+          <td class="ticker">COST</td>
+          <td>$1,085.00</td>
+          <td class="up">+0.79%</td>
+          <td><strong>+0.35</strong></td>
+          <td><span class="badge badge-buy">매수</span></td>
+          <td style="text-align:left">방어주 매력 부각으로 +0.79% 상승, 장중 52주 신고가 $1,096.50 터치. 5일 평균(+0.33) 부합. 인플레이션 우려 환경에서 디스카운트 채널 강세 지속.</td>
+        </tr>
+        <tr>
+          <td class="ticker">NFLX</td>
+          <td>$89.65</td>
+          <td class="flat">0.00%</td>
+          <td><strong>+0.10</strong></td>
+          <td><span class="badge badge-neutral">중립</span></td>
+          <td style="text-align:left">보합 흐름으로 시장 대비 견조. 5일 평균(+0.24) 부근. 콘텐츠/구독 매크로 영향 제한적이나 금리 상승 멀티플 부담 잠재. 중립 유지.</td>
+        </tr>
+        <tr>
+          <td class="ticker">LRCX</td>
+          <td>$277.96</td>
+          <td class="flat">0.00%</td>
+          <td><strong>0.00</strong></td>
+          <td><span class="badge badge-neutral">중립</span></td>
+          <td style="text-align:left">보합 흐름. 5일 평균(+0.13) 부근. 변동성 σ 0.33 주의. 장비주 셀오프 가운데 비교적 견조했으나 추가 가시성 부족으로 중립.</td>
+        </tr>
+        <tr>
+          <td class="ticker">PLTR</td>
+          <td>$135.58</td>
+          <td class="up">+0.33%</td>
+          <td><strong>+0.20</strong></td>
+          <td><span class="badge badge-buy">매수</span></td>
+          <td style="text-align:left">+0.33% 시장 대비 상승. 5일 평균(+0.20) 부합. AI/방산 수요 견조, 상대강도 양호. F&amp;G 탐욕 영역이라 -0.05 미세 하향 후 매수 유지.</td>
+        </tr>
+        <tr>
+          <td class="ticker">AMAT</td>
+          <td>$400.48</td>
+          <td class="down">-3.16%</td>
+          <td><strong>-0.45</strong></td>
+          <td><span class="badge badge-caution">매도주의</span></td>
+          <td style="text-align:left">-3.16% 최대 낙폭. 5일 평균(+0.13) 대비 -0.58 큰 이탈, 이탈 근거: 장비주 차익실현 + 금리 상승 부담. 변동성 σ 0.41 매우 높아 단기 약세 강도 높음.</td>
+        </tr>
+        <tr>
+          <td class="ticker">TXN</td>
+          <td>$295.00</td>
+          <td class="down">-1.86%</td>
+          <td><strong>-0.20</strong></td>
+          <td><span class="badge badge-caution">매도주의</span></td>
+          <td style="text-align:left">-1.86% 하락. 5일 평균(+0.17) 대비 -0.37 이탈, 이탈 근거: 아날로그 반도체 사이클 우려 + 금리 부담. 섹터 약세 가중.</td>
+        </tr>
+        <tr>
+          <td class="ticker">ARM</td>
+          <td>$213.89</td>
+          <td class="down">-0.57%</td>
+          <td><strong>0.00</strong></td>
+          <td><span class="badge badge-neutral">중립</span></td>
+          <td style="text-align:left">-0.57% 소폭 하락. 5일 평균(+0.38) 대비 -0.38 이탈, 이탈 근거: 반도체 약세장 동조. 비교적 견조했으나 이탈 크기 고려해 보수적 중립.</td>
+        </tr>
+        <tr>
+          <td class="ticker">KLAC</td>
+          <td>$1,721.32</td>
+          <td class="down">-2.00%</td>
+          <td><strong>-0.30</strong></td>
+          <td><span class="badge badge-caution">매도주의</span></td>
+          <td style="text-align:left">-2.00% 하락. 5일 평균(+0.22) 대비 -0.52 큰 이탈, 이탈 근거: 검사장비 섹터 셀오프. 변동성 σ 0.37 주의. 추가 조정 가능성으로 매도주의.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- 주목 종목 요약 -->
+  <div class="section">
+    <h2>⭐ 주목 종목 요약</h2>
+    <div class="highlight-grid">
+      <div class="highlight-card">
+        <div class="hl-label">강세 주목 (매수 의견)</div>
+        <div class="hl-value up">INTC +2.99% · COST +0.79%<br>PLTR +0.33% · META -0.08%<br>NVDA (실적 D-1)</div>
+      </div>
+      <div class="highlight-card">
+        <div class="hl-label">약세 주의 (매도주의)</div>
+        <div class="hl-value down">AMAT -3.16% · MU -2.50%<br>AVGO -2.31% · AMZN -2.12%<br>TSLA -2.07% · KLAC -2.00%<br>TXN -1.86% · AMD -1.59% · MSFT -1.19%</div>
+      </div>
+      <div class="highlight-card">
+        <div class="hl-label">NVDA 실적 발표 (5월 20일 마감 후)</div>
+        <div class="hl-value flat">매출 ~$78B · EPS $1.77 컨센서스<br>오늘 -0.77% 관망 마감 · D-1</div>
+      </div>
+      <div class="highlight-card">
+        <div class="hl-label">핵심 리스크 변수</div>
+        <div class="hl-value down">30Y 국채금리 20년 최고권<br>인플레이션 재가속 우려 + 차익실현</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 종합 전망 -->
+  <div class="section">
+    <h2>🧭 종합 전망</h2>
+    <p style="font-size:0.88rem; color:#e2e8f0; line-height:1.9;">
+      2026-05-19(화) 미국 시장은 <strong>3대 지수 동반 하락</strong>으로 마감했습니다. 나스닥 -0.84%, S&amp;P 500 -0.67%(3거래일 연속 하락), 다우 -0.65%. <strong>30년물 국채금리가 약 20년 만의 최고치</strong>까지 상승하며 성장주·고멀티플주를 압박했고, 인플레이션 재가속 우려가 Fed 금리 인하 기대를 후퇴시켰습니다.
+      <br><br>
+      특히 <strong>반도체 장비(AMAT -3.16%, KLAC -2.00%)</strong>, <strong>메모리(MU -2.50%)</strong>, <strong>빅테크 일부(AMZN -2.12%, AVGO -2.31%, MSFT -1.19%)</strong>가 약세를 주도했고, TSLA -2.07%로 3거래일 연속 하락이 심화됐습니다. 반면 <strong>INTC +2.99%</strong>가 시장 약세 속에서도 강한 상대강도를 보였고, <strong>COST +0.79%</strong>는 52주 신고가 ($1,096.50) 터치 후 방어주 자금 유입을 이어갔습니다. PLTR(+0.33%)도 AI·방산 수요로 양호.
+      <br><br>
+      트럼프 대통령의 <strong>이란 군사행동 취소</strong> 발표로 WTI -1.4%, 브렌트 -1.8% 하락하며 에너지 부담은 일부 완화됐으나, 시장의 관심은 <strong>5/20 NVDA Q1 FY27 실적 발표(매출 ~$78B, EPS $1.77 컨센)</strong>로 옮겨가고 있습니다. F&amp;G 61(탐욕)로 미세 보수 보정을 적용했으며, 단기 핵심 변수는 ① NVDA 실적 가이던스 ② 30년물 국채금리 추가 상승 여부 ③ 인플레이션 데이터 재확인입니다.
+    </p>
+  </div>
+
+  <div class="footer">
+    ※ 본 브리핑은 <strong>2026-05-19 (화) 미국장 종가 기준</strong>으로 자동 생성되었습니다.<br>
+    가격: NASDAQ/SP500/DOW/NVDA/INTC는 finance.yahoo.com fin-streamer (yfinance 동등 데이터), 그 외 종목은 보조 시장 데이터 소스 기반.<br>
+    투자 참고용이며, 실제 투자 결정의 책임은 본인에게 있습니다. | 생성: 2026-05-20 KST
+  </div>
+
+</div>
+</body>
+</html>
