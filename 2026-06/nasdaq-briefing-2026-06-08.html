@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>나스닥 일간 브리핑 — 2026-06-05 (금) 미국장 종가 기준</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --surface: #161b22;
+      --border: #30363d;
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --green: #3fb950;
+      --red: #f85149;
+      --yellow: #d29922;
+      --blue: #58a6ff;
+      --purple: #bc8cff;
+      --accent: #1f6feb;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: var(--bg); color: var(--text); font-family: 'Segoe UI', -apple-system, sans-serif; font-size: 14px; line-height: 1.6; }
+    .container { max-width: 960px; margin: 0 auto; padding: 24px 16px; }
+
+    /* Header */
+    .header { text-align: center; padding: 32px 0 24px; border-bottom: 1px solid var(--border); margin-bottom: 24px; }
+    .header .badge { display: inline-block; background: var(--accent); color: #fff; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.5px; margin-bottom: 10px; }
+    .header h1 { font-size: 24px; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+    .header .subtitle { color: var(--muted); font-size: 13px; }
+    .header .date-badge { display: inline-block; background: #21262d; border: 1px solid var(--border); border-radius: 8px; padding: 6px 16px; margin-top: 12px; font-size: 13px; color: var(--blue); font-weight: 600; }
+
+    /* Alert banner */
+    .alert { background: #2d1b1b; border: 1px solid #6e2a2a; border-radius: 10px; padding: 14px 18px; margin-bottom: 20px; display: flex; align-items: flex-start; gap: 10px; }
+    .alert .icon { font-size: 20px; flex-shrink: 0; }
+    .alert-text strong { color: #f85149; }
+
+    /* Section */
+    .section { margin-bottom: 28px; }
+    .section-title { font-size: 15px; font-weight: 700; color: var(--text); border-left: 3px solid var(--blue); padding-left: 10px; margin-bottom: 14px; }
+
+    /* Index cards */
+    .index-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px; }
+    .index-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 16px; text-align: center; }
+    .index-name { font-size: 12px; color: var(--muted); margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .index-price { font-size: 20px; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .index-price.up { color: var(--green); }
+    .index-price.down { color: var(--text); }
+    .index-change { font-size: 13px; font-weight: 600; }
+    .index-change.up { color: var(--green); }
+    .index-change.down { color: var(--red); }
+    .index-change.flat { color: var(--muted); }
+    .up { color: var(--green); }
+    .down { color: var(--red); }
+    .flat { color: var(--muted); }
+
+    /* News */
+    .news-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .news-item { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; }
+    .news-item .news-tag { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+    .tag-macro { background: #1c2d4a; color: var(--blue); }
+    .tag-semis { background: #2a1f3d; color: var(--purple); }
+    .tag-fed { background: #2d2419; color: var(--yellow); }
+    .tag-tech { background: #1a2c1a; color: var(--green); }
+    .news-item .news-title { font-weight: 600; font-size: 13px; margin-bottom: 4px; }
+    .news-item .news-desc { font-size: 12px; color: var(--muted); }
+
+    /* Stock table */
+    .stock-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .stock-table th { text-align: left; padding: 8px 10px; color: var(--muted); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; border-bottom: 1px solid var(--border); }
+    .stock-table td { padding: 10px 10px; border-bottom: 1px solid #21262d; vertical-align: middle; }
+    .stock-table tr:last-child td { border-bottom: none; }
+    .stock-table tr:hover td { background: #1c2128; }
+    .ticker { font-weight: 700; font-size: 14px; color: var(--blue); display: block; }
+    .sector-badge { font-size: 10px; background: #21262d; color: var(--muted); padding: 2px 6px; border-radius: 4px; display: block; margin-top: 2px; }
+    .score-bar-wrap { display: flex; align-items: center; gap: 8px; }
+    .score-bar { flex: 1; height: 6px; border-radius: 3px; background: #21262d; position: relative; }
+    .score-fill { height: 100%; border-radius: 3px; }
+    .score-val { font-size: 12px; font-weight: 700; width: 36px; text-align: right; }
+    .opinion-badge { font-size: 11px; font-weight: 700; padding: 3px 8px; border-radius: 20px; white-space: nowrap; }
+    .op-강력매수 { background: #0d2c1a; color: #3fb950; border: 1px solid #238636; }
+    .op-매수 { background: #0d2215; color: #56d364; border: 1px solid #2ea043; }
+    .op-중립 { background: #21262d; color: var(--muted); border: 1px solid var(--border); }
+    .op-매도주의 { background: #2d1b1b; color: #ff7b72; border: 1px solid #6e2a2a; }
+    .op-강력매도 { background: #3d0909; color: #f85149; border: 1px solid #8b2222; }
+    .reason-cell { font-size: 11px; color: var(--muted); max-width: 280px; }
+
+    /* Highlight box */
+    .highlight-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .highlight-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; }
+    .highlight-card .hc-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--muted); margin-bottom: 10px; }
+    .highlight-card ul { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+    .highlight-card li { font-size: 12px; display: flex; justify-content: space-between; align-items: center; }
+
+    /* Disclaimer */
+    .disclaimer { background: var(--surface); border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; font-size: 11px; color: var(--muted); text-align: center; margin-top: 28px; }
+
+    @media (max-width: 640px) {
+      .index-grid { grid-template-columns: 1fr; }
+      .highlight-grid { grid-template-columns: 1fr; }
+      .reason-cell { display: none; }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="badge">📊 나스닥 일간 브리핑</div>
+    <h1>반도체 대폭락 — 나스닥 -4.18%</h1>
+    <p class="subtitle">Broadcom 실적 쇼크 + 강한 고용지표 → 금리인하 기대 후퇴</p>
+    <div class="date-badge">📅 2026-06-05 (금) 미국장 종가 기준</div>
+  </div>
+
+  <!-- Alert -->
+  <div class="alert">
+    <div class="icon">🚨</div>
+    <div class="alert-text">
+      <strong>반도체 섹터 전방위 급락</strong>: Broadcom AI 칩 매출 가이던스 미달 + 5월 고용 172,000명(예상치 2배) 발표로 나스닥이 2025년 4월 이후 최대 낙폭 기록. SOX(필라델피아 반도체 지수) 포함 시총 1조 달러 이상 증발.
+    </div>
+  </div>
+
+  <!-- Index Summary -->
+  <div class="section">
+    <div class="section-title">주요 지수 (2026-06-05 종가)</div>
+    <div class="index-grid">
+      <div class="index-card">
+        <div class="index-name">NASDAQ Composite</div>
+        <div class="index-price down">25,709.43</div>
+        <div class="index-change down">▼ -4.18%</div>
+      </div>
+      <div class="index-card">
+        <div class="index-name">S&amp;P 500</div>
+        <div class="index-price down">7,383.74</div>
+        <div class="index-change down">▼ -2.64%</div>
+      </div>
+      <div class="index-card">
+        <div class="index-name">다우존스</div>
+        <div class="index-price down">50,866.78</div>
+        <div class="index-change down">▼ -1.35%</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- News -->
+  <div class="section">
+    <div class="section-title">📰 주요 뉴스</div>
+    <ul class="news-list">
+      <li class="news-item">
+        <span class="news-tag tag-semis">반도체</span>
+        <div class="news-title">Broadcom, AI 칩 매출 가이던스 쇼크 — AVGO -7.9%</div>
+        <div class="news-desc">Broadcom Q3 AI 네트워킹 매출 41억 달러 실현 (예상 48억 달러, 14% 미달). 연간 AI 반도체 가이던스 미상향으로 섹터 전체 신뢰 훼손. AVGO 시총 약 800억 달러 감소.</div>
+      </li>
+      <li class="news-item">
+        <span class="news-tag tag-fed">Fed / 거시경제</span>
+        <div class="news-title">5월 고용 172,000명 — 예상치의 2배, 금리인하 기대 급후퇴</div>
+        <div class="news-desc">노동부 발표 5월 비농업 고용 172k (예상 ~86k). 강한 노동시장이 인플레 우려 부활 → 시장, Fed 2026년 추가 금리인상 가능성 재가격 책정. 국채금리 급등.</div>
+      </li>
+      <li class="news-item">
+        <span class="news-tag tag-semis">반도체</span>
+        <div class="news-title">MU -13.3% / ARM -12.8% / AMD -10.9% / INTC -11.3% — 반도체 대학살</div>
+        <div class="news-desc">Broadcom 충격이 메모리(MU)·설계(ARM/AMD)·레거시(INTC)·장비(LRCX, AMAT, KLAC) 전방위로 확산. IDC, 2026년 글로벌 스마트폰 출하량 -13% 사상 최대 감소 예고도 악재.</div>
+      </li>
+      <li class="news-item">
+        <span class="news-tag tag-tech">기술 / 장기 촉매</span>
+        <div class="news-title">NVIDIA, AI PC 칩으로 Windows 노트북 시장 진출 선언</div>
+        <div class="news-desc">Jensen Huang, NVIDIA의 Windows PC용 AI 칩 출시 계획 발표. ARM 기반 설계로 Intel·AMD PC 영역에 도전. 장기 구조적 긍정 요인이나 단기 주가는 섹터 매도세에 동반 하락.</div>
+      </li>
+      <li class="news-item">
+        <span class="news-tag tag-tech">방어 섹터</span>
+        <div class="news-title">NFLX +0.76% · COST 보합 — 유일한 방어선</div>
+        <div class="news-desc">Netflix는 광고 기반 구독 성장 스토리로 기술 섹터 폭락 속 유일한 상승 마감. Costco는 경기 방어적 성격으로 낙폭 최소화(-0.05%).</div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Stock Analysis Table -->
+  <div class="section">
+    <div class="section-title">📋 Top 20 종목 분석 (2026-06-05 종가 기준)</div>
+    <div style="overflow-x:auto;">
+    <table class="stock-table">
+      <thead>
+        <tr>
+          <th>종목</th>
+          <th>종가</th>
+          <th>등락</th>
+          <th>스코어</th>
+          <th>의견</th>
+          <th>근거</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- NVDA -->
+        <tr>
+          <td><div class="ticker">NVDA</div><span class="sector-badge">반도체</span></td>
+          <td>$205.10</td>
+          <td class="down">-6.20%</td>
+          <td>
+            <div class="score-bar-wrap">
+              <div class="score-bar"><div class="score-fill" style="width:32%;background:#f85149;margin-left:50%;transform:translateX(-100%);"></div></div>
+              <span class="score-val down">-0.35</span>
+            </div>
+          </td>
+          <td><span class="opinion-badge op-매도주의">매도주의</span></td>
+          <td class="reason-cell">Broadcom 쇼크 동반 하락. AI PC 칩 진출(장기 긍정)이나 섹터 매도 압력 우선. 단기 과매도 구간 고려해 보정 적용.</td>
+        </tr>
+        <!-- AAPL -->
+        <tr>
+          <td><div class="ticker">AAPL</div><span class="sector-badge">소비자가전</span></td>
+          <td>$307.34</td>
+          <td class="down">-1.25%</td>
+          <td>
+            <div class="score-bar-wrap">
+              <div class="score-bar"><div class="score-fill" style="width:13%;background:#f85149;margin-left:50%;transform:translateX(-100%);"></div></div>
+              <span class="score-val down">-0.15</span>
+            </div>
+          </td>
+          <td><span class="opinion-badge op-중립">중립</span></td>
+          <td class="reason-cell">반도체 섹터 대비 낙폭 제한적. AI 기능 탑재 iPhone 사이클 기대 유효. 강한 고용=소비 내구성도 긍정. 단기 관망.</td>
+        </tr>
+        <!-- GOOGL -->
+        <tr>
+          <td><div class="ticker">GOOGL</div><span class="sector-badge">인터넷서비스</span></td>
+          <td>$368.53</td>
+          <td class="down">-0.98%</td>
+          <td>
+            <div class="score-bar-wrap">
+              <div class="score-bar"><div class="score-fill" style="width:10%;background:#f85149;margin-left:50%;transform:translateX(-100%);"></div></div>
+              <span class="score-val down">-0.10</span>
+            </div>
+          </td>
+          <td><span class="opinion-badge op-중립">중립</span></td>
+          <td class="reason-cell">메가캡 중 가장 견조한 방어. 광고 모멘텀·Gemini AI 유효. 금리인상 우려 일부 반영했으나 하드웨어 노출 낮아 상대적 매력.</td>
+        </tr>
+        <!-- MSFT -->
+        <tr>
+          <td><div class="ticker">MSFT</div><span class="sector-badge">소프트웨어</span></td>
+          <td>$416.67</td>
+          <td class="down">-2.66%</td>
+          <td>
+            <div class="score-bar-wrap">
+              <div class="score-bar"><div class="score-fill" style="width:20%;background:#f85149;margin-left:50%;transform:translateX(-100%);"></div></div>
+              <span class="score-val down">-0.20</span>
+            </div>
+          </td>
+          <td><span class="opinion-badge op-중립">중립</span></td>
+          <td class="reason-cell">Azure AI 성장 스토리 건재하나 금리 상승 우려가 밸류에이션 압박. NVDA AI PC 협력 등 장기 긍정 요인 병존.</td>
+        </tr>
+        <!-- AMZN -->
+        <tr>
+          <td><div class="ticker">AMZN</div><span class="sector-badge">인터넷리테일</span></td>
+          <td>$246.03</td>
+          <td class="down">-3.06%</td>
+          <td>
+            <div class="score-bar-wrap">
+              <div class="score-bar"><div class="score-fill" style="width:25%;background:#f85149;margin-left:50%;transform:translateX(-100%);"></div></div>
+              <span class="score-val down">-0.25</span>
+            </div>
+          </td>
+          <td><span class="opinion-badge op-중립">중립</span></td>
+          <td class="reason-cell">AWS 클라우드·광고 성장 지속. 금리 부담이나 소비 내구성(고용 호조)은 리테일 긍정. 중립 유지.</td>
+        </tr>
+        <!-- AVGO -->
+        <tr>
+          <td><div class="ticker">AVGO</div><span class="sector-badge">반도체</span></td>
+          <td>$385.73</td>
+          <td class="down">-7.92%</td>
+          <td>
+            <div class="score-bar-wrap">
+              <div class="score-bar"><div class="score-fill" style="width:62%;background:#f85149;margin-left:50%;transform:translateX(-100%);"></div></div>
+              <span class="score-val down">-0.65</span>
+            </div>
+          </td>
+          <td><span class="opinion-badge op-매도주의">매도주의</span></td>
+          <td class="reason-cell">금일 하락 발단 종목. AI 네트워킹 매출 14% 미달·연간 가이던스 미상향. 투자심리 단기 훼손 심각. 추가 하방 압력 경계.</td>
+        </tr>
+        <!-- META -->
+        <tr>
+          <td><div class="ticker">META</div><span class="sector-badge">인터넷서비스</span></td>
+          <td>$593.00</td>
+          <td class="down">-5.51%</td>
+          <td>
+            <div class="score-bar-wrap">
+              <div class="score-bar"><div class="score-fill" style="width:30%;background:#f85149;margin-left:50%;transform:translateX(-100%);"></div></div>
+              <span class="score-val down">-0.30</span>
+            </div>
+          </td>
+          <td><span class="opinion-badge op-중립">중립</span></td>
+          <td class="reason-cell">광고 플랫폼 펀더멘털 견고하나 AI 인프라 투자 규모(반도체 노출) 우려로 낙폭 확대. 기술주 전반 리스크오프 동반.</td>
+        </tr>
+        <!-- TSLA -->
+        <tr>
+          <td><div class="ticker">TSLA</div><span class="sector-badge">전기차</span></td>
+          <td>$391.00</td>
+          <td class="down">-6.56%</td>
+          <td>
+            <div class="score-bar-wrap">
+              <div class="score-bar"><div class="score-fill" style="width:35%;background:#f85149;margin-left:50%;transform:translateX(-100%);"></div></div>
+              <span class="score-val down">-0.35</span>
+            </div>
+          </td>
+          <td><span class="opinion-badge op-매도주의">매도주의</span></td>
+          <td class="reason-cell">금리 상승 우려가 고성장 가치주 직격. 로보틱스·FSD 장기 스토리 유효하나 단기 매크로 부담 지배. 관망 권고.</td>
+        </tr>
+        <!-- MU -->
+        <tr>
+          <td><div class="ticker">MU</div><span class="sector-badge">반도체(메모리)</span></td>
+          <td>$864.01</td>
+          <td class="down">-13.25%</td>
+          <td>
+            <div class="score-bar-wrap">
+              <div class="score-bar"><div class="score-fill" style="width:70%;background:#f85149;margin-left:50%;transform:translateX(-100%);"></div></div>
+              <span class="score-val down">-0.70</span>
+            </div>
+          </td>
+          <td><span class="opinion-badge op-강력매도">강력매도</span></td>
+          <td class="reason-cell">금일 최대 낙폭. Broadcom AI 수요 우려 + IDC 스마트폰 출하 -13% 예보 이중 악재. 메모리 사이클 하강 우려 재점화. 단기 추가 하락 위험.</td>
+        </tr>
+        <!-- AMD -->
+        <tr>
+          <td><div class="ticker">AMD</div><span class="sector-badge">반도체</span></td>
+          <td>$466.38</td>
+          <td class="down">-10.86%</td>
+          <td>
+            <div class="score-bar-wrap">
+              <div class="score-bar"><div class="score-fill" style="width:60%;background:#f85149;margin-left:50%;transform:translateX(-100%);"></div></div>
+              <span class="score-val down">-0.60</span>
+            </div>
+          </td>
+          <td><span class="opinion-badge op-매도주의">매도주의</span></td>
+          <td class="reason-cell">AI GPU 시장 NVDA 경쟁 심화 + 섹터 동반 급락. MI300 수요 둔화 우려가 Broadcom 쇼크와 맞물려 낙폭 확대. 단기 하방 리스크 우세.</td>
+        </tr>
+        <!-- ASML -->
+        <tr>
+          <td><div class="ticker">ASML</div><span class="sector-badge">반도체장비</span></td>
+          <td>$1,641.74</td>
+          <td class="down">-6.59%</td>
+          <td>
+            <div class="score-bar-wrap">
+              <div class="score-bar"><div class="score-fill" style="width:40%;background:#f85149;margin-left:50%;transform:translateX(-100%);"></div></div>
+              <span class="score-val down">-0.40</span>
+            </div>
+          </td>
+          <td><span class="opinion-badge op-매도주의">매도주의</span></td>
+          <td class="reason-cell">EUV 독점 장기 모아트 건재하나 반도체 설비 투자 둔화 우려 반영. 달러 강세·유럽 리스크 추가 압박. 단기 매도주의.</td>
+        </tr>
+        <!-- INTC -->
+        <tr>
+          <td><div class="ticker">INTC</div><span class="sector-badge">반도체</span></td>
+          <td>$99.17</td>
+          <td class="down">-11.28%</td>
+          <td>
+            <div class="score-bar-wrap">
+              <div class="score-bar"><div class="score-fill" style="width:55%;background:#f85149;margin-left:50%;transform:translateX(-100%);"></div></div>
+              <span class="score-val down">-0.55</span>
+            </div>
+          </td>
+          <td><span class="opinion-badge op-매도주의">매도주의</span></td>
+          <td class="reason-cell">NVDA PC 칩 진출 선언으로 레거시 PC 시장 점유 위협 직격. 파운드리 사업 턴어라운드 지연 우려. 섹터 최고 낙폭권.</td>
+        </tr>
+        <!-- COST -->
+        <tr>
+          <td><div class="ticker">COST</div><span class="sector-badge">유통(방어)</span></td>
+          <td>$971.87</td>
+          <td class="flat">-0.05%</td>
+          <td>
+            <div class="score-bar-wrap">
+              <div class="score-bar"><div class="score-fill" style="width:30%;background:#3fb950;margin-left:50%;"></div></div>
+              <span class="score-val up">+0.30</span>
+            </div>
+          </td>
+          <td><span class="opinion-badge op-매수">매수</span></td>
+          <td class="reason-cell">반도체 폭락 속 사실상 보합. 경기 방어 소비재 특성 발휘. 강한 고용=소비력 유지 긍정. 리스크오프 환경 최선호 방어주.</td>
+        </tr>
+        <!-- LRCX -->
+        <tr>
+          <td><div class="ticker">LRCX</div><span class="sector-badge">반도체장비</span></td>
+          <td>$303.28</td>
+          <td class="down">-9.85%</td>
+          <td>
+            <div class="score-bar-wrap">
+              <div class="score-bar"><div class="score-fill" style="width:50%;background:#f85149;margin-left:50%;transform:translateX(-100%);"></div></div>
+              <span class="score-val down">-0.50</span>
+            </div>
+          </td>
+          <td><span class="opinion-badge op-매도주의">매도주의</span></td>
+          <td class="reason-cell">Broadcom AI 투자 둔화 시사→반도체 장비 수요 전망 하향. 식각 장비 특화로 메모리 사이클에 직접 노출. 단기 하방 위험.</td>
+        </tr>
+        <!-- ARM -->
+        <tr>
+          <td><div class="ticker">ARM</div><span class="sector-badge">반도체설계</span></td>
+          <td>$342.93</td>
+          <td class="down">-12.84%</td>
+          <td>
+            <div class="score-bar-wrap">
+              <div class="score-bar"><div class="score-fill" style="width:55%;background:#f85149;margin-left:50%;transform:translateX(-100%);"></div></div>
+              <span class="score-val down">-0.55</span>
+            </div>
+          </td>
+          <td><span class="opinion-badge op-매도주의">매도주의</span></td>
+          <td class="reason-cell">NVDA AI PC 선언 장기 긍정에도 섹터 패닉셀링에 동반 급락(-12.8%). 스마트폰 출하 감소가 라이선스 매출 위협. 고밸류 부담 지속.</td>
+        </tr>
+        <!-- AMAT -->
+        <tr>
+          <td><div class="ticker">AMAT</div><span class="sector-badge">반도체장비</span></td>
+          <td>$453.01</td>
+          <td class="down">-9.71%</td>
+          <td>
+            <div class="score-bar-wrap">
+              <div class="score-bar"><div class="score-fill" style="width:50%;background:#f85149;margin-left:50%;transform:translateX(-100%);"></div></div>
+              <span class="score-val down">-0.50</span>
+            </div>
+          </td>
+          <td><span class="opinion-badge op-매도주의">매도주의</span></td>
+          <td class="reason-cell">반도체 장비 섹터 동반 급락. AI 설비투자 둔화 우려가 증착·식각 장비 수주 전망 훼손. 단기 매도주의.</td>
+        </tr>
+        <!-- NFLX -->
+        <tr>
+          <td><div class="ticker">NFLX</div><span class="sector-badge">엔터테인먼트</span></td>
+          <td>$82.18</td>
+          <td class="up">+0.76%</td>
+          <td>
+            <div class="score-bar-wrap">
+              <div class="score-bar"><div class="score-fill" style="width:35%;background:#3fb950;margin-left:50%;"></div></div>
+              <span class="score-val up">+0.35</span>
+            </div>
+          </td>
+          <td><span class="opinion-badge op-매수">매수</span></td>
+          <td class="reason-cell">금일 유일한 상승 마감. 광고 기반 구독 성장 지속. 반도체 노출 無. 리스크오프 환경에서 방어 미디어 매력 부각. 단기 모멘텀 우위.</td>
+        </tr>
+        <!-- PLTR -->
+        <tr>
+          <td><div class="ticker">PLTR</div><span class="sector-badge">소프트웨어</span></td>
+          <td>$135.53</td>
+          <td class="down">-4.35%</td>
+          <td>
+            <div class="score-bar-wrap">
+              <div class="score-bar"><div class="score-fill" style="width:30%;background:#f85149;margin-left:50%;transform:translateX(-100%);"></div></div>
+              <span class="score-val down">-0.30</span>
+            </div>
+          </td>
+          <td><span class="opinion-badge op-중립">중립</span></td>
+          <td class="reason-cell">AI 분석 소프트웨어 정부·기업 수요 지속. 반도체 직접 노출 없으나 AI 버블 우려에 동반 조정. 고밸류 부담 상존.</td>
+        </tr>
+        <!-- KLAC -->
+        <tr>
+          <td><div class="ticker">KLAC</div><span class="sector-badge">반도체장비</span></td>
+          <td>$1,929.20</td>
+          <td class="down">-9.47%</td>
+          <td>
+            <div class="score-bar-wrap">
+              <div class="score-bar"><div class="score-fill" style="width:50%;background:#f85149;margin-left:50%;transform:translateX(-100%);"></div></div>
+              <span class="score-val down">-0.50</span>
+            </div>
+          </td>
+          <td><span class="opinion-badge op-매도주의">매도주의</span></td>
+          <td class="reason-cell">공정 제어 장비 선두이나 반도체 설비투자 둔화 우려 직격. AI 웨이퍼 검사 수요 불확실성 증가.</td>
+        </tr>
+        <!-- TXN -->
+        <tr>
+          <td><div class="ticker">TXN</div><span class="sector-badge">아날로그반도체</span></td>
+          <td>$285.06</td>
+          <td class="down">-6.65%</td>
+          <td>
+            <div class="score-bar-wrap">
+              <div class="score-bar"><div class="score-fill" style="width:40%;background:#f85149;margin-left:50%;transform:translateX(-100%);"></div></div>
+              <span class="score-val down">-0.40</span>
+            </div>
+          </td>
+          <td><span class="opinion-badge op-매도주의">매도주의</span></td>
+          <td class="reason-cell">아날로그 반도체는 산업용 수요 중심. 금리 상승 시 산업 설비투자 둔화 우려 + 스마트폰 감소 → 이중 부담. 단기 관망.</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <!-- Highlight: Best / Worst -->
+  <div class="section">
+    <div class="section-title">🔍 주목 종목</div>
+    <div class="highlight-grid">
+      <div class="highlight-card">
+        <div class="hc-title">⬆ 방어/상대 강세</div>
+        <ul>
+          <li><span><strong>NFLX</strong> — 유일 상승</span><span class="up">+0.76% / +0.35</span></li>
+          <li><span><strong>COST</strong> — 거의 보합</span><span class="flat">-0.05% / +0.30</span></li>
+          <li><span><strong>GOOGL</strong> — 낙폭 최소</span><span class="down">-0.98% / -0.10</span></li>
+          <li><span><strong>AAPL</strong> — 반도체 무관</span><span class="down">-1.25% / -0.15</span></li>
+        </ul>
+      </div>
+      <div class="highlight-card">
+        <div class="hc-title">⬇ 급락 / 위험</div>
+        <ul>
+          <li><span><strong>MU</strong> — 메모리 이중 악재</span><span class="down">-13.25% / -0.70</span></li>
+          <li><span><strong>ARM</strong> — 섹터 패닉</span><span class="down">-12.84% / -0.55</span></li>
+          <li><span><strong>AMD</strong> — AI GPU 우려</span><span class="down">-10.86% / -0.60</span></li>
+          <li><span><strong>AVGO</strong> — 쇼크 진원지</span><span class="down">-7.92% / -0.65</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Data Notes -->
+  <div class="section">
+    <div class="section-title">⚙ 데이터 주석</div>
+    <ul class="news-list">
+      <li class="news-item">
+        <div class="news-desc">
+          • 심리 지표(Fear &amp; Greed): CNN API 오류(HTTP 418) — 데이터 미수집<br>
+          • Google Trends: pytrends 미설치 — 데이터 미수집<br>
+          • 이력 컨텍스트(accuracy_tracker / get_historical_context): SQLite DB 손상(database disk image is malformed) — 스코어 보정 미적용<br>
+          • 모든 가격은 fetch_prices.py (yfinance) 2026-06-05 종가 기준
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="disclaimer">
+    본 브리핑은 투자 권유가 아닙니다. 모든 투자 결정은 본인의 판단과 책임 하에 이루어져야 합니다.<br>
+    가격 데이터 출처: yfinance (2026-06-05 종가 기준) | 생성: 2026-06-08 KST
+  </div>
+
+</div>
+</body>
+</html>
