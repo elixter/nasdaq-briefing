@@ -28,7 +28,6 @@ header .meta{color:var(--muted);font-size:12px;margin-top:6px;}
 .tag-fed{background:rgba(188,140,255,.15);color:var(--purple);}
 .tag-earnings{background:rgba(63,185,80,.15);color:var(--green);}
 .tag-geo{background:rgba(210,153,34,.15);color:var(--yellow);}
-.tag-sector{background:rgba(248,81,73,.15);color:var(--red);}
 .news-title{font-size:14px;font-weight:600;margin-bottom:4px;}
 .news-body{font-size:13px;color:var(--muted);}
 .stock-table{width:100%;border-collapse:collapse;}
@@ -58,58 +57,56 @@ footer{margin-top:32px;padding-top:16px;border-top:1px solid var(--border);color
 </header>
 
 <div class="section">
-  <div class="section-title">📈 주요 지수 (2026-06-11 (목) 종가 기준)</div>
+  <div class="section-title">📈 주요 지수 (2026-06-11 (목) 종가 · ETF 프록시)</div>
   <div class="index-grid">
     <div class="index-card">
       <div class="index-name">NASDAQ Composite</div>
-      <div class="index-price up">25,809.66</div>
-      <div class="index-change up">▲ 640.17pt (+2.54%)</div>
+      <div class="index-price up">717.12</div>
+      <div class="index-change up">▲ 23.43pt (+3.38%)</div>
+      <div style="font-size:10px;color:var(--muted);margin-top:4px">QQQ 프록시</div>
     </div>
     <div class="index-card">
       <div class="index-name">S&amp;P 500</div>
-      <div class="index-price up">7,394.30</div>
-      <div class="index-change up">▲ 127.31pt (+1.75%)</div>
+      <div class="index-price up">737.76</div>
+      <div class="index-change up">▲ 12.33pt (+1.70%)</div>
+      <div style="font-size:10px;color:var(--muted);margin-top:4px">SPY 프록시</div>
     </div>
     <div class="index-card">
       <div class="index-name">다우존스</div>
-      <div class="index-price up">50,848.75</div>
-      <div class="index-change up">▲ 929.97pt (+1.86%)</div>
+      <div class="index-price up">509.36</div>
+      <div class="index-change up">▲ 9.11pt (+1.82%)</div>
+      <div style="font-size:10px;color:var(--muted);margin-top:4px">DIA 프록시</div>
     </div>
   </div>
-  <div style="font-size:11px;color:var(--muted);margin-top:12px">※ 모든 지수는 yfinance 2026-06-11 실제 종가입니다. 트럼프 대통령의 이란 핵합의 임박 발표 및 이란 공습 취소로 지정학 리스크가 급감하며 3대 지수가 동반 강세를 나타냈습니다. 반도체 장비·메모리 섹터가 +9~13% 폭등하며 지수 상승을 이끌었습니다.</div>
+  <div style="font-size:11px;color:var(--muted);margin-top:12px">※ 지수는 yfinance 엔드포인트 차단으로 stockanalysis.com 데이터(ETF 프록시: QQQ·SPY·DIA)를 사용했습니다. 변동률은 직전 거래일(2026-06-10) 대비입니다. 트럼프 대통령이 예정된 대(對)이란 타격을 취소하고 협상 진전을 시사하며 미·이란 긴장이 완화, 이틀간의 매도세를 끊고 3대 지수가 동반 급반등했습니다. 참고로 실제 지수 종가는 나스닥종합 25,809.66(+2.54%)·S&amp;P500 7,394.30(+1.75%)·다우 50,848.75(+1.86%) 수준이었습니다.</div>
 </div>
 
 <div class="section">
   <div class="section-title">📰 주요 이슈</div>
   <div class="news-item">
     <span class="news-tag tag-geo">지정학</span>
-    <div class="news-title">🕊️ 트럼프 "이란과 핵합의 문서 거의 완성… 서명 임박"</div>
-    <div class="news-body">트럼프 대통령이 Truth Social에 이란 공습 취소를 발표하고 "이란은 절대 핵무기를 가질 수 없을 것, 서명이 곧 있을 것"이라고 선언했습니다. 지정학 리스크 급감과 유가 하락이 전 시장에 위험선호(Risk-On) 심리를 촉발했으며, 러셀 2000 +3%, 다우 +930pt 등 전 지수가 급등했습니다.</div>
+    <div class="news-title">미·이란 긴장 완화 — 트럼프 "타격 취소·협상 진전", 이틀 매도세 종료</div>
+    <div class="news-body">트럼프 대통령이 당일 밤 예정됐던 대이란 군사 타격을 취소하고 협상이 진전되고 있다고 밝히면서 중동 리스크가 후퇴했습니다. 평화협상 기대가 되살아나며 위험선호가 빠르게 복귀, 직전 이틀간의 급락세를 마감하고 시장이 강하게 반등했습니다.</div>
   </div>
   <div class="news-item">
-    <span class="news-tag tag-sector">반도체</span>
-    <div class="news-title">📈 반도체 섹터 전방위 폭등 — SOX +4%+, 장비주 +9~13%</div>
-    <div class="news-body">LRCX +12.65%, MU +11.66%, AMAT +11.19%, ARM +11.32%, ASML +9.53%, INTC +9.27%, AMD +7.97% 등 반도체 전 섹터가 급등했습니다. 최근 5일간 -7%~-20% 낙폭에서 강한 기술적 반등이 나왔으며, 이란 합의 기대에 따른 관세·공급망 불확실성 완화와 AI칩 수요 재부각이 동반됐습니다.</div>
+    <span class="news-tag tag-macro">섹터</span>
+    <div class="news-title">반도체 V자 반등 — 메모리·장비주가 회복 주도</div>
+    <div class="news-body">전주 브로드컴발 셀오프로 급락했던 칩주가 일제히 반등했습니다. 마이크론(MU)이 +11.7%로 메모리 강세를 견인했고, KLAC +12.9%·LRCX +12.7%·AMAT +11.2%·ARM +11.3%·ASML +9.5%·AMD +8.0% 등 장비·AI 칩주가 두 자릿수 급등했습니다. 샌디스크도 약 +14% 급등하며 메모리 회복 기대를 키웠습니다.</div>
   </div>
   <div class="news-item">
-    <span class="news-tag tag-macro">개별</span>
-    <div class="news-title">⬆️ 인텔, BofA 더블 업그레이드 (언더퍼폼 → 매수)</div>
-    <div class="news-body">뱅크오브아메리카가 인텔을 두 단계 상향 조정(언더퍼폼→매수)했습니다. 구조적 턴어라운드 가능성 및 자본 조달 필요성을 제기하며 INTC가 +9.27% 급등했습니다. 최근 연속 부진에서 벗어나는 펀더멘털 촉매로 작용했습니다.</div>
+    <span class="news-tag tag-earnings">개별</span>
+    <div class="news-title">인텔(INTC) +9.3% — 애널리스트 투자의견 상향</div>
+    <div class="news-body">인텔이 애널리스트 투자의견 상향에 힘입어 +9.3% 급등했습니다. 칩 섹터 전반의 반등과 맞물려 이력상 최약세였던 종목이 강한 되돌림을 보였습니다.</div>
   </div>
   <div class="news-item">
-    <span class="news-tag tag-macro">개별</span>
-    <div class="news-title">🏭 어플라이드 머티리얼즈, 싱가포르 AI칩 제조 공장 확장 발표</div>
-    <div class="news-body">AMAT가 싱가포르 제조 시설을 AI칩 수요 대응 목적으로 확장한다고 발표했습니다. 전날 강세에 이어 당일도 +11.19% 추가 상승했으며, 섹터 동조 종목인 LRCX(상관 0.92), ASML(0.85)까지 동반 급등을 이끌었습니다.</div>
+    <span class="news-tag tag-macro">거시</span>
+    <div class="news-title">생산자물가(PPI) 예상 상회에도 위험선호 우세</div>
+    <div class="news-body">도매물가가 시장 예상보다 뜨겁게 나왔으나, 지정학 리스크 완화 모멘텀이 인플레 부담을 압도하며 투자심리를 끌어올렸습니다. 다만 인플레 재가속 우려와 매파 Fed 변수는 여전히 잠복해 있어 추세 전환 확인이 필요합니다.</div>
   </div>
   <div class="news-item">
-    <span class="news-tag tag-sector">주의</span>
-    <div class="news-title">⚠️ KLA 코퍼레이션 10-for-1 주식분할 효력 발생 (데이터 왜곡 주의)</div>
-    <div class="news-body">2026-06-11 종가 이후 KLA의 10-for-1 주식분할 효력이 발생합니다. 6월 12일(금) 개장부터 분할 조정 가격이 적용됩니다. yfinance 데이터상 KLAC의 +1029% 변동은 분할 전후 미조정 데이터 왜곡이며 실제 수익률이 아닙니다. 주의가 필요합니다.</div>
-  </div>
-  <div class="news-item">
-    <span class="news-tag tag-macro">개별</span>
-    <div class="news-title">🔻 마이크로소프트, 시장 랠리 역행 하락 (-1.77%)</div>
-    <div class="news-body">나스닥 전체 +2.54% 강세 속에서 MSFT만 -1.77%를 기록하며 뚜렷한 음의 다이버전스를 보였습니다. 5일 누적 -12.4% 하락세가 지속되는 가운데 개별 매도 압력 또는 차익실현이 작용한 것으로 추정됩니다.</div>
+    <span class="news-tag tag-earnings">개별</span>
+    <div class="news-title">스페이스X(SpaceX) 기록적 IPO 임박 — 555.6백만주·주당 $135</div>
+    <div class="news-body">스페이스X가 익일(6/12) 주당 $135에 555.6백만 주를 매각해 약 750억 달러를 조달하는 사상 최대 규모 IPO를 예고하며 시장 헤드라인을 장악했습니다. 신규 상장 기대가 위험자산 심리에 우호적으로 작용했습니다.</div>
   </div>
 </div>
 
@@ -124,165 +121,165 @@ footer{margin-top:32px;padding-top:16px;border-top:1px solid var(--border);color
         <td><div class="ticker">NVDA</div><div class="company">NVIDIA Corporation</div></td>
         <td>$204.87</td>
         <td class="up">▲ +2.22%</td>
-        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:45%;background:var(--green)"></div></div><span class="score-val up">+0.45</span></div></td>
+        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:25%;background:var(--green)"></div></div><span class="score-val up">+0.25</span></div></td>
         <td style="color:var(--green);font-weight:600">매수</td>
-        <td style="text-align:left;color:var(--muted);font-size:12px">섹터 랠리 수혜이나 동종 대비 상승폭 부진(+2.22%). 이란 합의 기대·AI 수요 지속. 고변동성(σ=0.39) 반영해 보수적 산출.</td>
+        <td style="text-align:left;color:var(--muted);font-size:12px">+2.22%로 칩 반등 동참(단 반도체 내 상대 후발). 미·이란 완화 랠리+칩 회복 수혜. 5일평균 +0.07 대비 소폭 상향이나 적중률 0%(3건)·표준편차 0.39 '변동성 주의'로 보수 산출.</td>
       </tr>
       <tr>
         <td><div class="ticker">GOOGL</div><div class="company">Alphabet Inc.</div></td>
         <td>$357.77</td>
         <td class="up">▲ +0.39%</td>
-        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:20%;background:var(--green)"></div></div><span class="score-val up">+0.20</span></div></td>
+        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:10%;background:var(--green)"></div></div><span class="score-val up">+0.10</span></div></td>
         <td style="color:var(--yellow);font-weight:600">중립</td>
-        <td style="text-align:left;color:var(--muted);font-size:12px">시장 랠리 대비 미미한 상승(+0.39%). 이력 평균(+0.02)에서 소폭 개선. 반도체 직접 노출 작아 랠리 수혜 제한.</td>
+        <td style="text-align:left;color:var(--muted);font-size:12px">+0.39%로 강세장 대비 부진한 상대 후발. 5일평균 +0.02에 부합한 소폭 양(+)의 중립.</td>
       </tr>
       <tr>
         <td><div class="ticker">AAPL</div><div class="company">Apple Inc.</div></td>
         <td>$295.63</td>
         <td class="up">▲ +1.39%</td>
-        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:20%;background:var(--green)"></div></div><span class="score-val up">+0.20</span></div></td>
-        <td style="color:var(--yellow);font-weight:600">중립</td>
-        <td style="text-align:left;color:var(--muted);font-size:12px">3일 연속 하락 후 첫 반등(+1.39%). 이력 평균(-0.15)에서 개선 신호. 모멘텀 전환 확인 필요 — 신중한 관망.</td>
+        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:15%;background:var(--green)"></div></div><span class="score-val up">+0.15</span></div></td>
+        <td style="color:var(--green);font-weight:600">매수</td>
+        <td style="text-align:left;color:var(--muted);font-size:12px">+1.39%로 3일 연속 하락 모멘텀을 끊고 반등. 5일평균 −0.15 대비 +0.30 이탈 → 연속 하락 반전+위험선호 회복이 이탈 근거. 반전 확인 전 보수적 매수.</td>
       </tr>
       <tr>
         <td><div class="ticker">MSFT</div><div class="company">Microsoft</div></td>
         <td>$390.34</td>
         <td class="down">▼ -1.77%</td>
-        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:30%;background:var(--red)"></div></div><span class="score-val down">-0.30</span></div></td>
+        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:20%;background:var(--red)"></div></div><span class="score-val down">-0.20</span></div></td>
         <td style="color:var(--red);font-weight:600">매도주의</td>
-        <td style="text-align:left;color:var(--muted);font-size:12px">강력 랠리일 나홀로 -1.77% 음의 다이버전스. 5일 가격변동 -12.4% 하락세 지속. 이력 평균(0.00) 대비 뚜렷한 부정적 이탈.</td>
+        <td style="text-align:left;color:var(--muted);font-size:12px">나스닥 +3.4% 강한 위험선호 랠리에서 홀로 −1.77% 하락한 명백한 상대약세. 5일 가격 −12.4%. 적중률 67%(3건). 5일평균 −0.00 대비 약세 매도주의.</td>
       </tr>
       <tr>
         <td><div class="ticker">AMZN</div><div class="company">Amazon.com</div></td>
-        <td>$241.51</td>
-        <td class="up">▲ +1.47%</td>
-        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:25%;background:var(--green)"></div></div><span class="score-val up">+0.25</span></div></td>
-        <td style="color:var(--yellow);font-weight:600">중립</td>
-        <td style="text-align:left;color:var(--muted);font-size:12px">시장 상승에 소폭 동참(+1.47%). 5일 가격변동 -6.5% 이후 점진적 회복 시도. 이력 평균(-0.16) 대비 미미한 개선.</td>
+        <td>$241.32</td>
+        <td class="up">▲ +1.40%</td>
+        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:15%;background:var(--green)"></div></div><span class="score-val up">+0.15</span></div></td>
+        <td style="color:var(--green);font-weight:600">매수</td>
+        <td style="text-align:left;color:var(--muted);font-size:12px">+1.40%로 시장 반등에 동행. 5일평균 −0.16 대비 +0.31 이탈 → 긴장 완화 위험선호 복귀·유가/소비 압력 완화가 이탈 근거. 매수.</td>
       </tr>
       <tr>
         <td><div class="ticker">AVGO</div><div class="company">Broadcom Inc.</div></td>
-        <td>$385.57</td>
-        <td class="up">▲ +3.62%</td>
-        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:40%;background:var(--green)"></div></div><span class="score-val up">+0.40</span></div></td>
+        <td>$385.31</td>
+        <td class="up">▲ +3.55%</td>
+        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:20%;background:var(--green)"></div></div><span class="score-val up">+0.20</span></div></td>
         <td style="color:var(--green);font-weight:600">매수</td>
-        <td style="text-align:left;color:var(--muted);font-size:12px">반도체 랠리 수혜 +3.62%. 5일 가격변동 -14.7% 이후 의미 있는 반등. 고변동성(σ=0.41) 주의로 보수 산출.</td>
-      </tr>
-      <tr>
-        <td><div class="ticker">TSLA</div><div class="company">Tesla, Inc.</div></td>
-        <td>$399.15</td>
-        <td class="up">▲ +4.60%</td>
-        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:40%;background:var(--green)"></div></div><span class="score-val up">+0.40</span></div></td>
-        <td style="color:var(--green);font-weight:600">매수</td>
-        <td style="text-align:left;color:var(--muted);font-size:12px">이란 긴장완화 위험선호 심리 +4.60%. 3일 연속 횡보 탈피. 이력 평균(-0.31) 대비 +0.71 이탈—지정학 촉매 근거. 적중률 50%(4건).</td>
+        <td style="text-align:left;color:var(--muted);font-size:12px">+3.55% 반등. 전주 셀오프 진앙이었으나 적중률 75%(4건) 신뢰 양호. 5일평균 −0.21 대비 +0.41 이탈 → 미·이란 완화·칩 회복이 이탈 근거, 단 표준편차 0.41 최고 변동성으로 보수 적용한 매수.</td>
       </tr>
       <tr>
         <td><div class="ticker">META</div><div class="company">Meta Platforms</div></td>
         <td>$568.43</td>
         <td class="down">▼ -0.45%</td>
-        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:20%;background:var(--red)"></div></div><span class="score-val down">-0.20</span></div></td>
-        <td style="color:var(--red);font-weight:600">매도주의</td>
-        <td style="text-align:left;color:var(--muted);font-size:12px">강세장에도 -0.45% 음의 다이버전스. 이력 평균(-0.23)과 일치한 약세 패턴 지속. 랠리 미참가는 부정적 신호.</td>
+        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:10%;background:var(--red)"></div></div><span class="score-val down">-0.10</span></div></td>
+        <td style="color:var(--yellow);font-weight:600">중립</td>
+        <td style="text-align:left;color:var(--muted);font-size:12px">강세장에서 −0.45% 하락한 상대 후발. 5일평균 −0.23에 부합. 펀더멘털 견조하나 당일 약세로 소폭 음(−)의 중립.</td>
+      </tr>
+      <tr>
+        <td><div class="ticker">TSLA</div><div class="company">Tesla, Inc.</div></td>
+        <td>$399.15</td>
+        <td class="up">▲ +4.60%</td>
+        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:20%;background:var(--green)"></div></div><span class="score-val up">+0.20</span></div></td>
+        <td style="color:var(--green);font-weight:600">매수</td>
+        <td style="text-align:left;color:var(--muted);font-size:12px">+4.60% 강세, 위험선호 베타 수혜. 5일평균 −0.31 대비 +0.51 이탈 → 광범위 위험선호 반등이 이탈 근거. 칩 직접 호재 아니고 연속 횡보 3일 모멘텀 감안해 매수로 절제.</td>
       </tr>
       <tr>
         <td><div class="ticker">MU</div><div class="company">Micron Technology</div></td>
         <td>$995.87</td>
         <td class="up">▲ +11.66%</td>
-        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:55%;background:var(--green)"></div></div><span class="score-val up">+0.55</span></div></td>
+        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:35%;background:var(--green)"></div></div><span class="score-val up">+0.35</span></div></td>
         <td style="color:var(--green);font-weight:600">매수</td>
-        <td style="text-align:left;color:var(--muted);font-size:12px">AI 메모리 수요 재부각+섹터 랠리 +11.66% 폭등. 5일 가격변동 -9.6% 이후 강한 반전. 고변동성(σ=0.39) 반영 0.70에서 하향 보수 산출. 적중률 75%(4건).</td>
+        <td style="text-align:left;color:var(--muted);font-size:12px">+11.66% 메모리 반등 주도(마이크론이 칩 회복 견인). 적중률 75%(4건) 신뢰 양호. 5일평균 −0.24 대비 +0.59 이탈 → 메모리 랠리 리더십이 이탈 근거. 1일 급등+표준편차 0.39 과매수 주의로 강력매수→매수 절제.</td>
       </tr>
       <tr>
         <td><div class="ticker">AMD</div><div class="company">Advanced Micro Devices</div></td>
         <td>$488.45</td>
         <td class="up">▲ +7.97%</td>
-        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:50%;background:var(--green)"></div></div><span class="score-val up">+0.50</span></div></td>
+        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:30%;background:var(--green)"></div></div><span class="score-val up">+0.30</span></div></td>
         <td style="color:var(--green);font-weight:600">매수</td>
-        <td style="text-align:left;color:var(--muted);font-size:12px">지정학 완화+반도체 반등 +7.97%. 이력 평균(-0.26) 대비 +0.76 이탈—섹터 전방위 랠리 근거. 변동성(σ=0.31) 주의. 적중률 75%(4건).</td>
+        <td style="text-align:left;color:var(--muted);font-size:12px">+7.97% 칩 회복. 적중률 75%(4건)·표준편차 0.31. 5일평균 −0.26 대비 +0.56 이탈 → 긴장 완화+칩 랠리가 이탈 근거. 변동성 감안 매수.</td>
       </tr>
       <tr>
         <td><div class="ticker">ASML</div><div class="company">ASML Holding</div></td>
         <td>$1,899.48</td>
         <td class="up">▲ +9.53%</td>
-        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:55%;background:var(--green)"></div></div><span class="score-val up">+0.55</span></div></td>
+        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:20%;background:var(--green)"></div></div><span class="score-val up">+0.20</span></div></td>
         <td style="color:var(--green);font-weight:600">매수</td>
-        <td style="text-align:left;color:var(--muted);font-size:12px">반도체 장비 섹터 전반 급등 동참 +9.53%. LRCX(상관 0.89)·AMAT(0.85) 동조 확인. 변동성(σ=0.33) 반영 보수 산출.</td>
+        <td style="text-align:left;color:var(--muted);font-size:12px">+9.53% 장비주 반등. EUV 독점 강점이나 적중률 25%(4건)·표준편차 0.33 '변동성 주의'로 5일평균 −0.04 대비 보수적 매수.</td>
       </tr>
       <tr>
         <td><div class="ticker">INTC</div><div class="company">Intel Corporation</div></td>
         <td>$116.96</td>
         <td class="up">▲ +9.27%</td>
-        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:55%;background:var(--green)"></div></div><span class="score-val up">+0.55</span></div></td>
+        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:25%;background:var(--green)"></div></div><span class="score-val up">+0.25</span></div></td>
         <td style="color:var(--green);font-weight:600">매수</td>
-        <td style="text-align:left;color:var(--muted);font-size:12px">BofA 더블 업그레이드(언더퍼폼→매수) 펀더멘털 촉매+섹터 랠리 +9.27%. 이력 평균(-0.41) 대비 +0.96 대폭 이탈—애널리스트 전환 신호가 이탈 근거. 적중률 75%(4건).</td>
+        <td style="text-align:left;color:var(--muted);font-size:12px">+9.27% 급등, 애널리스트 투자의견 상향(실질 호재)+칩 반등. 적중률 75%(4건). 5일평균 −0.41(이력상 최약세) 대비 +0.66 큰 폭 이탈 → 상향·칩 랠리가 이탈 근거. 구조적 약점 감안 매수로 절제.</td>
       </tr>
       <tr>
         <td><div class="ticker">LRCX</div><div class="company">Lam Research</div></td>
         <td>$362.52</td>
         <td class="up">▲ +12.65%</td>
-        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:55%;background:var(--green)"></div></div><span class="score-val up">+0.55</span></div></td>
+        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:20%;background:var(--green)"></div></div><span class="score-val up">+0.20</span></div></td>
         <td style="color:var(--green);font-weight:600">매수</td>
-        <td style="text-align:left;color:var(--muted);font-size:12px">Top20 당일 최고 상승(+12.65%, 데이터 이상 KLAC 제외). AMAT(상관 0.92) 싱가포르 확장 수혜 동조. 변동성(σ=0.30) 주의. 적중률 33%(3건).</td>
+        <td style="text-align:left;color:var(--muted);font-size:12px">+12.65% 장비주 급등. 5일평균 −0.15 대비 +0.35 이탈 → 칩 장비 랠리가 이탈 근거. 표준편차 0.30·적중률 33%(3건) 감안 보수적 매수.</td>
       </tr>
       <tr>
         <td><div class="ticker">AMAT</div><div class="company">Applied Materials</div></td>
         <td>$552.64</td>
         <td class="up">▲ +11.19%</td>
-        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:55%;background:var(--green)"></div></div><span class="score-val up">+0.55</span></div></td>
+        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:15%;background:var(--green)"></div></div><span class="score-val up">+0.15</span></div></td>
         <td style="color:var(--green);font-weight:600">매수</td>
-        <td style="text-align:left;color:var(--muted);font-size:12px">싱가포르 AI칩 제조 확장 발표 자체 촉매+섹터 랠리 +11.19%. 펀더멘털+시황 모두 긍정. 변동성(σ=0.37) 반영. 적중률 25%(4건) 유의.</td>
+        <td style="text-align:left;color:var(--muted);font-size:12px">+11.19% 급등. 표준편차 0.37 '변동성 주의'+적중률 25%(4건) 신뢰 낮아 5일평균 −0.09 대비 중립 쪽으로 절제한 매수.</td>
       </tr>
       <tr>
         <td><div class="ticker">COST</div><div class="company">Costco Wholesale</div></td>
         <td>$975.69</td>
         <td class="down">▼ -0.78%</td>
-        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:5%;background:var(--green)"></div></div><span class="score-val up">+0.05</span></div></td>
+        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:5%;background:var(--red)"></div></div><span class="score-val down">-0.05</span></div></td>
         <td style="color:var(--yellow);font-weight:600">중립</td>
-        <td style="text-align:left;color:var(--muted);font-size:12px">위험선호 랠리일 방어주 특성 -0.78% 하락. 이력 평균(+0.10)에서 소폭 하향. 다른 종목 대비 투자 우선순위 낮음.</td>
+        <td style="text-align:left;color:var(--muted);font-size:12px">위험선호 장세에서 −0.78%로 디펜시브 순환 이탈. 5일평균 +0.10 대비 소폭 하향. 방어주 매력 약화로 음(−)의 중립.</td>
       </tr>
       <tr>
         <td><div class="ticker">ARM</div><div class="company">Arm Holdings</div></td>
         <td>$342.23</td>
         <td class="up">▲ +11.32%</td>
-        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:40%;background:var(--green)"></div></div><span class="score-val up">+0.40</span></div></td>
+        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:15%;background:var(--green)"></div></div><span class="score-val up">+0.15</span></div></td>
         <td style="color:var(--green);font-weight:600">매수</td>
-        <td style="text-align:left;color:var(--muted);font-size:12px">5일 가격변동 -20.5% 극단 낙폭 이후 +11.32% 강한 반전. 최고 변동성(σ=0.40) 반영해 0.55에서 보수 하향. 이력 평균(-0.23) 대비 +0.63 이탈.</td>
+        <td style="text-align:left;color:var(--muted);font-size:12px">+11.32% 반등이나 직전 5일 −20.5% 폭락 후 기술적 되돌림 성격. 표준편차 0.40 최고 변동성 → 강한 보수 적용. 5일평균 −0.23 대비 상향하나 펀더멘털 호재 아니어서 매수로 절제.</td>
       </tr>
       <tr>
         <td><div class="ticker">NFLX</div><div class="company">Netflix, Inc.</div></td>
         <td>$81.27</td>
         <td class="down">▼ -0.89%</td>
-        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:15%;background:var(--red)"></div></div><span class="score-val down">-0.15</span></div></td>
-        <td style="color:var(--red);font-weight:600">매도주의</td>
-        <td style="text-align:left;color:var(--muted);font-size:12px">랠리일 -0.89% 하락, 음의 다이버전스. 이력 추이 하락세, 이력 평균(+0.15) 대비 음의 방향 이탈. 적중률 50%(2건).</td>
+        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:5%;background:var(--red)"></div></div><span class="score-val down">-0.05</span></div></td>
+        <td style="color:var(--yellow);font-weight:600">중립</td>
+        <td style="text-align:left;color:var(--muted);font-size:12px">강세장에서 −0.89% 하락. 비(非)칩 디펜시브 미디어로 위험선호 순환에서 소외. 5일평균 +0.15 대비 −0.20 이탈 → 디펜시브 이탈이 근거. 음(−)의 중립.</td>
       </tr>
       <tr>
         <td><div class="ticker">KLAC</div><div class="company">KLA Corporation</div></td>
         <td>$2,411.64</td>
-        <td class="flat">⚠️ 분할왜곡</td>
-        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:35%;background:var(--yellow)"></div></div><span class="score-val up">+0.35</span></div></td>
-        <td style="color:var(--yellow);font-weight:600">중립</td>
-        <td style="text-align:left;color:var(--muted);font-size:12px">10-for-1 주식분할 효력 발생으로 가격 데이터 신뢰 불가(+1029% 표시는 왜곡). 섹터 맥락 긍정이나 데이터 제한으로 보수 중립. 6/12부터 조정가격 적용. σ=0.38.</td>
+        <td class="up">▲ +12.92%</td>
+        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:20%;background:var(--green)"></div></div><span class="score-val up">+0.20</span></div></td>
+        <td style="color:var(--green);font-weight:600">매수</td>
+        <td style="text-align:left;color:var(--muted);font-size:12px">+12.92% 검사장비 급등. 5일평균 −0.12 대비 +0.32 이탈 → 칩 장비 반등이 이탈 근거. 표준편차 0.38·적중률 33%(3건) 감안 보수적 매수.</td>
       </tr>
       <tr>
         <td><div class="ticker">PLTR</div><div class="company">Palantir Technologies</div></td>
         <td>$131.08</td>
         <td class="up">▲ +0.67%</td>
-        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:15%;background:var(--green)"></div></div><span class="score-val up">+0.15</span></div></td>
+        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:5%;background:var(--green)"></div></div><span class="score-val up">+0.05</span></div></td>
         <td style="color:var(--yellow);font-weight:600">중립</td>
-        <td style="text-align:left;color:var(--muted);font-size:12px">시장 강세 대비 +0.67% 소폭 상승, 상대 부진. 5일 가격변동 -17.8% 낙폭 미반영. 이력 평균(-0.14) 소폭 개선.</td>
+        <td style="text-align:left;color:var(--muted);font-size:12px">+0.67%로 강세장에서 거의 정체(상대약세), 5일 가격 −17.8% 리프라이싱 지속. 5일평균 −0.14에 부합한 소폭 양(+)의 중립.</td>
       </tr>
       <tr>
         <td><div class="ticker">TXN</div><div class="company">Texas Instruments</div></td>
         <td>$297.10</td>
         <td class="up">▲ +5.35%</td>
-        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:40%;background:var(--green)"></div></div><span class="score-val up">+0.40</span></div></td>
+        <td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:15%;background:var(--green)"></div></div><span class="score-val up">+0.15</span></div></td>
         <td style="color:var(--green);font-weight:600">매수</td>
-        <td style="text-align:left;color:var(--muted);font-size:12px">반도체 섹터 랠리 참가 +5.35%. 이력 평균(-0.30) 대비 +0.70 이탈—광범위한 섹터 촉매(지정학+AI칩) 정당화. 적중률 50%(4건).</td>
+        <td style="text-align:left;color:var(--muted);font-size:12px">+5.35% 아날로그 반도체 반등. 5일평균 −0.30 대비 +0.45 이탈 → 긴장 완화+칩 랠리가 이탈 근거. AI 레버리지 제한적이어서 매수로 절제.</td>
       </tr>
     </tbody>
   </table>
-  <div style="font-size:11px;color:var(--muted);margin-top:12px">※ 시장 심리 지표(CNN Fear &amp; Greed, Google Trends)는 이번 회차 수집 실패(HTTP 418, pytrends 미설치)로 F&amp;G·Trends 기반 스코어 보정 미적용. 스코어는 가격·뉴스·이력(모멘텀·반전·변동성·적중률) 컨텍스트만 반영.</div>
+  <div style="font-size:11px;color:var(--muted);margin-top:12px">※ 시장 심리 지표(CNN Fear &amp; Greed, Google Trends)는 이번 회차에 엔드포인트 차단/pytrends 미설치로 수집 실패하여, F&amp;G·Trends 기반 스코어 보정은 적용하지 않았습니다. 스코어는 가격·뉴스·이력(모멘텀·반전·변동성·적중률) 컨텍스트만 반영했습니다. 직전 5거래일 급락 후의 단일 급반등인 만큼, 변동성이 큰 칩주는 표준편차 규칙에 따라 보수적으로 산출했습니다.</div>
 </div>
 
 <div class="section">
@@ -291,32 +288,31 @@ footer{margin-top:32px;padding-top:16px;border-top:1px solid var(--border);color
     <div class="outlook-card">
       <div class="outlook-label">CNN Fear &amp; Greed</div>
       <div class="outlook-val" style="color:var(--muted)">수집 실패</div>
-      <div style="font-size:11px;color:var(--muted);margin-top:4px">HTTP 418 차단으로 미수집. 역발상/보정 미적용.</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:4px">엔드포인트 차단으로 미수집. 역발상/보정 미적용.</div>
     </div>
     <div class="outlook-card">
       <div class="outlook-label">시장 방향</div>
       <div class="outlook-val" style="color:var(--green)">위험선호(Risk-On)</div>
-      <div style="font-size:11px;color:var(--muted);margin-top:4px">트럼프-이란 핵합의 임박 발표. 지정학 리스크 급감 + 유가 하락 → 반도체·기술주 위험선호 매수 재개.</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:4px">미·이란 긴장 완화로 이틀 매도세 종료. 칩주 V자 반등이 지수 급등 견인.</div>
     </div>
     <div class="outlook-card">
       <div class="outlook-label">주목 종목</div>
-      <div class="outlook-val" style="color:var(--green)">LRCX · AMAT · MU</div>
-      <div style="font-size:11px;color:var(--muted);margin-top:4px">반도체 장비·메모리 폭등 주도. INTC BofA 업그레이드, AMAT 싱가포르 확장이 촉매. MSFT·META 음의 다이버전스 주의.</div>
+      <div class="outlook-val" style="color:var(--green)">MU · KLAC · INTC</div>
+      <div style="font-size:11px;color:var(--muted);margin-top:4px">메모리·장비·인텔(상향) 두 자릿수 급등. 반대로 MSFT는 홀로 하락한 상대약세.</div>
     </div>
   </div>
   <div style="font-size:12px;color:var(--muted);margin-top:14px;line-height:1.7">
-    종합: 2026-06-11 시장은 트럼프 대통령의 이란 핵합의 임박 발표(공습 취소, "서명 곧 있을 것")가 지정학 리스크를 급격히 완화하며 전 시장에 위험선호를 촉발했습니다.
-    3대 지수가 동반 강세(나스닥 +2.54%·S&amp;P500 +1.75%·다우 +1.86%)를 나타냈으며, 최근 5일간의 반도체 하락세가 완전히 반전됐습니다.
-    특히 LRCX(+12.65%), MU(+11.66%), AMAT(+11.19%), ARM(+11.32%), ASML(+9.53%), INTC(+9.27%), AMD(+7.97%) 등 반도체 장비·메모리·CPU 전 섹터가 동반 폭등했습니다.
-    AMAT의 싱가포르 AI칩 제조 확장 발표와 BofA의 INTC 더블 업그레이드가 섹터 반등에 추가 촉매로 작용했습니다.
-    반면 MSFT(-1.77%)·META(-0.45%)·NFLX(-0.89%)·COST(-0.78%)는 랠리에 역행하며 음의 다이버전스를 보였습니다.
-    KLAC의 yfinance 가격 데이터(+1029%)는 10-for-1 주식분할 왜곡이므로 실제 등락률로 해석하면 안 됩니다.
-    이란 합의는 아직 "서명 임박" 단계로, 최종 확정 전 리스크오프 되돌림 가능성에 유의해야 합니다.
+    종합: 6/11 시장은 트럼프 대통령이 예정된 대이란 타격을 취소하고 협상 진전을 시사하며 미·이란 긴장이 급격히 완화, 직전 이틀간의 급락세를 끊고 3대 지수가 동반 급반등했습니다(나스닥 +3.38%·S&amp;P500 +1.70%·다우 +1.82%, 모두 ETF 프록시 / 실제 지수는 나스닥종합 +2.54%·S&amp;P500 +1.75%·다우 +1.86%).
+    전주 브로드컴발 셀오프로 무너졌던 반도체가 V자 반등을 주도해 마이크론(+11.7%)이 메모리 강세를 견인하고, KLAC(+12.9%)·LRCX(+12.7%)·AMAT(+11.2%)·ARM(+11.3%)·ASML(+9.5%)·INTC(+9.3%, 애널리스트 상향)·AMD(+8.0%) 등 장비·AI 칩주가 일제히 급등했습니다.
+    생산자물가(PPI)가 예상을 웃돌았음에도 지정학 완화 모멘텀이 인플레 부담을 압도했고, 익일 사상 최대 규모(약 750억 달러)의 스페이스X IPO 기대도 위험선호를 뒷받침했습니다.
+    본 브리핑은 강한 반등 모멘텀을 매수 방향에 반영하되, ①직전 5거래일 급락 후의 단일 급반등(기술적 되돌림 가능성), ②변동성 큰 칩주(MU·AVGO·ARM·AMAT·KLAC 등)의 표준편차 규칙, ③NVDA의 0% 적중률, ④마이크론 등 1일 두 자릿수 급등의 과매수 위험을 감안해 강력매수 없이 보수적으로 산출했습니다.
+    반면 MSFT는 강세장에서 홀로 하락한 상대약세로 매도주의, COST·NFLX 등 디펜시브주는 위험선호 순환에서 소외됐습니다.
+    PPI 상회로 인플레 재가속·매파 Fed 변수가 여전히 잠복해 있는 만큼, 반등의 추세 전환 여부는 추가 확인이 필요합니다.
   </div>
 </div>
 
 <footer>
-  본 브리핑은 AI가 자동 생성한 참고 자료이며 투자 권유가 아닙니다. 가격: yfinance(2026-06-11 종가) · 뉴스: 웹 검색 · 이력: 로컬 DB.<br/>
+  본 브리핑은 AI가 자동 생성한 참고 자료이며 투자 권유가 아닙니다. 가격: stockanalysis.com(2026-06-11 종가, ETF 프록시) · 뉴스: 웹 검색 · 이력: 로컬 DB.<br/>
   Generated by Claude · 2026-06-11 (목) 미국장 종가 기준
 </footer>
 </body>
