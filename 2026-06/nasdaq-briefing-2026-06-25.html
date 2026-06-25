@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>나스닥 일간 브리핑 — 2026-06-25 (목) 미국장 종가 기준</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;max-width:980px;margin:24px auto;padding:0 20px;color:#1f2937;line-height:1.6}
+h1{font-size:24px;border-bottom:3px solid #2563eb;padding-bottom:8px}
+h2{font-size:18px;color:#111827;margin-top:28px;border-left:4px solid #2563eb;padding-left:10px}
+.sub{color:#6b7280;font-size:13px}
+.index-grid{display:flex;gap:14px;flex-wrap:wrap}
+.index-card{flex:1;min-width:200px;border:1px solid #e5e7eb;border-radius:8px;padding:14px;background:#f9fafb}
+.index-name{font-size:13px;color:#6b7280;font-weight:600}
+.index-price{font-size:22px;font-weight:700;margin:4px 0}
+.index-change{font-size:14px;font-weight:600}
+.up{color:#dc2626}
+.down{color:#2563eb}
+.flat{color:#6b7280}
+table.stock-table{border-collapse:collapse;width:100%;font-size:14px;margin:10px 0}
+.stock-table th,.stock-table td{border:1px solid #e5e7eb;padding:6px 10px;text-align:left;vertical-align:top}
+.stock-table th{background:#f3f4f6}
+.ticker{font-weight:700}
+.score-val{font-weight:700}
+.box{background:#f9fafb;border:1px solid #e5e7eb;border-radius:6px;padding:12px 16px;margin:10px 0}
+</style>
+</head>
+<body>
+
+<h1>📊 나스닥 일간 브리핑 — 2026-06-25 (목)</h1>
+<p class="sub">미국장 종가 기준 · 기준일: 2026-06-25 (yfinance anchor)</p>
+
+<h2>1. 주요 지수 종가</h2>
+<div class="index-grid">
+  <div class="index-card">
+    <div class="index-name">NASDAQ Composite</div>
+    <div class="index-price down">25,358.60</div>
+    <div class="index-change down">▼ -117.04pt (-0.46%)</div>
+  </div>
+  <div class="index-card">
+    <div class="index-name">S&P 500</div>
+    <div class="index-price down">7,357.49</div>
+    <div class="index-change down">▼ -0.73pt (-0.01%)</div>
+  </div>
+  <div class="index-card">
+    <div class="index-name">다우존스</div>
+    <div class="index-price up">51,920.62</div>
+    <div class="index-change up">▲ +71.72pt (+0.14%)</div>
+  </div>
+</div>
+<p class="sub">나스닥은 2월 이후 첫 4일 연속 하락. 다우는 비-AI 종목 강세로 장중 사상 최고치 경신.</p>
+
+<h2>2. 핵심 뉴스 요약</h2>
+<div class="box">
+<ul>
+<li><b>Micron(MU) 어닝 서프라이즈</b>: Q3 매출 $41.5B (전년比 4배), 조정 EPS $25.11 (예상 $20.78 상회). HBM/DRAM 슈퍼사이클 본격화. $100B 규모 장기계약 공시.</li>
+<li><b>메모리 가격 충격이 Mag7 압박</b>: DRAM 현물가 2025년 초 대비 +200%, 2026년 1월부터 +52% 상승. HBM 전환으로 컨슈머향 DRAM 공급 감소.</li>
+<li><b>Apple 가격 인상 발표</b>: 일부 MacBook·iPad $100~$300 인상. 주가 -6.1% 급락.</li>
+<li><b>Microsoft</b> Xbox 가격 인상 동참, 주가 -3.5%.</li>
+<li><b>시장 양극화</b>: 메모리·반도체 장비주(MU +15.7%, AMAT +13.4%, LRCX +7.2%, KLAC +7.6%, ASML +4.4%) 급등 vs Mag7 약세.</li>
+<li><b>Fed PCE 인플레이션</b> 발표 앞두고 관망 분위기.</li>
+</ul>
+</div>
+
+<h2>3. Top 20 종목별 분석</h2>
+<table class="stock-table">
+<thead>
+<tr><th>종목</th><th>종가</th><th>등락률</th><th>스코어</th><th>의견</th><th>근거</th></tr>
+</thead>
+<tbody>
+
+<tr><td><div class="ticker">NVDA</div></td><td>195.74</td><td class="down">▼ -1.64%</td><td><span class="score-val">+0.30</span></td><td>매수</td>
+<td>Micron 호실적은 HBM 수요 강세 재확인 → NVDA 데이터센터 GPU 추가 모멘텀. 단 Mag7 동반 약세로 5일 평균 +0.18 대비 소폭 상향에 그침.</td></tr>
+
+<tr><td><div class="ticker">GOOGL</div></td><td>343.71</td><td class="down">▼ -0.46%</td><td><span class="score-val">+0.05</span></td><td>중립</td>
+<td>Mag7 약세에도 상대적 선방. 검색·클라우드 견조하나 메모리 비용 상승은 데이터센터 비용 압력. 5일 평균 +0.14 대비 보수적 중립.</td></tr>
+
+<tr><td><div class="ticker">AAPL</div></td><td>275.15</td><td class="down">▼ -6.12%</td><td><span class="score-val">-0.55</span></td><td>매도주의</td>
+<td>제품 가격 인상 발표로 수요 위축 우려. 메모리 비용 전가로 마진 압박. 5일 평균 +0.14 → -0.55 대폭 이탈, 가격 인상 충격이 단기 펀더멘털 훼손.</td></tr>
+
+<tr><td><div class="ticker">MSFT</div></td><td>352.83</td><td class="down">▼ -3.46%</td><td><span class="score-val">-0.30</span></td><td>매도주의</td>
+<td>Xbox 가격 인상 + 클라우드 인프라 메모리 비용 직격. 5일 평균 -0.06 대비 추가 악화. AI 수요는 견조해 강력매도까지는 절제.</td></tr>
+
+<tr><td><div class="ticker">AMZN</div></td><td>227.01</td><td class="down">▼ -3.10%</td><td><span class="score-val">-0.20</span></td><td>매도주의</td>
+<td>AWS 메모리 비용 부담 + 컨슈머 부문 가격 부담. 5일 적중률 0% 경고로 변동성 감안해 약세로 보수 산출.</td></tr>
+
+<tr><td><div class="ticker">AVGO</div></td><td>378.91</td><td class="down">▼ -0.83%</td><td><span class="score-val">+0.10</span></td><td>중립</td>
+<td>AI 커스텀 칩 수요 견조하나 연속 하락 트렌드 반전 주의. 변동성 σ=0.33, 5일 평균 +0.21 대비 보수적 하향.</td></tr>
+
+<tr><td><div class="ticker">TSLA</div></td><td>375.12</td><td class="down">▼ -0.11%</td><td><span class="score-val">0.00</span></td><td>중립</td>
+<td>특별한 촉매 없이 보합. 5일 평균 -0.03, 적중률 25%로 신호 약함. 중립 유지.</td></tr>
+
+<tr><td><div class="ticker">META</div></td><td>542.87</td><td class="down">▼ -2.65%</td><td><span class="score-val">-0.20</span></td><td>매도주의</td>
+<td>Mag7 동반 약세 + AI 인프라 메모리 비용 부담. 5일 변동성 σ=0.36 → 보수적 -0.20.</td></tr>
+
+<tr><td><div class="ticker">MU</div></td><td>1,213.56</td><td class="up">▲ +15.74%</td><td><span class="score-val">+0.80</span></td><td>강력매수</td>
+<td>Q3 매출 4배, EPS 큰 폭 상회, $100B 장기계약. HBM/DRAM 슈퍼사이클 진입. 5일 평균 +0.18 → +0.80 대폭 상향: 어닝 서프라이즈가 명확한 이탈 근거.</td></tr>
+
+<tr><td><div class="ticker">AMD</div></td><td>532.57</td><td class="up">▲ +2.47%</td><td><span class="score-val">+0.25</span></td><td>매수</td>
+<td>Micron 어닝 동조 + MI 시리즈 HBM 수요 동반 상승. 변동성 σ=0.36, 적중률 33% → +0.25로 절제.</td></tr>
+
+<tr><td><div class="ticker">ASML</div></td><td>1,841.18</td><td class="up">▲ +4.45%</td><td><span class="score-val">+0.45</span></td><td>매수</td>
+<td>메모리 capex 사이클 회복으로 EUV 장비 수요 가시화. 5일 평균 +0.10 → +0.45 이탈, 메모리 슈퍼사이클이 근거.</td></tr>
+
+<tr><td><div class="ticker">INTC</div></td><td>132.87</td><td class="up">▲ +0.93%</td><td><span class="score-val">+0.10</span></td><td>중립</td>
+<td>파운드리 캡티브 수혜 가능성 + 트렌드 반전 신호. 변동성 σ=0.38 큼 → 중립 유지.</td></tr>
+
+<tr><td><div class="ticker">AMAT</div></td><td>668.00</td><td class="up">▲ +13.42%</td><td><span class="score-val">+0.65</span></td><td>강력매수</td>
+<td>메모리 장비 발주 폭증 직접 수혜. 5일 평균 +0.18 → +0.65 이탈은 Micron 어닝 + $100B 장기계약 발 capex 사이클이 근거. AMAT↔MU 0.82 동조.</td></tr>
+
+<tr><td><div class="ticker">LRCX</div></td><td>401.82</td><td class="up">▲ +7.21%</td><td><span class="score-val">+0.55</span></td><td>매수</td>
+<td>식각·증착 장비 NAND/DRAM 동반 수혜. AMAT↔LRCX 0.91 상관 동조. 5일 평균 +0.13 → +0.55 이탈은 capex 사이클이 근거.</td></tr>
+
+<tr><td><div class="ticker">COST</div></td><td>942.24</td><td class="down">▼ -1.96%</td><td><span class="score-val">-0.05</span></td><td>중립</td>
+<td>소비 둔화 우려 + 시장 회피. 5일 평균 -0.03, 트렌드 반전 신호 → 보수적 중립.</td></tr>
+
+<tr><td><div class="ticker">ARM</div></td><td>347.71</td><td class="down">▼ -3.17%</td><td><span class="score-val">-0.10</span></td><td>중립</td>
+<td>스마트폰 가격 인상 → 수요 둔화 우려. 5일 -13% 약세. 라이선스 모델 견조해 매도주의까진 절제.</td></tr>
+
+<tr><td><div class="ticker">KLAC</div></td><td>258.80</td><td class="up">▲ +7.62%</td><td><span class="score-val">+0.55</span></td><td>매수</td>
+<td>메모리 capex 동반 수혜, AMAT↔KLAC 0.90 상관. 5일 평균 0.00 → +0.55 이탈은 어닝/장비주 동조 근거.</td></tr>
+
+<tr><td><div class="ticker">NFLX</div></td><td>70.90</td><td class="down">▼ -1.31%</td><td><span class="score-val">-0.05</span></td><td>중립</td>
+<td>5일 -12.1% 약세 지속하나 신규 촉매 없음. 변동성 고려 중립.</td></tr>
+
+<tr><td><div class="ticker">TXN</div></td><td>311.81</td><td class="up">▲ +2.87%</td><td><span class="score-val">+0.20</span></td><td>매수</td>
+<td>아날로그 반도체 동반 강세. AMD↔TXN 0.78 상관. 5일 평균 +0.07 → +0.20 소폭 이탈.</td></tr>
+
+<tr><td><div class="ticker">PLTR</div></td><td>107.27</td><td class="down">▼ -5.49%</td><td><span class="score-val">-0.35</span></td><td>매도주의</td>
+<td>고밸류 AI 소프트웨어 차익실현 + 5일 -15.7% 급락 지속. 적중률 67% 신호 신뢰 → 약세 가중.</td></tr>
+
+</tbody>
+</table>
+
+<h2>4. 주목 종목</h2>
+<div class="box">
+<ul>
+<li>🚀 <b>강력매수</b>: MU(+15.7%) · AMAT(+13.4%) — 메모리 슈퍼사이클의 핵심 베타.</li>
+<li>📈 <b>매수</b>: ASML · LRCX · KLAC · AMD · NVDA · TXN — 반도체 장비/HBM 체인 동조.</li>
+<li>⚠️ <b>매도주의</b>: AAPL · MSFT · AMZN · META · PLTR — Mag7 메모리 비용 부담 + 차익실현.</li>
+</ul>
+</div>
+
+<h2>5. 시장 시그널 요약</h2>
+<div class="box">
+<p>오늘 시장은 <b>"메모리 슈퍼사이클 vs Mag7 마진 압박"</b>의 양극화로 정의됩니다. Micron의 폭발적 실적이 HBM/DRAM 가격 상승의 구조적 변화를 확인했고, 이는 장비주(AMAT/LRCX/KLAC/ASML)에 직접 이연되었습니다. 반면 컨슈머 디바이스 OEM(AAPL/MSFT)은 가격 전가 발표로 수요 우려가 점화되었습니다. Fed PCE 발표 대기 중 관망세 동반.</p>
+<p class="sub">전일 신호 적중: AMAT/ARM/LRCX/MSFT/MU/PLTR 정확 · 일부 wrong(AVGO/TSLA). 심리지표(F&G·Trends) 수집 실패로 보정 미적용.</p>
+</div>
+
+</body>
+</html>
