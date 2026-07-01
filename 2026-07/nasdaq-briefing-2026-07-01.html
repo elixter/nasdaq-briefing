@@ -57,48 +57,48 @@ footer{margin-top:32px;padding-top:16px;border-top:1px solid var(--border);color
 </header>
 
 <div class="section">
-  <div class="section-title">📈 주요 지수 (2026-07-01 (수) 종가)</div>
+  <div class="section-title">📈 주요 지수 (2026-07-01 (수) 종가 · 프록시 ETF 기준)</div>
   <div class="index-grid">
     <div class="index-card">
-      <div class="index-name">NASDAQ Composite</div>
-      <div class="index-price down">26,040.03</div>
-      <div class="index-change down">▼ -173.69pt (-0.66%)</div>
+      <div class="index-name">NASDAQ 100 (QQQ 프록시)</div>
+      <div class="index-price down">$725.23</div>
+      <div class="index-change down">▼ -1.52%</div>
     </div>
     <div class="index-card">
-      <div class="index-name">S&amp;P 500</div>
-      <div class="index-price down">7,483.23</div>
-      <div class="index-change down">▼ -16.13pt (-0.22%)</div>
+      <div class="index-name">S&amp;P 500 (SPY 프록시)</div>
+      <div class="index-price flat">데이터 지연</div>
+      <div class="index-change flat">07-01 미반영 · N/A</div>
     </div>
     <div class="index-card">
-      <div class="index-name">다우존스</div>
-      <div class="index-price down">52,305.24</div>
-      <div class="index-change down">▼ -13.96pt (-0.03%)</div>
+      <div class="index-name">다우 (DIA 프록시)</div>
+      <div class="index-price flat">$522.40</div>
+      <div class="index-change flat">► ±0.00% (보합)</div>
     </div>
   </div>
-  <div style="font-size:11px;color:var(--muted);margin-top:12px">※ 반도체 섹터 광범위 매도로 나스닥 -0.66%. 대형 플랫폼·SW 강세가 지수 낙폭을 방어. 지수/종목 가격은 yfinance 종가.</div>
+  <div style="font-size:11px;color:var(--muted);margin-top:12px">※ yfinance 지수 API 차단으로 프록시 ETF(QQQ·SPY·DIA) 종가를 사용했다(fetch_prices.py 결정적 anchor). H2 2026 출발점에서 반도체 차익실현 매물로 나스닥 -1.5% 조정, 대형 플랫폼·SW 강세가 낙폭을 방어. 뉴스상 S&amp;P는 소폭 하락(~-0.4%), 다우는 보합권. SPY 프록시는 07-01 데이터가 아직 반영되지 않아 N/A 처리.</div>
 </div>
 
 <div class="section">
   <div class="section-title">📰 주요 이슈</div>
   <div class="news-item">
     <span class="news-tag tag-earnings">반도체</span>
-    <div class="news-title">반도체 광범위 셀오프 — KLAC -11.8%·MU -10.6%·AMAT -10.0%·LRCX -9.7%·INTC -9.0%</div>
-    <div class="news-body">필라델피아 반도체 지수가 급락하며 메모리·장비주 두 자릿수 하락. 2026년 글로벌 스마트폰 수요가 사상 최대 폭 감소할 것이란 전망이 메모리 반도체를 직격했고, 장비주로 전이됐다.</div>
-  </div>
-  <div class="news-item">
-    <span class="news-tag tag-macro">AI 캐펙스</span>
-    <div class="news-title">AI 인프라 투자 지속가능성 의문 — 하이퍼스케일러 부담</div>
-    <div class="news-body">차세대 AI 학습에 필요한 자본 규모와 다소 매파적 금리 환경에 대한 우려로 AI 캐펙스 관련 종목이 조정. 다만 소프트웨어 계층은 상대적 방어.</div>
+    <div class="news-title">ASML 가이던스 유출發 반도체 셀오프 — KLAC -11.8%·MU -10.6%·AMAT -10.0%·LRCX -9.7%·INTC -9.0%</div>
+    <div class="news-body">장비 리더 ASML의 3분기 실적·가이던스가 사전 유출됐고, 비(非)AI 메모리 수요 둔화와 DRAM 캐파 증설 제한 언급이 메모리·장비 섹터 전반을 직격했다. 상반기 사상 최고 랠리를 펼쳤던 반도체가 하반기 첫날 대규모 차익실현 매물을 맞았다.</div>
   </div>
   <div class="news-item">
     <span class="news-tag tag-earnings">플랫폼</span>
-    <div class="news-title">META +8.8%·PLTR +7.8% 급등 — 반도체 자금 SW·플랫폼으로 로테이션</div>
-    <div class="news-body">META가 광고 실적 서프라이즈로 +8.81% 폭등, PLTR은 AI 소프트웨어 수혜주로 +7.77% 급등. MSFT +3.02%, NFLX +3.91%, PANW +3.23% 등 SW·플랫폼이 반도체 매도자금 수혜.</div>
+    <div class="news-title">META +8.8% — AI 클라우드 인프라 사업 진출 발표</div>
+    <div class="news-body">Meta가 AI 컴퓨팅 파워와 자체 모델을 제공하는 클라우드 인프라 사업 계획을 공개하며 +8.81% 폭등, 클라우드 섹터 지형을 흔들었다. 반도체에서 빠진 자금이 AI 플랫폼·소프트웨어로 로테이션되는 흐름을 상징.</div>
   </div>
   <div class="news-item">
-    <span class="news-tag tag-fed">매크로</span>
-    <div class="news-title">Fed 매파 뉘앙스 잔존 — 채권금리 상승이 성장주 밸류에이션 압박</div>
-    <div class="news-body">6월 동결 이후 2026년 인상 가능성 잔존으로 금리 민감 성장주 밸류에이션에 압력. 다우는 방어주 강세로 낙폭 최소화.</div>
+    <span class="news-tag tag-earnings">AI 소프트웨어</span>
+    <div class="news-title">PLTR +7.8% — Nvidia 소버린 AI 파트너십 + 美 육군 NGC2 채택</div>
+    <div class="news-body">Palantir가 Nvidia와 정부·핵심 인프라용 소버린 AI(넷모트론 오픈 모델) 협력을 발표하고, 美 육군 최대 현대화 프로그램(NGC2)의 클라우드 데이터 레이어로 Foundry가 채택됐다. 애널리스트 매수 상향까지 겹치며 급등. MSFT +3.0%·PANW +3.2%·NFLX +3.9%도 동반 강세.</div>
+  </div>
+  <div class="news-item">
+    <span class="news-tag tag-fed">매크로 · Fed</span>
+    <div class="news-title">Warsh 의장 "데이터 의존" — 연내 인상 가능성 잔존</div>
+    <div class="news-body">Kevin Warsh 신임 Fed 의장은 ECB 포럼에서 인상 시그널을 자제하되 인플레 억제 의지를 재확인했다. 예측시장(Kalshi)은 연내 인상 확률을 약 53%로 반영, 금리 민감 고밸류 하드웨어에 부담으로 작용. 다우는 방어주 강세로 보합 방어.</div>
   </div>
 </div>
 
@@ -111,14 +111,14 @@ footer{margin-top:32px;padding-top:16px;border-top:1px solid var(--border);color
     </div>
     <div class="outlook-card">
       <div class="outlook-label">시장 방향</div>
-      <div class="outlook-val" style="color:var(--red)">반도체 매도·SW 로테이션</div>
+      <div class="outlook-val" style="color:var(--red)">반도체 매도 · SW 로테이션</div>
     </div>
     <div class="outlook-card">
       <div class="outlook-label">전일 신호 검증</div>
-      <div class="outlook-val">정타 5·오판 12·중립 3</div>
+      <div class="outlook-val" style="color:var(--muted)">검증 대상 없음 (06-30)</div>
     </div>
   </div>
-  <div style="font-size:11px;color:var(--muted);margin-top:12px">※ F&amp;G/Google Trends 수집이 이번 실행에서 실패해 심리 보정 미적용. 대신 이력 컨텍스트(5일 평균·모멘텀·반전·변동성·적중률)와 섹터 상관을 스코어에 반영했다. 반도체 장비 4종(ASML·AMAT·LRCX·KLAC)은 30일 상관 0.90+로 동조 매도가 확인됐다.</div>
+  <div style="font-size:11px;color:var(--muted);margin-top:12px">※ F&amp;G·Google Trends 수집이 이번 실행에서 실패(소스 차단·pytrends 미설치)해 심리 보정은 미적용, 중립 가정. 대신 이력 컨텍스트(5일 평균·모멘텀·반전·변동성·적중률)와 섹터 상관을 스코어에 반영했다. ASML·AMAT·LRCX·KLAC 장비 클러스터는 동조 매도가 뚜렷했다.</div>
 </div>
 
 <div class="section">
@@ -128,26 +128,26 @@ footer{margin-top:32px;padding-top:16px;border-top:1px solid var(--border);color
       <tr><th>종목</th><th>종가 (USD)</th><th>등락률</th><th>스코어 (−1~+1)</th><th>의견</th><th>핵심 근거</th></tr>
     </thead>
     <tbody>
-      <tr><td><div class="ticker">NVDA</div><div class="company">NVIDIA</div></td><td>$197.58</td><td class="down">▼ -1.25%</td><td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:10%;background:var(--red)"></div></div><span class="score-val down">-0.10</span></div></td><td style="color:var(--yellow);font-weight:600">중립</td><td style="text-align:left;color:var(--muted);font-size:12px">섹터 셀오프에도 -1.25% 상대적 방어. 5일 평균 +0.23에서 하향, 섹터 동조 리스크로 중립.</td></tr>
-      <tr><td><div class="ticker">GOOGL</div><div class="company">Alphabet</div></td><td>$361.21</td><td class="up">▲ +1.07%</td><td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:30%;background:var(--green)"></div></div><span class="score-val up">+0.30</span></div></td><td style="color:var(--green);font-weight:600">매수</td><td style="text-align:left;color:var(--muted);font-size:12px">광고·클라우드 견조, 반도체 셀오프 회피. 5일 평균 +0.14와 정합.</td></tr>
-      <tr><td><div class="ticker">AAPL</div><div class="company">Apple</div></td><td>$294.38</td><td class="up">▲ +1.73%</td><td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:35%;background:var(--green)"></div></div><span class="score-val up">+0.35</span></div></td><td style="color:var(--green);font-weight:600">매수</td><td style="text-align:left;color:var(--muted);font-size:12px">방향 전환 확인, 소비자 IT 안정성 부각. 이력 반전 신호 실현.</td></tr>
-      <tr><td><div class="ticker">MSFT</div><div class="company">Microsoft</div></td><td>$384.28</td><td class="up">▲ +3.02%</td><td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:40%;background:var(--green)"></div></div><span class="score-val up">+0.40</span></div></td><td style="color:var(--green);font-weight:600">매수</td><td style="text-align:left;color:var(--muted);font-size:12px">대형주 중 강한 반등. AI·클라우드 지속. 5일 평균 -0.09 대비 +0.49 상방 이탈.</td></tr>
+      <tr><td><div class="ticker">NVDA</div><div class="company">NVIDIA</div></td><td>$197.58</td><td class="down">▼ -1.25%</td><td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:10%;background:var(--red)"></div></div><span class="score-val down">-0.10</span></div></td><td style="color:var(--yellow);font-weight:600">중립</td><td style="text-align:left;color:var(--muted);font-size:12px">섹터 셀오프에도 -1.25% 상대 방어(PLTR-Nvidia 소버린 AI 호재). 5일 평균 +0.23에서 하향, 섹터 동조 리스크로 중립.</td></tr>
+      <tr><td><div class="ticker">GOOGL</div><div class="company">Alphabet</div></td><td>$361.21</td><td class="up">▲ +1.07%</td><td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:30%;background:var(--green)"></div></div><span class="score-val up">+0.30</span></div></td><td style="color:var(--green);font-weight:600">매수</td><td style="text-align:left;color:var(--muted);font-size:12px">광고·클라우드 견조, 반도체 셀오프 회피. 5일 평균 +0.14·적중률 100%와 정합.</td></tr>
+      <tr><td><div class="ticker">AAPL</div><div class="company">Apple</div></td><td>$294.38</td><td class="up">▲ +1.73%</td><td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:35%;background:var(--green)"></div></div><span class="score-val up">+0.35</span></div></td><td style="color:var(--green);font-weight:600">매수</td><td style="text-align:left;color:var(--muted);font-size:12px">소비자 IT 안정성 부각, 하드웨어 회피 수요. 5일 평균 -0.05 대비 +0.40 상방 이탈(반전 실현).</td></tr>
+      <tr><td><div class="ticker">MSFT</div><div class="company">Microsoft</div></td><td>$384.28</td><td class="up">▲ +3.02%</td><td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:40%;background:var(--green)"></div></div><span class="score-val up">+0.40</span></div></td><td style="color:var(--green);font-weight:600">매수</td><td style="text-align:left;color:var(--muted);font-size:12px">AI·클라우드 로테이션 수혜로 강반등. 5일 평균 -0.09 대비 +0.49 상방 이탈, 뉴스 촉매 명확.</td></tr>
       <tr><td><div class="ticker">AMZN</div><div class="company">Amazon</div></td><td>$241.70</td><td class="up">▲ +1.41%</td><td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:30%;background:var(--green)"></div></div><span class="score-val up">+0.30</span></div></td><td style="color:var(--green);font-weight:600">매수</td><td style="text-align:left;color:var(--muted);font-size:12px">AWS·이커머스 견조, 하락 추이 반전.</td></tr>
-      <tr><td><div class="ticker">AVGO</div><div class="company">Broadcom</div></td><td>$369.34</td><td class="down">▼ -2.23%</td><td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:30%;background:var(--red)"></div></div><span class="score-val down">-0.30</span></div></td><td style="color:var(--blue);font-weight:600">매도주의</td><td style="text-align:left;color:var(--muted);font-size:12px">반도체 섹터 매도 파장, 5일 평균 +0.14 대비 -0.44 이탈.</td></tr>
-      <tr><td><div class="ticker">TSLA</div><div class="company">Tesla</div></td><td>$425.30</td><td class="up">▲ +1.12%</td><td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:20%;background:var(--green)"></div></div><span class="score-val up">+0.20</span></div></td><td style="color:var(--green);font-weight:600">매수</td><td style="text-align:left;color:var(--muted);font-size:12px">소폭 상승, 이력 하락 추이 대비 반전 확인.</td></tr>
-      <tr><td><div class="ticker">META</div><div class="company">Meta Platforms</div></td><td>$612.91</td><td class="up">▲ +8.81%</td><td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:60%;background:var(--green)"></div></div><span class="score-val up">+0.60</span></div></td><td style="color:var(--green);font-weight:700">강력매수</td><td style="text-align:left;color:var(--muted);font-size:12px">폭등, 광고 실적 서프라이즈 추정. 5일 평균 +0.02 대비 +0.58 상방 이탈.</td></tr>
-      <tr><td><div class="ticker">MU</div><div class="company">Micron</div></td><td>$1,032.28</td><td class="down">▼ -10.57%</td><td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:75%;background:var(--red)"></div></div><span class="score-val down">-0.75</span></div></td><td style="color:var(--red);font-weight:700">강력매도</td><td style="text-align:left;color:var(--muted);font-size:12px">메모리 위기·스마트폰 수요 붕괴 직격. 5일 평균 +0.30 대비 -1.05 급이탈.</td></tr>
-      <tr><td><div class="ticker">AMD</div><div class="company">AMD</div></td><td>$540.88</td><td class="down">▼ -6.89%</td><td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:55%;background:var(--red)"></div></div><span class="score-val down">-0.55</span></div></td><td style="color:var(--blue);font-weight:600">매도주의</td><td style="text-align:left;color:var(--muted);font-size:12px">반도체 매도 심화, AI 캐펙스 우려. 5일 평균 +0.21 대비 -0.76 이탈.</td></tr>
-      <tr><td><div class="ticker">ASML</div><div class="company">ASML</div></td><td>$1,843.04</td><td class="down">▼ -7.36%</td><td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:60%;background:var(--red)"></div></div><span class="score-val down">-0.60</span></div></td><td style="color:var(--blue);font-weight:600">매도주의</td><td style="text-align:left;color:var(--muted);font-size:12px">EUV 장비주 동반 하락. 5일 평균 +0.27 대비 -0.87 이탈.</td></tr>
-      <tr><td><div class="ticker">INTC</div><div class="company">Intel</div></td><td>$127.02</td><td class="down">▼ -9.03%</td><td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:60%;background:var(--red)"></div></div><span class="score-val down">-0.60</span></div></td><td style="color:var(--blue);font-weight:600">매도주의</td><td style="text-align:left;color:var(--muted);font-size:12px">반도체 광범위 매도. 5일 평균 +0.15 대비 -0.75 이탈.</td></tr>
-      <tr><td><div class="ticker">AMAT</div><div class="company">Applied Materials</div></td><td>$650.91</td><td class="down">▼ -9.97%</td><td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:65%;background:var(--red)"></div></div><span class="score-val down">-0.65</span></div></td><td style="color:var(--blue);font-weight:600">매도주의</td><td style="text-align:left;color:var(--muted);font-size:12px">반도체 장비 동반 폭락. 5일 평균 +0.36 대비 -1.01 급이탈.</td></tr>
-      <tr><td><div class="ticker">LRCX</div><div class="company">Lam Research</div></td><td>$391.26</td><td class="down">▼ -9.71%</td><td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:65%;background:var(--red)"></div></div><span class="score-val down">-0.65</span></div></td><td style="color:var(--blue);font-weight:600">매도주의</td><td style="text-align:left;color:var(--muted);font-size:12px">반도체 장비 동조. 5일 평균 +0.34 대비 -0.99 이탈. AMAT/KLAC 상관 0.93+.</td></tr>
-      <tr><td><div class="ticker">COST</div><div class="company">Costco</div></td><td>$924.67</td><td class="down">▼ -1.15%</td><td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:0%;background:var(--yellow)"></div></div><span class="score-val flat">0.00</span></div></td><td style="color:var(--yellow);font-weight:600">중립</td><td style="text-align:left;color:var(--muted);font-size:12px">방어주 성격 유지, 이력 하락 추이 지속.</td></tr>
+      <tr><td><div class="ticker">AVGO</div><div class="company">Broadcom</div></td><td>$369.34</td><td class="down">▼ -2.23%</td><td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:30%;background:var(--red)"></div></div><span class="score-val down">-0.30</span></div></td><td style="color:var(--blue);font-weight:600">매도주의</td><td style="text-align:left;color:var(--muted);font-size:12px">반도체 셀오프 파장, 5일 평균 +0.14 대비 -0.44 이탈. 상대 선방했으나 섹터 리스크 우위.</td></tr>
+      <tr><td><div class="ticker">TSLA</div><div class="company">Tesla</div></td><td>$425.30</td><td class="up">▲ +1.12%</td><td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:20%;background:var(--green)"></div></div><span class="score-val up">+0.20</span></div></td><td style="color:var(--green);font-weight:600">매수</td><td style="text-align:left;color:var(--muted);font-size:12px">반도체 무관 상승, 이력 하락 추이 대비 반전 확인.</td></tr>
+      <tr><td><div class="ticker">META</div><div class="company">Meta Platforms</div></td><td>$612.91</td><td class="up">▲ +8.81%</td><td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:60%;background:var(--green)"></div></div><span class="score-val up">+0.60</span></div></td><td style="color:var(--green);font-weight:700">강력매수</td><td style="text-align:left;color:var(--muted);font-size:12px">AI 클라우드 인프라 진출 발표로 폭등. 5일 평균 +0.02 대비 +0.58 상방 이탈, 적중률 낮아 소폭 보수 반영.</td></tr>
+      <tr><td><div class="ticker">MU</div><div class="company">Micron</div></td><td>$1,032.28</td><td class="down">▼ -10.57%</td><td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:75%;background:var(--red)"></div></div><span class="score-val down">-0.75</span></div></td><td style="color:var(--red);font-weight:700">강력매도</td><td style="text-align:left;color:var(--muted);font-size:12px">ASML의 비AI·DRAM 수요 둔화 경고 직격. 5일 평균 +0.30 대비 -1.05 급이탈, 연속 상승 모멘텀 뉴스 반전으로 상쇄.</td></tr>
+      <tr><td><div class="ticker">AMD</div><div class="company">AMD</div></td><td>$540.88</td><td class="down">▼ -6.89%</td><td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:55%;background:var(--red)"></div></div><span class="score-val down">-0.55</span></div></td><td style="color:var(--blue);font-weight:600">매도주의</td><td style="text-align:left;color:var(--muted);font-size:12px">반도체 매도 심화·AI 캐펙스 우려. 5일 평균 +0.21 대비 -0.76 이탈, 반전 주의 신호 실현.</td></tr>
+      <tr><td><div class="ticker">ASML</div><div class="company">ASML</div></td><td>$1,843.04</td><td class="down">▼ -7.36%</td><td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:60%;background:var(--red)"></div></div><span class="score-val down">-0.60</span></div></td><td style="color:var(--blue);font-weight:600">매도주의</td><td style="text-align:left;color:var(--muted);font-size:12px">Q3 가이던스 유출이 셀오프 진원. 5일 평균 +0.27 대비 -0.87 급이탈.</td></tr>
+      <tr><td><div class="ticker">INTC</div><div class="company">Intel</div></td><td>$127.02</td><td class="down">▼ -9.03%</td><td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:60%;background:var(--red)"></div></div><span class="score-val down">-0.60</span></div></td><td style="color:var(--blue);font-weight:600">매도주의</td><td style="text-align:left;color:var(--muted);font-size:12px">반도체 광범위 매도. 5일 평균 +0.15 대비 -0.75 이탈, 연속 상승 뉴스 반전.</td></tr>
+      <tr><td><div class="ticker">AMAT</div><div class="company">Applied Materials</div></td><td>$650.91</td><td class="down">▼ -9.97%</td><td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:65%;background:var(--red)"></div></div><span class="score-val down">-0.65</span></div></td><td style="color:var(--blue);font-weight:600">매도주의</td><td style="text-align:left;color:var(--muted);font-size:12px">장비 캐펙스 둔화 우려로 폭락. 5일 평균 +0.36 대비 -1.01 급이탈, 5일 +22.8% 급등 되돌림.</td></tr>
+      <tr><td><div class="ticker">LRCX</div><div class="company">Lam Research</div></td><td>$391.26</td><td class="down">▼ -9.71%</td><td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:65%;background:var(--red)"></div></div><span class="score-val down">-0.65</span></div></td><td style="color:var(--blue);font-weight:600">매도주의</td><td style="text-align:left;color:var(--muted);font-size:12px">장비주 동조 매도. 5일 평균 +0.34 대비 -0.99 이탈, AMAT·KLAC 상관 0.9+.</td></tr>
+      <tr><td><div class="ticker">COST</div><div class="company">Costco</div></td><td>$924.67</td><td class="down">▼ -1.15%</td><td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:0%;background:var(--yellow)"></div></div><span class="score-val flat">0.00</span></div></td><td style="color:var(--yellow);font-weight:600">중립</td><td style="text-align:left;color:var(--muted);font-size:12px">방어주 성격에도 약보합, 이력 2일 연속 하락 추이 지속. 중립 유지.</td></tr>
       <tr><td><div class="ticker">ARM</div><div class="company">ARM Holdings</div></td><td>$337.47</td><td class="down">▼ -4.82%</td><td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:35%;background:var(--red)"></div></div><span class="score-val down">-0.35</span></div></td><td style="color:var(--blue);font-weight:600">매도주의</td><td style="text-align:left;color:var(--muted);font-size:12px">반도체 매도 동조. 5일 평균 0.00 대비 -0.35 이탈.</td></tr>
-      <tr><td><div class="ticker">KLAC</div><div class="company">KLA</div></td><td>$266.19</td><td class="down">▼ -11.77%</td><td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:70%;background:var(--red)"></div></div><span class="score-val down">-0.70</span></div></td><td style="color:var(--blue);font-weight:600">매도주의</td><td style="text-align:left;color:var(--muted);font-size:12px">최대 낙폭. 변동성 경고 실현, 5일 평균 +0.31 대비 -1.01 급이탈.</td></tr>
-      <tr><td><div class="ticker">NFLX</div><div class="company">Netflix</div></td><td>$74.19</td><td class="up">▲ +3.91%</td><td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:35%;background:var(--green)"></div></div><span class="score-val up">+0.35</span></div></td><td style="color:var(--green);font-weight:600">매수</td><td style="text-align:left;color:var(--muted);font-size:12px">미디어 방어주 부각, 하락 추이 반전.</td></tr>
-      <tr><td><div class="ticker">PLTR</div><div class="company">Palantir</div></td><td>$125.73</td><td class="up">▲ +7.77%</td><td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:55%;background:var(--green)"></div></div><span class="score-val up">+0.55</span></div></td><td style="color:var(--green);font-weight:700">강력매수</td><td style="text-align:left;color:var(--muted);font-size:12px">AI 소프트웨어 대안 부각. 5일 평균 -0.07 대비 +0.62 이탈, 강한 촉매.</td></tr>
-      <tr><td><div class="ticker">PANW</div><div class="company">Palo Alto Networks</div></td><td>$352.04</td><td class="up">▲ +3.23%</td><td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:45%;background:var(--green)"></div></div><span class="score-val up">+0.45</span></div></td><td style="color:var(--green);font-weight:600">매수</td><td style="text-align:left;color:var(--muted);font-size:12px">사이버보안 방어주 부각, 이력 강세(+0.50) 유지, 적중률 100%.</td></tr>
+      <tr><td><div class="ticker">KLAC</div><div class="company">KLA</div></td><td>$266.19</td><td class="down">▼ -11.77%</td><td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:70%;background:var(--red)"></div></div><span class="score-val down">-0.70</span></div></td><td style="color:var(--blue);font-weight:600">매도주의</td><td style="text-align:left;color:var(--muted);font-size:12px">당일 최대 낙폭. 이력 변동성 경고(σ0.34) 실현. 5일 평균 +0.31 대비 -1.01 이탈이나 변동성 감안 -0.70 제한.</td></tr>
+      <tr><td><div class="ticker">NFLX</div><div class="company">Netflix</div></td><td>$74.19</td><td class="up">▲ +3.91%</td><td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:35%;background:var(--green)"></div></div><span class="score-val up">+0.35</span></div></td><td style="color:var(--green);font-weight:600">매수</td><td style="text-align:left;color:var(--muted);font-size:12px">미디어 방어주 부각, 하락 추이 반전. 적중률 낮아 확신 제한.</td></tr>
+      <tr><td><div class="ticker">PLTR</div><div class="company">Palantir</div></td><td>$125.73</td><td class="up">▲ +7.77%</td><td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:55%;background:var(--green)"></div></div><span class="score-val up">+0.55</span></div></td><td style="color:var(--green);font-weight:700">강력매수</td><td style="text-align:left;color:var(--muted);font-size:12px">Nvidia 소버린 AI·美 육군 NGC2 채택·상향. 5일 평균 -0.07 대비 +0.62 이탈, 적중률 100% 뒷받침.</td></tr>
+      <tr><td><div class="ticker">PANW</div><div class="company">Palo Alto Networks</div></td><td>$352.04</td><td class="up">▲ +3.23%</td><td><div class="score-bar"><div class="score-track"><div class="score-fill" style="width:45%;background:var(--green)"></div></div><span class="score-val up">+0.45</span></div></td><td style="color:var(--green);font-weight:600">매수</td><td style="text-align:left;color:var(--muted);font-size:12px">사이버보안 방어주 부각, 이력 강세(+0.50) 유지·적중률 100%.</td></tr>
     </tbody>
   </table>
 </div>
@@ -161,6 +161,6 @@ footer{margin-top:32px;padding-top:16px;border-top:1px solid var(--border);color
   </div>
 </div>
 
-<footer>Generated 2026-07-02 KST · Anchor: 2026-07-01 US Close · yfinance</footer>
+<footer>Generated 2026-07-02 KST · Anchor: 2026-07-01 US Close · 가격 출처: fetch_prices.py (stockanalysis.com 프록시, yfinance 차단)</footer>
 </body>
 </html>
