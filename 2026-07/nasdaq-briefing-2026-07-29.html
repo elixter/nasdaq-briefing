@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>나스닥 일간 브리핑 — 2026-07-29</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;max-width:960px;margin:40px auto;padding:0 20px;color:#222;line-height:1.6}
+h1{border-bottom:3px solid #0a66c2;padding-bottom:8px}
+h2{color:#0a66c2;margin-top:32px;border-left:4px solid #0a66c2;padding-left:10px}
+.sub{color:#666;font-size:14px}
+.box{background:#f8f9fb;border-left:4px solid #0a66c2;padding:10px 14px;margin:12px 0;border-radius:4px}
+.indices{display:flex;gap:16px;margin:16px 0}
+.index-card{flex:1;background:#f4f7fa;border-radius:8px;padding:14px}
+.index-name{font-weight:600;color:#333;margin-bottom:6px}
+.index-price{font-size:22px;font-weight:700}
+.index-price.up{color:#0a8f3f}
+.index-price.down{color:#c0392b}
+.index-price.flat{color:#555}
+.index-change{font-size:14px;margin-top:4px}
+.index-change.up{color:#0a8f3f}
+.index-change.down{color:#c0392b}
+.index-change.flat{color:#555}
+table.stock-table{border-collapse:collapse;width:100%;margin:12px 0}
+table.stock-table th,table.stock-table td{border:1px solid #ddd;padding:8px 10px;text-align:left;font-size:14px;vertical-align:top}
+table.stock-table th{background:#f4f7fa}
+.ticker{font-weight:700}
+.up{color:#0a8f3f;font-weight:600}
+.down{color:#c0392b;font-weight:600}
+.flat{color:#666}
+.score-val{font-weight:700}
+</style>
+</head>
+<body>
+
+<h1>나스닥 일간 금융 브리핑</h1>
+<p class="sub">2026-07-29 (수) 미국장 종가 기준 · 발행 2026-07-30 KST</p>
+
+<h2>1. 시장 요약</h2>
+<div class="box">
+FOMC가 기준금리를 3.50~3.75%로 5회 연속 동결했으나(9-3 표결, 지역연은 3명 반대), 매파적 톤에 장기금리가 급등(30년물 5.19%대로 2007년 이후 최고)하며 성장주 전반이 압박받았다. 반도체 장비·메모리 밸류체인이 집중 타격을 받아 KLAC -10.8%, MU -9.94%, AMAT -8.4%, ARM -8.11%, AMD -5.51%, LRCX -6.4%, INTC -5.12%, NVDA -3.55%가 급락했다. 메모리 가격이 정점을 지났다는 우려와 중국의 자국산 메모리·장비 증설에 따른 경쟁 심화 우려가 겹친 결과로, BofA는 오히려 이번 급락을 장기 매수 기회로 제시했다(웨이퍼 장비 지출 2026년 $144B→2028년 $250B 전망). 나스닥100은 6월 고점 대비 11% 이상 하락하며 조정권에 진입했다. 반면 헬스케어·필수소비재·커뮤니케이션서비스 등 방어 업종으로 자금이 순환매되며 COST +0.77%, NFLX +1.71%가 상대적으로 견조했다. 오늘 장 마감 후 MSFT·META, 내일(7/30) 장 마감 후 AAPL·AMZN 실적 발표를 앞두고 4개사는 사전 관망성 약보합(-0.05~-1.31%)을 보였고, 지난주 capex 충격을 소화한 GOOGL은 +0.9%로 안정화됐다.
+</div>
+
+<div class="indices">
+  <div class="index-card">
+    <div class="index-name">NASDAQ Composite (QQQ 프록시)</div>
+    <div class="index-price down">$661.73</div>
+    <div class="index-change down">▼ -2.04%</div>
+  </div>
+  <div class="index-card">
+    <div class="index-name">S&amp;P 500 (SPY 프록시)</div>
+    <div class="index-price down">$729.46</div>
+    <div class="index-change down">▼ -1.54%</div>
+  </div>
+  <div class="index-card">
+    <div class="index-name">다우존스 (DIA 프록시)</div>
+    <div class="index-price down">$515.41</div>
+    <div class="index-change down">▼ -2.18%</div>
+  </div>
+</div>
+<p class="sub">※ yfinance 엔드포인트가 샌드박스 네트워크 정책상 차단되어 지수는 stockanalysis.com의 프록시 ETF(QQQ/SPY/DIA) 종가·변동률로 표기. 실제 나스닥종합지수는 이날 24,698.02(-0.72%)로 마감, 나스닥100은 -1.8%(참고: 언론 보도). 변동률은 직전 거래일(2026-07-28) 대비.</p>
+
+<h2>2. 주요 이슈</h2>
+<ul>
+<li><b>FOMC 기준금리 5회 연속 동결, 매파적 반대표로 장기금리 급등</b> — 연준은 기준금리를 3.50~3.75%로 동결했으나 9-3 표결로 세 명의 지역연은 총재(클리블랜드 해맥, 미니애폴리스 카시카리, 댈러스 로건)가 반대표를 던졌다. 시장은 9월·12월 각 25bp씩 두 차례 추가 인상을 가격에 반영 중이며, 10년물 국채금리는 4.657%로 5bp, 30년물은 5.193%로 9bp 이상 상승해 2007년 이후 최고치를 기록했다. 장기금리 급등은 고밸류 성장·기술주에 특히 부담으로 작용했다.</li>
+<li><b>반도체 장비·메모리주 투매 — 메모리 가격 정점론과 중국 경쟁 우려</b> — KLA·램리서치·어플라이드머티어리얼즈가 최근 3주간 각각 -28%, -27%, -23% 급락한 가운데 금일도 추가 급락(KLAC -10.8%, LRCX -6.4%, AMAT -8.4%)했다. 메모리 가격이 정점을 지났다는 우려와 중국의 자국산 AI 모델·메모리 생산 확대로 데이터센터 하드웨어 지출이 둔화될 수 있다는 우려가 겹쳤다. BofA는 웨이퍼 장비 지출이 2026년 $144B에서 2028년 $250B(연 30%↑)로 늘 것이라며 이번 급락을 매수 기회로 제시했다.</li>
+<li><b>빅테크 실적주간 — AI capex 스크루티니 지속</b> — 알파벳이 지난주 2026년 capex를 최대 $205B로 상향하고 분기 잉여현금흐름이 2004년 상장 후 최초로 마이너스를 기록했다고 밝히며 한때 -7%대 급락했다. MSFT·META는 금일(7/29) 장 마감 후, AAPL·AMZN은 내일(7/30) 장 마감 후 실적을 발표하며, Azure 성장률(가이던스 39~40% vs 시장 기대 36%)과 AWS 성장, AI 광고 매출이 capex 지출을 정당화하는지가 핵심 관전 포인트다.</li>
+<li><b>나스닥100 조정권 진입, 다우와의 디커플링 지속</b> — 나스닥100은 6월 고점 대비 11%대 하락하며 기술적 조정 기준(-10%)을 충족했다. 반도체 이탈 자금이 헬스케어·필수소비재·커뮤니케이션서비스로 순환매되며 다우·S&amp;P보다 나스닥의 낙폭이 두드러지는 로테이션 장세가 이어졌다.</li>
+<li><b>심리 지표 미수집</b> — CNN Fear&amp;Greed API와 Google Trends(pytrends) 모두 샌드박스 네트워크 정책상 수집이 차단되어 이번 회차 스코어에는 심리 지표를 반영하지 못했다.</li>
+</ul>
+
+<h2>3. Top 20 종목 스코어</h2>
+<p class="sub">Score: -1.0(강력매도) ~ +1.0(강력매수) · 금일 뉴스 및 가격 변동만 반영. 심리 지표(F&amp;G·Trends)와 로컬 이력 DB(모멘텀·5일평균·변동성)는 아래 5번 항목 사유로 이번 회차에 반영하지 못함.</p>
+<table class="stock-table">
+<thead>
+<tr><th>티커</th><th>종가($)</th><th>변동</th><th>스코어</th><th>의견</th><th>핵심 근거</th></tr>
+</thead>
+<tbody>
+<tr><td><div class="ticker">NVDA</div><div class="sub" style="font-size:11px">엔비디아</div></td><td>190.01</td><td class="down">▼ -3.55%</td><td><span class="score-val">-0.30</span></td><td>매도주의</td><td>AI capex ROI 우려와 반도체 장비·메모리주 투매 분위기에 동조. 오늘 밤 MSFT·META 실적이 방향성 확인의 핵심 변수라 공격적 매도보다 매도주의로 제한.</td></tr>
+<tr><td><div class="ticker">AAPL</div><div class="sub" style="font-size:11px">애플</div></td><td>338.19</td><td class="down">▼ -0.56%</td><td><span class="score-val">-0.10</span></td><td>중립</td><td>내일(7/30) 장 마감 후 실적 발표를 앞두고 소폭 하락. 메모리 원가 상승發 마진 압박 우려가 있으나 낙폭이 시장 평균보다 작아 상대적 방어력.</td></tr>
+<tr><td><div class="ticker">GOOGL</div><div class="sub" style="font-size:11px">알파벳</div></td><td>336.71</td><td class="up">▲ +0.90%</td><td><span class="score-val">+0.05</span></td><td>중립</td><td>지난주 capex 상향·FCF 첫 마이너스 충격(-7%대 급락)을 이미 소화한 뒤 안정화. 추가 악재 부재로 저점 다지기 국면.</td></tr>
+<tr><td><div class="ticker">MSFT</div><div class="sub" style="font-size:11px">마이크로소프트</div></td><td>390.54</td><td class="down">▼ -0.71%</td><td><span class="score-val">-0.05</span></td><td>중립</td><td>오늘 장 마감 후 실적 발표(Azure 성장률 39~40% 가이던스 vs 시장 기대 36%) 대기 속 소폭 하락. 이벤트 리스크로 인한 관망성 약세.</td></tr>
+<tr><td><div class="ticker">AMZN</div><div class="sub" style="font-size:11px">아마존</div></td><td>226.65</td><td class="down">▼ -1.82%</td><td><span class="score-val">-0.20</span></td><td>매도주의</td><td>내일 실적 발표(AWS 성장이 핵심 변수) 대기와 전반적 위험회피 심리가 겹쳐 하락. 시장 평균 대비 낙폭이 커 매도주의.</td></tr>
+<tr><td><div class="ticker">AVGO</div><div class="sub" style="font-size:11px">브로드컴</div></td><td>370.32</td><td class="down">▼ -2.78%</td><td><span class="score-val">-0.30</span></td><td>매도주의</td><td>AI 반도체 밸류체인 전반의 재평가 압력. 메모리·장비주만큼 직접 타격은 아니나 AI capex 지속가능성 논란에 동반 조정.</td></tr>
+<tr><td><div class="ticker">META</div><div class="sub" style="font-size:11px">메타</div></td><td>585.61</td><td class="down">▼ -1.31%</td><td><span class="score-val">-0.10</span></td><td>중립</td><td>오늘 장 마감 후 실적 발표(AI capex $125~145B 정당화 여부가 핵심) 앞두고 관망성 소폭 약세.</td></tr>
+<tr><td><div class="ticker">TSLA</div><div class="sub" style="font-size:11px">테슬라</div></td><td>298.32</td><td class="down">▼ -2.97%</td><td><span class="score-val">-0.30</span></td><td>매도주의</td><td>연준 매파적 동결에 따른 장기금리 급등(30년물 5.19%, 2007년 이후 최고)으로 고밸류 성장주 전반이 압박받는 가운데 하락.</td></tr>
+<tr><td><div class="ticker">MU</div><div class="sub" style="font-size:11px">마이크론</div></td><td>739.00</td><td class="down">▼ -9.94%</td><td><span class="score-val">-0.55</span></td><td>매도주의</td><td>Top20 중 최대 낙폭. 메모리 가격 정점 통과 우려와 중국의 자국산 메모리 증설·경쟁 심화 우려가 정면 타격, 밸류체인 투매의 진앙.</td></tr>
+<tr><td><div class="ticker">AMD</div><div class="sub" style="font-size:11px">AMD</div></td><td>429.56</td><td class="down">▼ -5.51%</td><td><span class="score-val">-0.35</span></td><td>매도주의</td><td>AI 반도체 경쟁 구도 재점검과 섹터 전반의 투매 동조. NVDA와 함께 AI capex 지속가능성 논란의 직접 영향권.</td></tr>
+<tr><td><div class="ticker">ASML</div><div class="sub" style="font-size:11px">ASML</div></td><td>1550.69</td><td class="down">▼ -2.04%</td><td><span class="score-val">-0.30</span></td><td>매도주의</td><td>반도체 장비주 밸류체인 전반의 조정에 동조. 메모리 고객사 투자 위축 우려가 장비 수주 전망에 부담.</td></tr>
+<tr><td><div class="ticker">INTC</div><div class="sub" style="font-size:11px">인텔</div></td><td>81.88</td><td class="down">▼ -5.12%</td><td><span class="score-val">-0.30</span></td><td>매도주의</td><td>섹터 전반 약세에 동조한 하락. 파운드리 경쟁력에 대한 기존 우려에 더해 반도체 전반 투매 심리가 가중.</td></tr>
+<tr><td><div class="ticker">AMAT</div><div class="sub" style="font-size:11px">어플라이드머티어리얼즈</div></td><td>436.45</td><td class="down">▼ -8.40%</td><td><span class="score-val">-0.35</span></td><td>매도주의</td><td>BofA가 3주간 -23% 급락을 '매수 기회'로 지목(웨이퍼 장비 지출 2028년 $250B 전망)했음에도 금일 추가 급락. 단기 기술적 손상은 크나 장기 밸류에이션 매력 부상, 매도주의로 제한.</td></tr>
+<tr><td><div class="ticker">COST</div><div class="sub" style="font-size:11px">코스트코</div></td><td>974.03</td><td class="up">▲ +0.77%</td><td><span class="score-val">+0.25</span></td><td>매수</td><td>위험회피 국면에서 헬스케어·필수소비재 등 방어주로 자금이 순환매되는 흐름의 수혜, Top20 중 상승 상위.</td></tr>
+<tr><td><div class="ticker">LRCX</div><div class="sub" style="font-size:11px">램리서치</div></td><td>252.35</td><td class="down">▼ -6.40%</td><td><span class="score-val">-0.35</span></td><td>매도주의</td><td>BofA 리포트에서 3주간 -27% 급락 종목으로 직접 언급, 메모리 고객사 투자 둔화 우려로 금일도 추가 하락.</td></tr>
+<tr><td><div class="ticker">PLTR</div><div class="sub" style="font-size:11px">팔란티어</div></td><td>123.00</td><td class="down">▼ -0.43%</td><td><span class="score-val">-0.05</span></td><td>중립</td><td>반도체 투매 대비 상대적으로 견조. AI 소프트웨어 밸류에이션 부담은 있으나 방향성 뚜렷하지 않아 중립.</td></tr>
+<tr><td><div class="ticker">ARM</div><div class="sub" style="font-size:11px">ARM</div></td><td>224.89</td><td class="down">▼ -8.11%</td><td><span class="score-val">-0.40</span></td><td>매도주의</td><td>반도체 IP 라이선스 모델 특성상 밸류체인 전반 조정에 고베타로 반응해 급락. AI capex 스크루티니의 직접 영향권.</td></tr>
+<tr><td><div class="ticker">NFLX</div><div class="sub" style="font-size:11px">넷플릭스</div></td><td>73.63</td><td class="up">▲ +1.71%</td><td><span class="score-val">+0.20</span></td><td>매수</td><td>커뮤니케이션서비스가 금일 방어주 순환매 수혜 섹터로 지목되며 상승. 반도체 이탈 자금의 대안처로 상대강도 부각.</td></tr>
+<tr><td><div class="ticker">KLAC</div><div class="sub" style="font-size:11px">KLA</div></td><td>170.19</td><td class="down">▼ -10.80%</td><td><span class="score-val">-0.45</span></td><td>매도주의</td><td>Top20 중 두 번째 낙폭. BofA 리포트에서 3주간 -28% 하락 종목으로 직접 거론된 장비주 매도세의 최전선.</td></tr>
+<tr><td><div class="ticker">PANW</div><div class="sub" style="font-size:11px">팔로알토</div></td><td>314.15</td><td class="down">▼ -1.52%</td><td><span class="score-val">-0.15</span></td><td>중립</td><td>반도체 capex 사이클과 무관한 보안 소프트웨어주이나 금리 급등에 따른 고밸류 성장주 전반의 압박으로 소폭 하락.</td></tr>
+</tbody>
+</table>
+
+<h2>4. 주목 종목</h2>
+<ul>
+<li><b>매수 우위</b>: COST(+0.25), NFLX(+0.20), GOOGL(+0.05)</li>
+<li><b>매도주의 상위</b>: MU(-0.55), KLAC(-0.45), ARM(-0.40), AMD(-0.35), AMAT(-0.35), LRCX(-0.35)</li>
+<li><b>관찰</b>: 메모리 가격 정점론과 중국 경쟁 심화 우려가 반도체 장비·메모리주(MU·KLAC·AMAT·ARM·LRCX·AMD·INTC)를 집중 타격했고, 연준의 매파적 동결에 따른 장기금리 급등이 TSLA 등 고밸류 성장주 전반을 압박했다. 반면 방어 업종(COST·NFLX)과 지난주 capex 충격을 이미 소화한 GOOGL은 상대적으로 견조했다. 오늘 밤 MSFT·META, 내일 AAPL·AMZN 실적이 다음 거래일 방향성의 핵심 변수다.</li>
+</ul>
+
+<h2>5. 데이터 참고사항</h2>
+<p class="sub">가격: stockanalysis.com quote API 2026-07-29 종가(yfinance 엔드포인트 샌드박스 차단으로 대체, 지수=프록시 ETF QQQ/SPY/DIA). Top20 유니버스는 yfinance 시총 조회가 전량 차단되어 2026-07-28 캐시(시총 상위 megacap 기준)를 재사용. Fear&amp;Greed는 CNN API 차단, Google Trends는 pytrends 미설치로 둘 다 수집 불가하여 이번 회차 스코어에 미반영. 로컬 이력 DB(stock_history.db)가 손상되어(PRAGMA integrity_check 실패: "database disk image is malformed") 5일 모멘텀·표준편차 컨텍스트와 전일 신호 정확도 검증(accuracy_tracker)을 이번 회차에서 수행하지 못했다 — 이는 어제(2026-07-28)까지는 정상 동작하던 항목으로, 마운트된 파일시스템에서의 비원자적 쓰기로 인한 손상으로 추정되며 원본 파일에 손대지 않고 그대로 두었다. 스코어는 금일 뉴스와 가격만으로 산출되어 이전 회차 대비 이력 기반 보정이 없는 점에 유의.</p>
+
+</body>
+</html>
